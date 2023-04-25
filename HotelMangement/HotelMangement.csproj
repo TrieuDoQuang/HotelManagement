@@ -61,9 +61,13 @@
     <Compile Include="BookingDetail.cs">
       <DependentUpon>HotelModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="BS_Layer\BLBooking.cs" />
     <Compile Include="BS_Layer\BLBookingDetail.cs" />
+    <Compile Include="BS_Layer\BLCategory.cs" />
+    <Compile Include="BS_Layer\BLProduct.cs" />
     <Compile Include="BS_Layer\BLRoom.cs" />
     <Compile Include="BS_Layer\BLRole.cs" />
+    <Compile Include="BS_Layer\BLService.cs" />
     <Compile Include="BS_Layer\BLUser.cs" />
     <Compile Include="BS_Layer\BLUserDetail.cs" />
     <Compile Include="Category.cs">

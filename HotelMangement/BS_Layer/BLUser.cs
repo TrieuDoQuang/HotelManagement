@@ -16,6 +16,7 @@ namespace HotelMangement.BS_Layer
             DataTable dt = new DataTable();
             dt.Columns.Add("userID");
             dt.Columns.Add("Fullname");
+            dt.Columns.Add("password");
             dt.Columns.Add("Birthday");
             dt.Columns.Add("Gender");
             dt.Columns.Add("Email");
@@ -24,16 +25,17 @@ namespace HotelMangement.BS_Layer
             dt.Columns.Add("role_id");
             foreach (var p in us)
             {
-                dt.Rows.Add(p.userID, p.Fullname, p.Birthday, p.Gender, p.Email, p.Phone_Number, p.Address,p.role_id);
+                dt.Rows.Add(p.userID, p.Fullname, p.password, p.Birthday, p.Gender, p.Email, p.Phone_Number, p.Address,p.role_id);
             }
             return dt;
         }
-        public bool AddUser(int userID, string Fullname, DateTime Birthday, bool Gender, string Email, string Phone_Number, string Address,int role_id, ref string err)
+        public bool AddUser(int userID, string Fullname, string password, DateTime Birthday, bool Gender, string Email, string Phone_Number, string Address,int role_id, ref string err)
         {
             HotelManagementSystemEntities qlhotelEntity = new HotelManagementSystemEntities();
             User us = new User();
             us.userID = userID;
             us.Fullname = Fullname;
+            us.password = password;
             us.Birthday = Birthday;
             us.Gender = Gender;
             us.Email = Email;
@@ -54,7 +56,7 @@ namespace HotelMangement.BS_Layer
             qlhotelEntity.SaveChanges();
             return true;
         }
-        public bool UpdateUser(int userID, string Fullname, DateTime Birthday, bool Gender, string Email, string Phone_Number, string Address, int role_id, ref string err)
+        public bool UpdateUser(int userID, string Fullname, string password, DateTime Birthday, bool Gender, string Email, string Phone_Number, string Address, int role_id, ref string err)
         {
             HotelManagementSystemEntities qlhotelEntity = new HotelManagementSystemEntities();
             var usQuery = (from us in qlhotelEntity.Users
@@ -63,6 +65,7 @@ namespace HotelMangement.BS_Layer
             if (usQuery != null)
             {
                 usQuery.Fullname = Fullname;
+                usQuery.password = password;
                 usQuery.Birthday = Birthday;
                 usQuery.Gender = Gender;
                 usQuery.Email = Email;

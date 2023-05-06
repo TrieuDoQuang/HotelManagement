@@ -30,7 +30,7 @@ namespace HotelMangement.BS_Layer
             }
             return dt;
         }
-        public bool AddService(int serID, int book_ID, int customerID, int product_ID, float Price, int Amount, DateTime Buy_Date, ref string err)
+        public bool AddService(int serID, int book_ID, int customerID, int product_ID, double Price, int Amount, DateTime Buy_Date, ref string err)
         {
             HotelManagementSystemEntities hotelEtity = new HotelManagementSystemEntities();
 
@@ -57,7 +57,7 @@ namespace HotelMangement.BS_Layer
             hotelEtity.SaveChanges();
             return true;
         }
-        public bool UpdateService(int serID, int book_ID, int customerID, int product_ID, float Price, int Amount, DateTime Buy_Date, ref string err)
+        public bool UpdateService(int serID, int book_ID, int customerID, int product_ID, double Price, int Amount, DateTime Buy_Date, ref string err)
         {
             HotelManagementSystemEntities hotelEtity = new HotelManagementSystemEntities();
             var tpQuery = (from sv in hotelEtity.Services

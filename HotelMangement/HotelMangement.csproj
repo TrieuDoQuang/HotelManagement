@@ -86,12 +86,6 @@
     <Compile Include="DanhMucForm\FormBookingDetail.Designer.cs">
       <DependentUpon>FormBookingDetail.cs</DependentUpon>
     </Compile>
-    <Compile Include="DanhMucForm\FormRole.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DanhMucForm\FormRole.Designer.cs">
-      <DependentUpon>FormRole.cs</DependentUpon>
-    </Compile>
     <Compile Include="DanhMucForm\FormRoom.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,11 +131,17 @@
     <Compile Include="Interface\AdminInterface.Designer.cs">
       <DependentUpon>AdminInterface.cs</DependentUpon>
     </Compile>
-    <Compile Include="Interface\UserInterface.cs">
+    <Compile Include="Interface\CustomerInterface.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Interface\UserInterface.Designer.cs">
-      <DependentUpon>UserInterface.cs</DependentUpon>
+    <Compile Include="Interface\CustomerInterface.Designer.cs">
+      <DependentUpon>CustomerInterface.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interface\EmployeeInterface.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interface\EmployeeInterface.Designer.cs">
+      <DependentUpon>EmployeeInterface.cs</DependentUpon>
     </Compile>
     <Compile Include="Product.cs">
       <DependentUpon>HotelModel.tt</DependentUpon>
@@ -169,9 +169,6 @@
     <EmbeddedResource Include="DanhMucForm\FormBookingDetail.resx">
       <DependentUpon>FormBookingDetail.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DanhMucForm\FormRole.resx">
-      <DependentUpon>FormRole.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="DanhMucForm\FormRoom.resx">
       <DependentUpon>FormRoom.cs</DependentUpon>
     </EmbeddedResource>
@@ -187,8 +184,8 @@
     <EmbeddedResource Include="Interface\AdminInterface.resx">
       <DependentUpon>AdminInterface.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Interface\UserInterface.resx">
-      <DependentUpon>UserInterface.cs</DependentUpon>
+    <EmbeddedResource Include="Interface\EmployeeInterface.resx">
+      <DependentUpon>EmployeeInterface.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

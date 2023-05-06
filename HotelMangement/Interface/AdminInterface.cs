@@ -48,7 +48,7 @@ namespace HotelMangement.Interface
 
         private void productBtn_Click(object sender, EventArgs e)
         {
-            openChildForm(new FormRole());
+            openChildForm(new FormUserDetail());
         }
 
 

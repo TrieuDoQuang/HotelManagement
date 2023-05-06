@@ -1,6 +1,6 @@
 ﻿namespace HotelMangement.Interface
 {
-    partial class UserInterface
+    partial class EmployeeInterface
     {
         /// <summary>
         /// Required designer variable.

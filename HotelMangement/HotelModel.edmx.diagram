@@ -14,19 +14,19 @@
         <EntityTypeShape EntityType="HotelManagementSystemModel.Service" Width="1.5" PointX="10.5" PointY="4.5" IsExpanded="true" />
         <EntityTypeShape EntityType="HotelManagementSystemModel.sysdiagram" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="HotelManagementSystemModel.UserDetail" Width="1.5" PointX="8.875" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="HotelManagementSystemModel.User" Width="1.5" PointX="3" PointY="4.125" IsExpanded="true" />
-        <AssociationConnector Association="HotelManagementSystemModel.FK__Booking__custome__3F466844" ManuallyRouted="false" />
-        <AssociationConnector Association="HotelManagementSystemModel.FK__Booking__staff_I__3E52440B" ManuallyRouted="false" />
         <AssociationConnector Association="HotelManagementSystemModel.FK__BookingDe__book___4222D4EF" ManuallyRouted="false" />
         <AssociationConnector Association="HotelManagementSystemModel.FK__Service__book_ID__4F7CD00D" ManuallyRouted="false" />
         <AssociationConnector Association="HotelManagementSystemModel.FK__UserDetai__book___45F365D3" ManuallyRouted="false" />
         <AssociationConnector Association="HotelManagementSystemModel.FK__BookingDe__room___4316F928" ManuallyRouted="false" />
         <AssociationConnector Association="HotelManagementSystemModel.FK__Product__cate_ID__4CA06362" ManuallyRouted="false" />
         <AssociationConnector Association="HotelManagementSystemModel.FK__Service__product__5165187F" ManuallyRouted="false" />
-        <AssociationConnector Association="HotelManagementSystemModel.FK__Users__role_id__398D8EEE" ManuallyRouted="false" />
         <AssociationConnector Association="HotelManagementSystemModel.FK__UserDetai__room___46E78A0C" ManuallyRouted="false" />
-        <AssociationConnector Association="HotelManagementSystemModel.FK__Service__custome__5070F446" ManuallyRouted="false" />
-        <AssociationConnector Association="HotelManagementSystemModel.FK__UserDetai__custo__47DBAE45" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="HotelManagementSystemModel.User" Width="1.5" PointX="3" PointY="4.125" />
+        <AssociationConnector Association="HotelManagementSystemModel.FK__Booking__custome__3F466844" />
+        <AssociationConnector Association="HotelManagementSystemModel.FK__Booking__staff_I__3E52440B" />
+        <AssociationConnector Association="HotelManagementSystemModel.FK__Users__role_id__398D8EEE" />
+        <AssociationConnector Association="HotelManagementSystemModel.FK__Service__custome__5070F446" />
+        <AssociationConnector Association="HotelManagementSystemModel.FK__UserDetai__custo__47DBAE45" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

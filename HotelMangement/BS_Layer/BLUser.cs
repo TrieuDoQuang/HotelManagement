@@ -29,7 +29,30 @@ namespace HotelMangement.BS_Layer
             }
             return dt;
         }
-        public bool AddUser(int userID, string Fullname, string password, DateTime Birthday, bool Gender, string Email, string Phone_Number, string Address,int role_id, ref string err)
+        public DataTable FindUser(int ID,string Name)
+        {
+            HotelManagementSystemEntities qlhotelEntity = new HotelManagementSystemEntities();
+            var us = from p in qlhotelEntity.Users select p;
+            DataTable dt = new DataTable();
+            dt.Columns.Add("userID");
+            dt.Columns.Add("Fullname");
+            dt.Columns.Add("password");
+            dt.Columns.Add("Birthday");
+            dt.Columns.Add("Gender");
+            dt.Columns.Add("Email");
+            dt.Columns.Add("Phone_Number");
+            dt.Columns.Add("Address");
+            dt.Columns.Add("role_id");
+            foreach (var p in us)
+            {
+                if(p.userID==ID && p.Fullname == Name)
+                {
+                    dt.Rows.Add(p.userID, p.Fullname, p.password, p.Birthday, p.Gender, p.Email, p.Phone_Number, p.Address, p.role_id);
+                }
+            }
+            return dt;
+        }
+            public bool AddUser(int userID, string Fullname, string password, DateTime Birthday, bool Gender, string Email, string Phone_Number, string Address,int role_id, ref string err)
         {
             HotelManagementSystemEntities qlhotelEntity = new HotelManagementSystemEntities();
             User us = new User();

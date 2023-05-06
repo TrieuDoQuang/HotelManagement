@@ -17,6 +17,7 @@ namespace HotelMangement.DanhMucForm
         bool Them;
         string err;
         BLUser dbU = new BLUser();
+        bool bsearch = false;
         public FormUser()
         {
             InitializeComponent();
@@ -25,8 +26,8 @@ namespace HotelMangement.DanhMucForm
         {
             try
             {
-
                 // Đưa dữ liệu lên DataGridView
+
                 DataTable dataTable = dbU.TakeUser();
 
                 // Change the column name
@@ -42,6 +43,12 @@ namespace HotelMangement.DanhMucForm
                 dgvUSER.DataSource = dataTable;
                 // Thay đổi độ rộng cột
                 dgvUSER.AutoResizeColumns();
+
+                if(bsearch==false) dgvUSER.DataSource = dbU.TakeUser();
+                else dgvUSER.DataSource = dbU.FindUser(Convert.ToInt32(textID.Text),textName.Text);
+                //// Thay đổi độ rộng cột
+                //dgvUSER.AutoResizeColumns();
+
                 // Xóa trống các đối tượng trong Panel
                 this.txtuserID.ResetText();
                 this.txtFullname.ResetText();
@@ -251,6 +258,12 @@ namespace HotelMangement.DanhMucForm
             {
                 MessageBox.Show("Không xóa được. Lỗi rồi!");
             }
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            this.bsearch = true;
+            LoadData();
         }
     }
 }

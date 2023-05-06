@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using HotelMangement.Interface;
 
 namespace HotelMangement
 {
@@ -17,12 +18,13 @@ namespace HotelMangement
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormLogin());
+            //Application.Run(new FormLogin());
             //Application.Run(new FormRoom());
             //Application.Run(new FormBookingDetail());
             //Application.Run(new FormUserDetail());
             //Application.Run(new FormRole());
             //Application.Run(new FormUser());
+           Application.Run(new AdminInterface());
         }
     }
 }

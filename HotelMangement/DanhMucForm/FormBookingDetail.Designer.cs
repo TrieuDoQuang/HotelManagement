@@ -52,9 +52,10 @@
             // btnReload
             // 
             this.btnReload.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReload.Location = new System.Drawing.Point(695, 486);
+            this.btnReload.Location = new System.Drawing.Point(688, 564);
+            this.btnReload.Margin = new System.Windows.Forms.Padding(4);
             this.btnReload.Name = "btnReload";
-            this.btnReload.Size = new System.Drawing.Size(70, 23);
+            this.btnReload.Size = new System.Drawing.Size(93, 28);
             this.btnReload.TabIndex = 122;
             this.btnReload.Text = "Reload";
             this.btnReload.UseVisualStyleBackColor = true;
@@ -62,21 +63,25 @@
             // 
             // dgvBOOKINGDETAIL
             // 
-            this.dgvBOOKINGDETAIL.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
-            this.dgvBOOKINGDETAIL.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
+            this.dgvBOOKINGDETAIL.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvBOOKINGDETAIL.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvBOOKINGDETAIL.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvBOOKINGDETAIL.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvBOOKINGDETAIL.Location = new System.Drawing.Point(534, 50);
+            this.dgvBOOKINGDETAIL.Location = new System.Drawing.Point(391, 62);
+            this.dgvBOOKINGDETAIL.Margin = new System.Windows.Forms.Padding(4);
             this.dgvBOOKINGDETAIL.Name = "dgvBOOKINGDETAIL";
-            this.dgvBOOKINGDETAIL.Size = new System.Drawing.Size(626, 359);
+            this.dgvBOOKINGDETAIL.RowHeadersWidth = 51;
+            this.dgvBOOKINGDETAIL.Size = new System.Drawing.Size(1036, 442);
             this.dgvBOOKINGDETAIL.TabIndex = 121;
             this.dgvBOOKINGDETAIL.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBOOKINGDETAIL_CellClick);
             // 
             // btnDelete
             // 
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(603, 486);
+            this.btnDelete.Location = new System.Drawing.Point(565, 564);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(70, 23);
+            this.btnDelete.Size = new System.Drawing.Size(93, 28);
             this.btnDelete.TabIndex = 127;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -85,35 +90,39 @@
             // txtUnit
             // 
             this.txtUnit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUnit.Location = new System.Drawing.Point(237, 236);
+            this.txtUnit.Location = new System.Drawing.Point(147, 294);
+            this.txtUnit.Margin = new System.Windows.Forms.Padding(4);
             this.txtUnit.Name = "txtUnit";
-            this.txtUnit.Size = new System.Drawing.Size(95, 22);
+            this.txtUnit.Size = new System.Drawing.Size(125, 26);
             this.txtUnit.TabIndex = 9;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(37, 242);
+            this.label2.Location = new System.Drawing.Point(49, 298);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 16);
+            this.label2.Size = new System.Drawing.Size(49, 20);
             this.label2.TabIndex = 8;
             this.label2.Text = "Unit:";
             // 
             // txtPrice
             // 
             this.txtPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrice.Location = new System.Drawing.Point(237, 180);
+            this.txtPrice.Location = new System.Drawing.Point(147, 226);
+            this.txtPrice.Margin = new System.Windows.Forms.Padding(4);
             this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Size = new System.Drawing.Size(95, 22);
+            this.txtPrice.Size = new System.Drawing.Size(125, 26);
             this.txtPrice.TabIndex = 7;
             // 
             // btnFix
             // 
             this.btnFix.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFix.Location = new System.Drawing.Point(287, 486);
+            this.btnFix.Location = new System.Drawing.Point(144, 564);
+            this.btnFix.Margin = new System.Windows.Forms.Padding(4);
             this.btnFix.Name = "btnFix";
-            this.btnFix.Size = new System.Drawing.Size(70, 23);
+            this.btnFix.Size = new System.Drawing.Size(93, 28);
             this.btnFix.TabIndex = 124;
             this.btnFix.Text = "Fix";
             this.btnFix.UseVisualStyleBackColor = true;
@@ -122,9 +131,10 @@
             // btnAdd
             // 
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Location = new System.Drawing.Point(188, 486);
+            this.btnAdd.Location = new System.Drawing.Point(12, 564);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(70, 23);
+            this.btnAdd.Size = new System.Drawing.Size(93, 28);
             this.btnAdd.TabIndex = 123;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -133,9 +143,10 @@
             // btnBack
             // 
             this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBack.Location = new System.Drawing.Point(794, 484);
+            this.btnBack.Location = new System.Drawing.Point(820, 562);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(4);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(70, 26);
+            this.btnBack.Size = new System.Drawing.Size(93, 32);
             this.btnBack.TabIndex = 128;
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = true;
@@ -145,54 +156,60 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(37, 186);
+            this.label3.Location = new System.Drawing.Point(49, 229);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(47, 16);
+            this.label3.Size = new System.Drawing.Size(59, 20);
             this.label3.TabIndex = 6;
             this.label3.Text = "Price:";
             // 
             // txtroom_ID
             // 
             this.txtroom_ID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtroom_ID.Location = new System.Drawing.Point(237, 127);
+            this.txtroom_ID.Location = new System.Drawing.Point(147, 160);
+            this.txtroom_ID.Margin = new System.Windows.Forms.Padding(4);
             this.txtroom_ID.Name = "txtroom_ID";
-            this.txtroom_ID.Size = new System.Drawing.Size(95, 22);
+            this.txtroom_ID.Size = new System.Drawing.Size(125, 26);
             this.txtroom_ID.TabIndex = 5;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(37, 127);
+            this.label1.Location = new System.Drawing.Point(49, 156);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 16);
+            this.label1.Size = new System.Drawing.Size(86, 20);
             this.label1.TabIndex = 4;
             this.label1.Text = "room_ID:";
             // 
             // txtbook_ID
             // 
             this.txtbook_ID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtbook_ID.Location = new System.Drawing.Point(237, 71);
+            this.txtbook_ID.Location = new System.Drawing.Point(147, 91);
+            this.txtbook_ID.Margin = new System.Windows.Forms.Padding(4);
             this.txtbook_ID.Name = "txtbook_ID";
-            this.txtbook_ID.Size = new System.Drawing.Size(95, 22);
+            this.txtbook_ID.Size = new System.Drawing.Size(125, 26);
             this.txtbook_ID.TabIndex = 2;
             // 
             // lb1
             // 
             this.lb1.AutoSize = true;
             this.lb1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb1.Location = new System.Drawing.Point(37, 74);
+            this.lb1.Location = new System.Drawing.Point(49, 91);
+            this.lb1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lb1.Name = "lb1";
-            this.lb1.Size = new System.Drawing.Size(69, 16);
+            this.lb1.Size = new System.Drawing.Size(83, 20);
             this.lb1.TabIndex = 0;
             this.lb1.Text = "book_ID:";
             // 
             // btnCancel
             // 
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(500, 486);
+            this.btnCancel.Location = new System.Drawing.Point(428, 564);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(70, 23);
+            this.btnCancel.Size = new System.Drawing.Size(93, 28);
             this.btnCancel.TabIndex = 126;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -201,9 +218,10 @@
             // btnSave
             // 
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Location = new System.Drawing.Point(387, 486);
+            this.btnSave.Location = new System.Drawing.Point(277, 564);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(70, 23);
+            this.btnSave.Size = new System.Drawing.Size(93, 28);
             this.btnSave.TabIndex = 125;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -211,6 +229,7 @@
             // 
             // panel
             // 
+            this.panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
             this.panel.Controls.Add(this.txtUnit);
             this.panel.Controls.Add(this.label2);
             this.panel.Controls.Add(this.txtPrice);
@@ -219,16 +238,18 @@
             this.panel.Controls.Add(this.label1);
             this.panel.Controls.Add(this.txtbook_ID);
             this.panel.Controls.Add(this.lb1);
-            this.panel.Location = new System.Drawing.Point(124, 50);
+            this.panel.Location = new System.Drawing.Point(13, 62);
+            this.panel.Margin = new System.Windows.Forms.Padding(4);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(353, 359);
+            this.panel.Size = new System.Drawing.Size(331, 442);
             this.panel.TabIndex = 129;
             // 
             // FormBookingDetail
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1284, 561);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
+            this.ClientSize = new System.Drawing.Size(1624, 863);
             this.Controls.Add(this.btnReload);
             this.Controls.Add(this.dgvBOOKINGDETAIL);
             this.Controls.Add(this.btnDelete);
@@ -238,6 +259,7 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.panel);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormBookingDetail";
             this.Text = "FormBookingDetail";
             this.Load += new System.EventHandler(this.FormBookingDetail_Load);

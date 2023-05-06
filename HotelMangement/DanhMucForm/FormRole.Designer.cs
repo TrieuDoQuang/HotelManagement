@@ -48,9 +48,10 @@
             // btnReload
             // 
             this.btnReload.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReload.Location = new System.Drawing.Point(695, 486);
+            this.btnReload.Location = new System.Drawing.Point(927, 598);
+            this.btnReload.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnReload.Name = "btnReload";
-            this.btnReload.Size = new System.Drawing.Size(70, 23);
+            this.btnReload.Size = new System.Drawing.Size(93, 28);
             this.btnReload.TabIndex = 131;
             this.btnReload.Text = "Reload";
             this.btnReload.UseVisualStyleBackColor = true;
@@ -60,19 +61,23 @@
             // 
             this.dgvROLE.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
             this.dgvROLE.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
+            this.dgvROLE.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvROLE.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvROLE.Location = new System.Drawing.Point(534, 50);
+            this.dgvROLE.Location = new System.Drawing.Point(712, 62);
+            this.dgvROLE.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvROLE.Name = "dgvROLE";
-            this.dgvROLE.Size = new System.Drawing.Size(626, 359);
+            this.dgvROLE.RowHeadersWidth = 51;
+            this.dgvROLE.Size = new System.Drawing.Size(835, 442);
             this.dgvROLE.TabIndex = 130;
             this.dgvROLE.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvROLE_CellClick);
             // 
             // btnDelete
             // 
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(603, 486);
+            this.btnDelete.Location = new System.Drawing.Point(804, 598);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(70, 23);
+            this.btnDelete.Size = new System.Drawing.Size(93, 28);
             this.btnDelete.TabIndex = 136;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -82,36 +87,40 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(25, 187);
+            this.label1.Location = new System.Drawing.Point(33, 230);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 16);
+            this.label1.Size = new System.Drawing.Size(70, 20);
             this.label1.TabIndex = 4;
             this.label1.Text = "rName:";
             // 
             // txtrID
             // 
             this.txtrID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtrID.Location = new System.Drawing.Point(225, 131);
+            this.txtrID.Location = new System.Drawing.Point(300, 161);
+            this.txtrID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtrID.Name = "txtrID";
-            this.txtrID.Size = new System.Drawing.Size(95, 22);
+            this.txtrID.Size = new System.Drawing.Size(125, 26);
             this.txtrID.TabIndex = 2;
             // 
             // lb1
             // 
             this.lb1.AutoSize = true;
             this.lb1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb1.Location = new System.Drawing.Point(25, 134);
+            this.lb1.Location = new System.Drawing.Point(33, 165);
+            this.lb1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lb1.Name = "lb1";
-            this.lb1.Size = new System.Drawing.Size(31, 16);
+            this.lb1.Size = new System.Drawing.Size(41, 20);
             this.lb1.TabIndex = 0;
             this.lb1.Text = "rID:";
             // 
             // btnFix
             // 
             this.btnFix.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFix.Location = new System.Drawing.Point(287, 486);
+            this.btnFix.Location = new System.Drawing.Point(383, 598);
+            this.btnFix.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnFix.Name = "btnFix";
-            this.btnFix.Size = new System.Drawing.Size(70, 23);
+            this.btnFix.Size = new System.Drawing.Size(93, 28);
             this.btnFix.TabIndex = 133;
             this.btnFix.Text = "Fix";
             this.btnFix.UseVisualStyleBackColor = true;
@@ -120,9 +129,10 @@
             // btnAdd
             // 
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Location = new System.Drawing.Point(188, 486);
+            this.btnAdd.Location = new System.Drawing.Point(251, 598);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(70, 23);
+            this.btnAdd.Size = new System.Drawing.Size(93, 28);
             this.btnAdd.TabIndex = 132;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -131,17 +141,19 @@
             // txtrName
             // 
             this.txtrName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtrName.Location = new System.Drawing.Point(225, 187);
+            this.txtrName.Location = new System.Drawing.Point(300, 230);
+            this.txtrName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtrName.Name = "txtrName";
-            this.txtrName.Size = new System.Drawing.Size(95, 22);
+            this.txtrName.Size = new System.Drawing.Size(125, 26);
             this.txtrName.TabIndex = 5;
             // 
             // btnBack
             // 
             this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBack.Location = new System.Drawing.Point(794, 484);
+            this.btnBack.Location = new System.Drawing.Point(1059, 596);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(70, 26);
+            this.btnBack.Size = new System.Drawing.Size(93, 32);
             this.btnBack.TabIndex = 137;
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = true;
@@ -150,9 +162,10 @@
             // btnSave
             // 
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Location = new System.Drawing.Point(387, 486);
+            this.btnSave.Location = new System.Drawing.Point(516, 598);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(70, 23);
+            this.btnSave.Size = new System.Drawing.Size(93, 28);
             this.btnSave.TabIndex = 134;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -161,9 +174,10 @@
             // btnCancel
             // 
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(500, 486);
+            this.btnCancel.Location = new System.Drawing.Point(667, 598);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(70, 23);
+            this.btnCancel.Size = new System.Drawing.Size(93, 28);
             this.btnCancel.TabIndex = 135;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -175,16 +189,18 @@
             this.panel.Controls.Add(this.label1);
             this.panel.Controls.Add(this.txtrID);
             this.panel.Controls.Add(this.lb1);
-            this.panel.Location = new System.Drawing.Point(124, 50);
+            this.panel.Location = new System.Drawing.Point(165, 62);
+            this.panel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(353, 359);
+            this.panel.Size = new System.Drawing.Size(471, 442);
             this.panel.TabIndex = 138;
             // 
             // FormRole
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1284, 561);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
+            this.ClientSize = new System.Drawing.Size(1712, 690);
             this.Controls.Add(this.btnReload);
             this.Controls.Add(this.dgvROLE);
             this.Controls.Add(this.btnDelete);
@@ -194,6 +210,7 @@
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.panel);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormRole";
             this.Text = "FormRole";
             this.Load += new System.EventHandler(this.FormRole_Load);

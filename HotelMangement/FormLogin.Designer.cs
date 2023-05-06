@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLogin));
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.selectUser = new System.Windows.Forms.ComboBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.label10 = new System.Windows.Forms.Label();
@@ -49,10 +49,10 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.closeBtn = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.email = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.loginBtn = new System.Windows.Forms.Button();
+            this.password = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -60,17 +60,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
-            // comboBox1
+            // selectUser
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.selectUser.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.selectUser.FormattingEnabled = true;
+            this.selectUser.Items.AddRange(new object[] {
             "Admin",
             "User"});
-            this.comboBox1.Location = new System.Drawing.Point(586, 397);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(197, 31);
-            this.comboBox1.TabIndex = 51;
+            this.selectUser.Location = new System.Drawing.Point(586, 397);
+            this.selectUser.Name = "selectUser";
+            this.selectUser.Size = new System.Drawing.Size(197, 31);
+            this.selectUser.TabIndex = 51;
+            this.selectUser.SelectedIndexChanged += new System.EventHandler(this.selectUser_SelectedIndexChanged);
             // 
             // pictureBox3
             // 
@@ -143,6 +144,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.MistyRose;
             this.label1.Location = new System.Drawing.Point(139, 261);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(282, 34);
@@ -151,7 +153,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
             this.panel1.Controls.Add(this.pictureBox4);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label6);
@@ -161,6 +163,7 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.ForeColor = System.Drawing.Color.MistyRose;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(455, 690);
@@ -181,6 +184,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.MistyRose;
             this.label7.Location = new System.Drawing.Point(187, 607);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(216, 19);
@@ -191,6 +195,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.MistyRose;
             this.label6.Location = new System.Drawing.Point(187, 631);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(203, 19);
@@ -201,6 +206,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.MistyRose;
             this.label5.Location = new System.Drawing.Point(187, 655);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(192, 19);
@@ -211,6 +217,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.MistyRose;
             this.label4.Location = new System.Drawing.Point(187, 584);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(234, 19);
@@ -221,6 +228,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.MistyRose;
             this.label2.Location = new System.Drawing.Point(117, 558);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(89, 19);
@@ -231,6 +239,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.MistyRose;
             this.label3.Location = new System.Drawing.Point(312, 305);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(109, 34);
@@ -279,15 +288,15 @@
             this.closeBtn.UseVisualStyleBackColor = false;
             this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
             // 
-            // textBox2
+            // email
             // 
-            this.textBox2.BackColor = System.Drawing.SystemColors.Control;
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(586, 264);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(223, 25);
-            this.textBox2.TabIndex = 40;
+            this.email.BackColor = System.Drawing.SystemColors.Control;
+            this.email.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.email.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.email.Location = new System.Drawing.Point(586, 264);
+            this.email.Name = "email";
+            this.email.Size = new System.Drawing.Size(391, 25);
+            this.email.TabIndex = 40;
             // 
             // button2
             // 
@@ -302,35 +311,36 @@
             this.button2.Text = "Forget Password?";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // loginBtn
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button1.Location = new System.Drawing.Point(815, 451);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(162, 54);
-            this.button1.TabIndex = 38;
-            this.button1.Text = "LOGIN";
-            this.button1.UseVisualStyleBackColor = false;
+            this.loginBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
+            this.loginBtn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loginBtn.ForeColor = System.Drawing.Color.Snow;
+            this.loginBtn.Location = new System.Drawing.Point(815, 451);
+            this.loginBtn.Name = "loginBtn";
+            this.loginBtn.Size = new System.Drawing.Size(162, 54);
+            this.loginBtn.TabIndex = 38;
+            this.loginBtn.Text = "LOGIN";
+            this.loginBtn.UseVisualStyleBackColor = false;
+            this.loginBtn.Click += new System.EventHandler(this.loginBtn_Click);
             // 
-            // textBox1
+            // password
             // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.Control;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(586, 329);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(223, 25);
-            this.textBox1.TabIndex = 43;
-            this.textBox1.UseSystemPasswordChar = true;
+            this.password.BackColor = System.Drawing.SystemColors.Control;
+            this.password.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.password.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.password.Location = new System.Drawing.Point(586, 329);
+            this.password.Name = "password";
+            this.password.Size = new System.Drawing.Size(223, 25);
+            this.password.TabIndex = 43;
+            this.password.UseSystemPasswordChar = true;
             // 
             // FormLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1004, 690);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.selectUser);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.label10);
@@ -342,10 +352,10 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.closeBtn);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.email);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.loginBtn);
+            this.Controls.Add(this.password);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -363,7 +373,7 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox selectUser;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Label label10;
@@ -383,10 +393,10 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button closeBtn;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox email;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button loginBtn;
+        private System.Windows.Forms.TextBox password;
     }
 }
 

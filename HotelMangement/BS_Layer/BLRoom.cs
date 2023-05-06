@@ -25,6 +25,22 @@ namespace HotelMangement.BS_Layer
             }
             return dt;
         }
+        public DataTable FindRoom(string room_no)
+        {
+            HotelManagementSystemEntities qlhotelEntity = new HotelManagementSystemEntities();
+            var roo = from p in qlhotelEntity.Rooms select p;
+            DataTable dt = new DataTable();
+            dt.Columns.Add("roomID");
+            dt.Columns.Add("room_No");
+            dt.Columns.Add("Type");
+            dt.Columns.Add("Capacity");
+            dt.Columns.Add("Price");
+            foreach (var p in roo)
+            {
+                if(p.room_No==room_no) dt.Rows.Add(p.roomID, p.room_No, p.Type, p.Capacity, p.Price);
+            }
+            return dt;
+        }
         public bool AddRoom(int roomID, string room_No, string Type, int Capacity, double Price, ref string err)
         {
             HotelManagementSystemEntities qlhotelEntity = new HotelManagementSystemEntities();

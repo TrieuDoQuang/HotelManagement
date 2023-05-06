@@ -17,6 +17,7 @@ namespace HotelMangement.DanhMucForm
         bool Them;
         string err;
         BLRoom dbRO = new BLRoom();
+        bool bsearch = false;
         public FormRoom()
         {
             InitializeComponent();
@@ -27,7 +28,8 @@ namespace HotelMangement.DanhMucForm
             {
 
                 // Đưa dữ liệu lên DataGridView
-                dgvROOM.DataSource = dbRO.TakeRoom();
+                if(bsearch==false) dgvROOM.DataSource = dbRO.TakeRoom();
+                else dgvROOM.DataSource = dbRO.FindRoom(textRoom_no.Text);
                 // Thay đổi độ rộng cột
                 dgvROOM.AutoResizeColumns();
                 // Xóa trống các đối tượng trong Panel
@@ -219,6 +221,12 @@ namespace HotelMangement.DanhMucForm
             {
                 MessageBox.Show("Không xóa được. Lỗi rồi!");
             }
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            this.bsearch = true;
+            LoadData();
         }
     }
 }

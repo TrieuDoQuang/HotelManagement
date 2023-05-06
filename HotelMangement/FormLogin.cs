@@ -70,7 +70,7 @@ namespace HotelMangement
                     }
                     else if(role == 2)
                     {
-                        new UserInterface { }.ShowDialog();
+                        new EmployeeInterface { }.ShowDialog();
                     }
                     base.Close();
                 }

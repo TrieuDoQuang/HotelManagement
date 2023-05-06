@@ -27,10 +27,28 @@ namespace HotelMangement.DanhMucForm
             try
             {
                 // Đưa dữ liệu lên DataGridView
+
+                DataTable dataTable = dbU.TakeUser();
+
+                // Change the column name
+                dataTable.Columns["userID"].ColumnName = "Mã Người Dùng";
+                dataTable.Columns["Fullname"].ColumnName = "Họ tên";
+                dataTable.Columns["password"].ColumnName = "Mật khẩu";
+                dataTable.Columns["Birthday"].ColumnName = "Ngày sinh";
+                dataTable.Columns["Gender"].ColumnName = "Giới tính";
+                dataTable.Columns["Phone_Number"].ColumnName = "Số điện thoại";
+                dataTable.Columns["Address"].ColumnName = "Địa chỉ";
+                dataTable.Columns["role_id"].ColumnName = "Quyền";
+                // Set the DataSource of the DataGridView
+                dgvUSER.DataSource = dataTable;
+                // Thay đổi độ rộng cột
+                dgvUSER.AutoResizeColumns();
+
                 if(bsearch==false) dgvUSER.DataSource = dbU.TakeUser();
                 else dgvUSER.DataSource = dbU.FindUser(Convert.ToInt32(textID.Text),textName.Text);
                 //// Thay đổi độ rộng cột
                 //dgvUSER.AutoResizeColumns();
+
                 // Xóa trống các đối tượng trong Panel
                 this.txtuserID.ResetText();
                 this.txtFullname.ResetText();

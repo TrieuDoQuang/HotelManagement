@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace HotelMangement.Interface
 {
-    public partial class UserInterface : Form
+    public partial class EmployeeInterface : Form
     {
-        public UserInterface()
+        public EmployeeInterface()
         {
             InitializeComponent();
         }

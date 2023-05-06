@@ -81,11 +81,14 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Transparent;
-            this.label4.Location = new System.Drawing.Point(60, 228);
+
+            this.label4.Location = new System.Drawing.Point(115, 280);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(47, 16);
+            this.label4.Size = new System.Drawing.Size(44, 20);
+
             this.label4.TabIndex = 10;
-            this.label4.Text = "Price:";
+            this.label4.Text = "Giá:";
             // 
             // txtCapacity
             // 
@@ -101,11 +104,14 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Transparent;
-            this.label2.Location = new System.Drawing.Point(38, 179);
+
+            this.label2.Location = new System.Drawing.Point(66, 220);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 16);
+            this.label2.Size = new System.Drawing.Size(93, 20);
+
             this.label2.TabIndex = 8;
-            this.label2.Text = "Capacity:";
+            this.label2.Text = "Sức chứa:";
             // 
             // txtType
             // 
@@ -121,11 +127,14 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Transparent;
-            this.label3.Location = new System.Drawing.Point(63, 130);
+
+            this.label3.Location = new System.Drawing.Point(52, 160);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(47, 16);
+            this.label3.Size = new System.Drawing.Size(107, 20);
+
             this.label3.TabIndex = 6;
-            this.label3.Text = "Type:";
+            this.label3.Text = "Loại phòng:";
             // 
             // txtroom_No
             // 
@@ -141,16 +150,22 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Transparent;
-            this.label1.Location = new System.Drawing.Point(38, 81);
+
+            this.label1.Location = new System.Drawing.Point(66, 100);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 16);
+            this.label1.Size = new System.Drawing.Size(93, 20);
+
             this.label1.TabIndex = 4;
-            this.label1.Text = "room_No:";
+            this.label1.Text = "Số phòng:";
             // 
             // btnCancel
             // 
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(526, 486);
+
+            this.btnCancel.Location = new System.Drawing.Point(1384, 610);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
+
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(81, 32);
             this.btnCancel.TabIndex = 99;
@@ -161,7 +176,10 @@
             // btnSave
             // 
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Location = new System.Drawing.Point(405, 486);
+
+            this.btnSave.Location = new System.Drawing.Point(1211, 537);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4);
+
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(81, 32);
             this.btnSave.TabIndex = 98;
@@ -172,18 +190,24 @@
             // btnFix
             // 
             this.btnFix.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFix.Location = new System.Drawing.Point(287, 486);
+
+            this.btnFix.Location = new System.Drawing.Point(314, 623);
+            this.btnFix.Margin = new System.Windows.Forms.Padding(4);
+
             this.btnFix.Name = "btnFix";
             this.btnFix.Size = new System.Drawing.Size(81, 32);
             this.btnFix.TabIndex = 97;
-            this.btnFix.Text = "Fix";
+            this.btnFix.Text = "Update";
             this.btnFix.UseVisualStyleBackColor = true;
             this.btnFix.Click += new System.EventHandler(this.btnFix_Click);
             // 
             // btnAdd
             // 
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Location = new System.Drawing.Point(174, 486);
+
+            this.btnAdd.Location = new System.Drawing.Point(144, 623);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
+
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(81, 32);
             this.btnAdd.TabIndex = 96;
@@ -202,7 +226,10 @@
             // btnBack
             // 
             this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBack.Location = new System.Drawing.Point(866, 486);
+
+            this.btnBack.Location = new System.Drawing.Point(1211, 610);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(4);
+
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(81, 32);
             this.btnBack.TabIndex = 101;
@@ -218,9 +245,11 @@
             this.lb1.ForeColor = System.Drawing.Color.Transparent;
             this.lb1.Location = new System.Drawing.Point(47, 32);
             this.lb1.Name = "lb1";
-            this.lb1.Size = new System.Drawing.Size(61, 16);
+
+            this.lb1.Size = new System.Drawing.Size(96, 20);
+
             this.lb1.TabIndex = 0;
-            this.lb1.Text = "roomID:";
+            this.lb1.Text = "Mã phòng:";
             // 
             // panel
             // 
@@ -243,7 +272,10 @@
             // btnDelete
             // 
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(638, 486);
+
+            this.btnDelete.Location = new System.Drawing.Point(490, 623);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
+
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(81, 32);
             this.btnDelete.TabIndex = 100;
@@ -254,7 +286,10 @@
             // btnReload
             // 
             this.btnReload.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReload.Location = new System.Drawing.Point(752, 486);
+
+            this.btnReload.Location = new System.Drawing.Point(1384, 537);
+            this.btnReload.Margin = new System.Windows.Forms.Padding(4);
+
             this.btnReload.Name = "btnReload";
             this.btnReload.Size = new System.Drawing.Size(81, 32);
             this.btnReload.TabIndex = 95;

@@ -51,6 +51,10 @@ namespace HotelMangement.Interface
             openChildForm(new FormProduct());
         }
 
+        private void userDetailBtn_Click(object sender, EventArgs e)
+        {
+            openChildForm(new FormUserDetail());
+        }
 
         private void openChildForm(Form childForm)
         {
@@ -67,5 +71,7 @@ namespace HotelMangement.Interface
             childForm.BringToFront();
             childForm.Show();
         }
+
+       
     }
 }

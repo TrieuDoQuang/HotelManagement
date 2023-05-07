@@ -31,12 +31,7 @@ namespace HotelMangement.DanhMucForm
 
                 DataTable dataTable = dbRO.TakeRoom();
 
-                // Change the column name
-                dataTable.Columns["roomID"].ColumnName = "Mã phòng";
-                dataTable.Columns["room_No"].ColumnName = "Số phòng";
-                dataTable.Columns["Type"].ColumnName = "Loại phòng";
-                dataTable.Columns["Capacity"].ColumnName = "Sức chứa";
-                dataTable.Columns["Price"].ColumnName = "Giá";
+             
                 // Set the DataSource of the DataGridView
                 dgvROOM.DataSource = dataTable;
 

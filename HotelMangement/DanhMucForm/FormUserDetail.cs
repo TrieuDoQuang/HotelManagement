@@ -32,7 +32,7 @@ namespace HotelMangement.DanhMucForm
                 // Change the column name
                 dataTable.Columns["book_ID"].ColumnName = "Mã phòng";
                 dataTable.Columns["room_ID"].ColumnName = "Số phòng";
-                dataTable.Columns["customerID"].ColumnName = "Mã nhân viên";
+                dataTable.Columns["customerID"].ColumnName = "Mã khách hàng";
                 // Set the DataSource of the DataGridView
                 dgvUSERDETAIL.DataSource = dataTable;
                 // Xóa trống các đối tượng trong Panel
@@ -194,6 +194,27 @@ namespace HotelMangement.DanhMucForm
             {
                 MessageBox.Show("Không xóa được. Lỗi rồi!");
             }
+        }
+
+        private void updateBtn_Click(object sender, EventArgs e)
+        {
+            // Kích hoạt biến Sửa
+            Them = false;
+            // Cho phép thao tác trên Panel
+            this.panel.Enabled = true;
+            dgvUSERDETAIL_CellClick(null, null);
+            // Cho thao tác trên các nút Lưu / Hủy / Panel
+            this.btnSave.Enabled = true;
+            this.btnCancel.Enabled = true;
+            this.panel.Enabled = true;
+            // Không cho thao tác trên các nút Thêm / Xóa / Thoát
+            this.btnAdd.Enabled = false;
+            this.updateBtn.Enabled = false;
+            this.btnDelete.Enabled = false;
+
+            // Đưa con trỏ đến TextField txtUserID
+            this.txtbook_ID.Enabled = false;
+            this.txtbook_ID.Focus();
         }
     }
 }

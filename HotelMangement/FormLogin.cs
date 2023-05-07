@@ -13,7 +13,7 @@ namespace HotelMangement
 {
     public partial class FormLogin : Form
     {
-        int role;
+        int role = 1;
         public FormLogin()
         {
             InitializeComponent();
@@ -24,17 +24,6 @@ namespace HotelMangement
             Application.Exit();
         }
 
-        private void selectUser_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if(selectUser.SelectedIndex == 0)
-            {
-                role = 1; //Admin
-            }
-            else if (selectUser.SelectedIndex == 1)
-            {
-                role = 2; //User
-            }
-        }
 
         private void loginBtn_Click(object sender, EventArgs e)
         {

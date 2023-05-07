@@ -105,7 +105,7 @@
           <Property Name="Phone_Number" Type="nvarchar" MaxLength="20" />
           <Property Name="Address" Type="nvarchar" MaxLength="200" />
           <Property Name="role_id" Type="int" />
-          <Property Name="password" Type="nchar" MaxLength="10" />
+          <Property Name="password" Type="varchar" MaxLength="10" />
         </EntityType>
         <Association Name="FK__Booking__custome__3F466844">
           <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
@@ -639,7 +639,7 @@
           <Property Name="Phone_Number" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="role_id" Type="Int32" />
-          <Property Name="password" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="password" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Bookings" Relationship="HotelManagementSystemModel.FK__Booking__custome__3F466844" FromRole="User" ToRole="Booking" />
           <NavigationProperty Name="Bookings1" Relationship="HotelManagementSystemModel.FK__Booking__staff_I__3E52440B" FromRole="User" ToRole="Booking" />
           <NavigationProperty Name="Role" Relationship="HotelManagementSystemModel.FK__Users__role_id__398D8EEE" FromRole="User" ToRole="Role" />

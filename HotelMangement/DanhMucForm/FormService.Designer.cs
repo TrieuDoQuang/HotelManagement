@@ -217,11 +217,13 @@
             // 
             // dgvService
             // 
+            this.dgvService.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvService.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvService.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvService.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvService.Location = new System.Drawing.Point(530, 73);
             this.dgvService.Name = "dgvService";
-            this.dgvService.Size = new System.Drawing.Size(538, 467);
+            this.dgvService.Size = new System.Drawing.Size(639, 467);
             this.dgvService.TabIndex = 2;
             this.dgvService.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvService_CellClick);
             // 
@@ -261,7 +263,7 @@
             // btnCancel
             // 
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(644, 546);
+            this.btnCancel.Location = new System.Drawing.Point(678, 546);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(81, 32);
             this.btnCancel.TabIndex = 127;
@@ -272,7 +274,7 @@
             // btnUpdate
             // 
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.Location = new System.Drawing.Point(761, 546);
+            this.btnUpdate.Location = new System.Drawing.Point(818, 546);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(81, 32);
             this.btnUpdate.TabIndex = 128;
@@ -283,7 +285,7 @@
             // btnReload
             // 
             this.btnReload.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReload.Location = new System.Drawing.Point(880, 546);
+            this.btnReload.Location = new System.Drawing.Point(956, 546);
             this.btnReload.Name = "btnReload";
             this.btnReload.Size = new System.Drawing.Size(81, 32);
             this.btnReload.TabIndex = 129;
@@ -294,7 +296,7 @@
             // btnBack
             // 
             this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBack.Location = new System.Drawing.Point(987, 546);
+            this.btnBack.Location = new System.Drawing.Point(1088, 546);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(81, 32);
             this.btnBack.TabIndex = 130;

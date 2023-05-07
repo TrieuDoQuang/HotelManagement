@@ -30,7 +30,7 @@ namespace HotelMangement.BS_Layer
             }
             return dt;
         }
-        public bool AddProduct(int pID, int cate_ID, string Thumbnail, string Decription, float Price, int Amount, ref string err)
+        public bool AddProduct(int pID, int cate_ID, string Thumbnail, string Decription, double Price, int Amount, ref string err)
         {
             HotelManagementSystemEntities hotelEtity = new HotelManagementSystemEntities();
 
@@ -56,7 +56,7 @@ namespace HotelMangement.BS_Layer
             hotelEtity.SaveChanges();
             return true;
         }
-        public bool UpdateProduct(int pID, int cate_ID, string Thumbnail, string Decription, float Price, int Amount, ref string err)
+        public bool UpdateProduct(int pID, int cate_ID, string Thumbnail, string Decription, double Price, int Amount, ref string err)
         {
             HotelManagementSystemEntities hotelEtity = new HotelManagementSystemEntities();
             var tpQuery = (from pro in hotelEtity.Products

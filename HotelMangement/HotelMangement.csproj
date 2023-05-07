@@ -184,6 +184,9 @@
     <EmbeddedResource Include="Interface\AdminInterface.resx">
       <DependentUpon>AdminInterface.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Interface\CustomerInterface.resx">
+      <DependentUpon>CustomerInterface.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Interface\EmployeeInterface.resx">
       <DependentUpon>EmployeeInterface.cs</DependentUpon>
     </EmbeddedResource>

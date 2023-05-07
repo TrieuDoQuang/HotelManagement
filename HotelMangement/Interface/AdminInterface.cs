@@ -43,12 +43,12 @@ namespace HotelMangement.Interface
 
         private void serviceBtn_Click(object sender, EventArgs e)
         {
-            openChildForm(new FormUserDetail());
+            openChildForm(new FormService());
         }
 
         private void productBtn_Click(object sender, EventArgs e)
         {
-            openChildForm(new FormUserDetail());
+            openChildForm(new FormProduct());
         }
 
 

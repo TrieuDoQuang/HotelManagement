@@ -375,14 +375,17 @@
             // 
             // dgvUSER
             // 
+            this.dgvUSER.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvUSER.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvUSER.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvUSER.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUSER.Location = new System.Drawing.Point(575, 165);
+            this.dgvUSER.Location = new System.Drawing.Point(518, 160);
             this.dgvUSER.Margin = new System.Windows.Forms.Padding(4);
             this.dgvUSER.Name = "dgvUSER";
             this.dgvUSER.RowHeadersWidth = 51;
-            this.dgvUSER.Size = new System.Drawing.Size(1013, 488);
+            this.dgvUSER.Size = new System.Drawing.Size(1311, 522);
             this.dgvUSER.TabIndex = 103;
             this.dgvUSER.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUSER_CellClick);
             // 
@@ -446,6 +449,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
             this.ClientSize = new System.Drawing.Size(1924, 996);
+            this.Controls.Add(this.dgvUSER);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
@@ -459,7 +463,6 @@
             this.Controls.Add(this.panel);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.dgvUSER);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormUser";
             this.Text = "FormUser";

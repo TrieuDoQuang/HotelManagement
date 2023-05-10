@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminInterface));
             this.leftPanel = new System.Windows.Forms.Panel();
+            this.userDetailBtn = new FontAwesome.Sharp.IconButton();
             this.productBtn = new FontAwesome.Sharp.IconButton();
             this.serviceBtn = new FontAwesome.Sharp.IconButton();
             this.bookingBtn = new FontAwesome.Sharp.IconButton();
@@ -39,7 +40,6 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.topPanel = new System.Windows.Forms.Panel();
             this.mainPanel = new System.Windows.Forms.Panel();
-            this.userDetailBtn = new FontAwesome.Sharp.IconButton();
             this.leftPanel.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -60,6 +60,28 @@
             this.leftPanel.Name = "leftPanel";
             this.leftPanel.Size = new System.Drawing.Size(300, 1000);
             this.leftPanel.TabIndex = 2;
+            // 
+            // userDetailBtn
+            // 
+            this.userDetailBtn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.userDetailBtn.FlatAppearance.BorderSize = 0;
+            this.userDetailBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.userDetailBtn.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userDetailBtn.ForeColor = System.Drawing.Color.Gainsboro;
+            this.userDetailBtn.IconChar = FontAwesome.Sharp.IconChar.Dashcube;
+            this.userDetailBtn.IconColor = System.Drawing.Color.Gainsboro;
+            this.userDetailBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.userDetailBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.userDetailBtn.Location = new System.Drawing.Point(0, 756);
+            this.userDetailBtn.Name = "userDetailBtn";
+            this.userDetailBtn.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.userDetailBtn.Size = new System.Drawing.Size(300, 98);
+            this.userDetailBtn.TabIndex = 14;
+            this.userDetailBtn.Text = "User Detail";
+            this.userDetailBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.userDetailBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.userDetailBtn.UseVisualStyleBackColor = true;
+            this.userDetailBtn.Click += new System.EventHandler(this.userDetailBtn_Click);
             // 
             // productBtn
             // 
@@ -121,7 +143,7 @@
             this.bookingBtn.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.bookingBtn.Size = new System.Drawing.Size(300, 98);
             this.bookingBtn.TabIndex = 11;
-            this.bookingBtn.Text = "Booking";
+            this.bookingBtn.Text = "Booking Detail";
             this.bookingBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.bookingBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.bookingBtn.UseVisualStyleBackColor = true;
@@ -208,28 +230,6 @@
             this.mainPanel.Name = "mainPanel";
             this.mainPanel.Size = new System.Drawing.Size(1642, 910);
             this.mainPanel.TabIndex = 4;
-            // 
-            // userDetailBtn
-            // 
-            this.userDetailBtn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.userDetailBtn.FlatAppearance.BorderSize = 0;
-            this.userDetailBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.userDetailBtn.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userDetailBtn.ForeColor = System.Drawing.Color.Gainsboro;
-            this.userDetailBtn.IconChar = FontAwesome.Sharp.IconChar.Dashcube;
-            this.userDetailBtn.IconColor = System.Drawing.Color.Gainsboro;
-            this.userDetailBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.userDetailBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.userDetailBtn.Location = new System.Drawing.Point(0, 756);
-            this.userDetailBtn.Name = "userDetailBtn";
-            this.userDetailBtn.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.userDetailBtn.Size = new System.Drawing.Size(300, 98);
-            this.userDetailBtn.TabIndex = 14;
-            this.userDetailBtn.Text = "User Detail";
-            this.userDetailBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.userDetailBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.userDetailBtn.UseVisualStyleBackColor = true;
-            this.userDetailBtn.Click += new System.EventHandler(this.userDetailBtn_Click);
             // 
             // AdminInterface
             // 

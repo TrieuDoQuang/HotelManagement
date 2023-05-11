@@ -14,15 +14,15 @@ namespace HotelMangement.BS_Layer
             HotelManagementSystemEntities qlhotelEntity = new HotelManagementSystemEntities();
             var us = from p in qlhotelEntity.Users select p;
             DataTable dt = new DataTable();
-            dt.Columns.Add("Mã Người Dùng");
-            dt.Columns.Add("Họ tên");
-            dt.Columns.Add("Mật khẩu");
-            dt.Columns.Add("Ngày sinh");
-            dt.Columns.Add("Giới tính");
+            dt.Columns.Add("User ID");
+            dt.Columns.Add("Name");
+            dt.Columns.Add("Password");
+            dt.Columns.Add("Birthday");
+            dt.Columns.Add("Gender");
             dt.Columns.Add("Email");
-            dt.Columns.Add("Số điện thoại");
-            dt.Columns.Add("Địa chỉ");
-            dt.Columns.Add("Quyền");
+            dt.Columns.Add("Phone Number");
+            dt.Columns.Add("Address");
+            dt.Columns.Add("Role");
        
             foreach (var p in us)
             {

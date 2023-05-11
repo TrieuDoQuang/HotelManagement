@@ -80,12 +80,12 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(65, 200);
+            this.label1.Location = new System.Drawing.Point(88, 201);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(116, 23);
+            this.label1.Size = new System.Drawing.Size(93, 23);
             this.label1.TabIndex = 4;
-            this.label1.Text = "Mã phòng:";
+            this.label1.Text = "Room ID";
             // 
             // txtbook_ID
             // 
@@ -102,12 +102,12 @@
             this.lb1.BackColor = System.Drawing.Color.Transparent;
             this.lb1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb1.ForeColor = System.Drawing.SystemColors.Control;
-            this.lb1.Location = new System.Drawing.Point(33, 120);
+            this.lb1.Location = new System.Drawing.Point(65, 120);
             this.lb1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lb1.Name = "lb1";
-            this.lb1.Size = new System.Drawing.Size(151, 23);
+            this.lb1.Size = new System.Drawing.Size(116, 23);
             this.lb1.TabIndex = 0;
-            this.lb1.Text = "Mã đặt phòng:";
+            this.lb1.Text = "Booking ID";
             // 
             // btnAdd
             // 
@@ -181,12 +181,12 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.Control;
-            this.label3.Location = new System.Drawing.Point(20, 280);
+            this.label3.Location = new System.Drawing.Point(51, 280);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(171, 23);
+            this.label3.Size = new System.Drawing.Size(130, 23);
             this.label3.TabIndex = 6;
-            this.label3.Text = "Mã khách hàng:";
+            this.label3.Text = "Customer ID";
             // 
             // panel
             // 

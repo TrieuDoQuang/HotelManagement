@@ -72,12 +72,12 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Transparent;
-            this.label4.Location = new System.Drawing.Point(115, 280);
+            this.label4.Location = new System.Drawing.Point(98, 281);
             this.label4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(51, 23);
+            this.label4.Size = new System.Drawing.Size(58, 23);
             this.label4.TabIndex = 10;
-            this.label4.Text = "Giá:";
+            this.label4.Text = "Price";
             // 
             // txtCapacity
             // 
@@ -94,12 +94,12 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Transparent;
-            this.label2.Location = new System.Drawing.Point(66, 220);
+            this.label2.Location = new System.Drawing.Point(55, 220);
             this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(103, 23);
+            this.label2.Size = new System.Drawing.Size(101, 23);
             this.label2.TabIndex = 8;
-            this.label2.Text = "Sức chứa:";
+            this.label2.Text = "Capacity";
             // 
             // txtType
             // 
@@ -116,12 +116,12 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Transparent;
-            this.label3.Location = new System.Drawing.Point(52, 160);
+            this.label3.Location = new System.Drawing.Point(37, 161);
             this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(122, 23);
+            this.label3.Size = new System.Drawing.Size(119, 23);
             this.label3.TabIndex = 6;
-            this.label3.Text = "Loại phòng:";
+            this.label3.Text = "Room Type";
             // 
             // txtroom_No
             // 
@@ -138,12 +138,12 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Transparent;
-            this.label1.Location = new System.Drawing.Point(66, 100);
+            this.label1.Location = new System.Drawing.Point(5, 101);
             this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(105, 23);
+            this.label1.Size = new System.Drawing.Size(151, 23);
             this.label1.TabIndex = 4;
-            this.label1.Text = "Số phòng:";
+            this.label1.Text = "Room Number";
             // 
             // btnCancel
             // 
@@ -223,9 +223,9 @@
             this.lb1.Location = new System.Drawing.Point(63, 40);
             this.lb1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lb1.Name = "lb1";
-            this.lb1.Size = new System.Drawing.Size(116, 23);
+            this.lb1.Size = new System.Drawing.Size(93, 23);
             this.lb1.TabIndex = 0;
-            this.lb1.Text = "Mã phòng:";
+            this.lb1.Text = "Room ID";
             // 
             // panel
             // 
@@ -290,9 +290,9 @@
             this.label10.Location = new System.Drawing.Point(696, 50);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(110, 23);
+            this.label10.Size = new System.Drawing.Size(93, 23);
             this.label10.TabIndex = 118;
-            this.label10.Text = "Mã phòng";
+            this.label10.Text = "Room ID";
             // 
             // textRoom_no
             // 

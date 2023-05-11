@@ -106,12 +106,12 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.Control;
-            this.label5.Location = new System.Drawing.Point(83, 362);
+            this.label5.Location = new System.Drawing.Point(65, 363);
             this.label5.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(85, 23);
+            this.label5.Size = new System.Drawing.Size(88, 23);
             this.label5.TabIndex = 14;
-            this.label5.Text = "Địa chỉ:";
+            this.label5.Text = "Address";
             // 
             // txtPhone_Number
             // 
@@ -128,12 +128,12 @@
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.Control;
-            this.label6.Location = new System.Drawing.Point(29, 311);
+            this.label6.Location = new System.Drawing.Point(-2, 313);
             this.label6.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(134, 23);
+            this.label6.Size = new System.Drawing.Size(155, 23);
             this.label6.TabIndex = 12;
-            this.label6.Text = "Số điện thoại:";
+            this.label6.Text = "Phone Number";
             // 
             // label1
             // 
@@ -144,9 +144,9 @@
             this.label1.Location = new System.Drawing.Point(83, 62);
             this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(77, 23);
+            this.label1.Size = new System.Drawing.Size(70, 23);
             this.label1.TabIndex = 4;
-            this.label1.Text = "Họ tên:";
+            this.label1.Text = "Name";
             // 
             // txtuserID
             // 
@@ -163,12 +163,12 @@
             this.lb1.BackColor = System.Drawing.Color.Transparent;
             this.lb1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb1.ForeColor = System.Drawing.SystemColors.Control;
-            this.lb1.Location = new System.Drawing.Point(17, 12);
+            this.lb1.Location = new System.Drawing.Point(76, 19);
             this.lb1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lb1.Name = "lb1";
-            this.lb1.Size = new System.Drawing.Size(159, 23);
+            this.lb1.Size = new System.Drawing.Size(77, 23);
             this.lb1.TabIndex = 0;
-            this.lb1.Text = "Mã người dùng:";
+            this.lb1.Text = "User ID";
             // 
             // btnDelete
             // 
@@ -221,12 +221,12 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.Control;
-            this.label3.Location = new System.Drawing.Point(56, 212);
+            this.label3.Location = new System.Drawing.Point(63, 213);
             this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(113, 23);
+            this.label3.Size = new System.Drawing.Size(90, 23);
             this.label3.TabIndex = 6;
-            this.label3.Text = "Ngày sinh:";
+            this.label3.Text = "BirthDay";
             // 
             // txtFullname
             // 
@@ -280,12 +280,12 @@
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.SystemColors.Control;
-            this.label8.Location = new System.Drawing.Point(63, 161);
+            this.label8.Location = new System.Drawing.Point(53, 163);
             this.label8.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(102, 23);
+            this.label8.Size = new System.Drawing.Size(100, 23);
             this.label8.TabIndex = 18;
-            this.label8.Text = "Mật khẩu:";
+            this.label8.Text = "Password";
             // 
             // txtrole_id
             // 
@@ -302,12 +302,12 @@
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.SystemColors.Control;
-            this.label7.Location = new System.Drawing.Point(85, 412);
+            this.label7.Location = new System.Drawing.Point(100, 413);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(79, 23);
+            this.label7.Size = new System.Drawing.Size(53, 23);
             this.label7.TabIndex = 16;
-            this.label7.Text = "Quyền:";
+            this.label7.Text = "Role";
             // 
             // txtEmail
             // 
@@ -324,12 +324,12 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.Control;
-            this.label4.Location = new System.Drawing.Point(92, 112);
+            this.label4.Location = new System.Drawing.Point(91, 112);
             this.label4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(68, 23);
+            this.label4.Size = new System.Drawing.Size(62, 23);
             this.label4.TabIndex = 10;
-            this.label4.Text = "Email:";
+            this.label4.Text = "Email";
             // 
             // txtGender
             // 
@@ -346,12 +346,12 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.Control;
-            this.label2.Location = new System.Drawing.Point(68, 262);
+            this.label2.Location = new System.Drawing.Point(69, 263);
             this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(94, 23);
+            this.label2.Size = new System.Drawing.Size(84, 23);
             this.label2.TabIndex = 8;
-            this.label2.Text = "Giới tính:";
+            this.label2.Text = "Gender";
             // 
             // btnBack
             // 
@@ -399,24 +399,24 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(621, 34);
+            this.label9.Location = new System.Drawing.Point(687, 27);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(159, 23);
+            this.label9.Size = new System.Drawing.Size(77, 23);
             this.label9.TabIndex = 114;
-            this.label9.Text = "Mã người dùng:";
+            this.label9.Text = "User ID";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(687, 98);
+            this.label10.Location = new System.Drawing.Point(694, 94);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(77, 23);
+            this.label10.Size = new System.Drawing.Size(70, 23);
             this.label10.TabIndex = 115;
-            this.label10.Text = "Họ tên:";
+            this.label10.Text = "Name";
             // 
             // btnSearch
             // 

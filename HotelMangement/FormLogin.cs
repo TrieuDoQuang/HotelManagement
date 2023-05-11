@@ -47,6 +47,7 @@ namespace HotelMangement
                     {
                         MessageBox.Show("Wrong username!");
                         this.Close();
+
                     }
                     else if (userPassword == null)
                     {

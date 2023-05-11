@@ -62,7 +62,9 @@
             this.btnBack.Location = new System.Drawing.Point(833, 726);
             this.btnBack.Margin = new System.Windows.Forms.Padding(4);
             this.btnBack.Name = "btnBack";
+
             this.btnBack.Size = new System.Drawing.Size(147, 49);
+
             this.btnBack.TabIndex = 139;
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = true;
@@ -126,12 +128,14 @@
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Transparent;
+
             this.label5.Location = new System.Drawing.Point(64, 403);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(87, 23);
+
             this.label5.TabIndex = 6;
             this.label5.Text = "Amount";
             // 
@@ -139,12 +143,14 @@
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Transparent;
-            this.label4.Location = new System.Drawing.Point(93, 336);
+            this.label4.Location = new System.Drawing.Point(59, 336);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
+
             this.label4.Size = new System.Drawing.Size(58, 23);
+
             this.label4.TabIndex = 5;
             this.label4.Text = "Price";
             // 
@@ -154,7 +160,9 @@
             this.btnUpdate.Location = new System.Drawing.Point(405, 726);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpdate.Name = "btnUpdate";
+
             this.btnUpdate.Size = new System.Drawing.Size(147, 49);
+
             this.btnUpdate.TabIndex = 137;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
@@ -166,7 +174,9 @@
             this.btnCancel.Location = new System.Drawing.Point(1215, 726);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
+
             this.btnCancel.Size = new System.Drawing.Size(147, 49);
+
             this.btnCancel.TabIndex = 136;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -178,7 +188,9 @@
             this.btnSave.Location = new System.Drawing.Point(1387, 726);
             this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
+
             this.btnSave.Size = new System.Drawing.Size(147, 49);
+
             this.btnSave.TabIndex = 135;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -190,7 +202,9 @@
             this.btnDelete.Location = new System.Drawing.Point(225, 726);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnDelete.Name = "btnDelete";
+
             this.btnDelete.Size = new System.Drawing.Size(147, 49);
+
             this.btnDelete.TabIndex = 134;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -202,7 +216,9 @@
             this.btnAdd.Location = new System.Drawing.Point(45, 726);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd.Name = "btnAdd";
+
             this.btnAdd.Size = new System.Drawing.Size(147, 49);
+
             this.btnAdd.TabIndex = 133;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -212,12 +228,14 @@
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Transparent;
+
             this.label3.Location = new System.Drawing.Point(37, 267);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(119, 23);
+
             this.label3.TabIndex = 4;
             this.label3.Text = "Description";
             // 
@@ -225,12 +243,14 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Transparent;
+
             this.label2.Location = new System.Drawing.Point(47, 192);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(109, 23);
+
             this.label2.TabIndex = 3;
             this.label2.Text = "Thumbnail";
             // 
@@ -238,12 +258,14 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Transparent;
+
             this.label1.Location = new System.Drawing.Point(16, 121);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(143, 23);
+
             this.label1.TabIndex = 2;
             this.label1.Text = "Categories ID";
             // 
@@ -251,12 +273,14 @@
             // 
             this.lb1.AutoSize = true;
             this.lb1.BackColor = System.Drawing.Color.Transparent;
-            this.lb1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb1.ForeColor = System.Drawing.Color.Transparent;
-            this.lb1.Location = new System.Drawing.Point(49, 55);
+            this.lb1.Location = new System.Drawing.Point(15, 55);
             this.lb1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lb1.Name = "lb1";
+
             this.lb1.Size = new System.Drawing.Size(110, 23);
+
             this.lb1.TabIndex = 1;
             this.lb1.Text = "Product ID";
             // 
@@ -266,7 +290,9 @@
             this.btnReload.Location = new System.Drawing.Point(661, 726);
             this.btnReload.Margin = new System.Windows.Forms.Padding(4);
             this.btnReload.Name = "btnReload";
+
             this.btnReload.Size = new System.Drawing.Size(147, 49);
+
             this.btnReload.TabIndex = 138;
             this.btnReload.Text = "Reload";
             this.btnReload.UseVisualStyleBackColor = true;

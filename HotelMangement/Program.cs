@@ -18,13 +18,13 @@ namespace HotelMangement
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new FormLogin());
+            Application.Run(new FormLogin());
             //Application.Run(new FormRoom());
             //Application.Run(new FormBookingDetail());
             //Application.Run(new FormUserDetail());
             //Application.Run(new FormRole());
             //Application.Run(new FormUser());
-            Application.Run(new AdminInterface());
+            //Application.Run(new AdminInterface());
             //Application.Run(new CustomerInterface());
             //Application.Run(new FormService());
             //Application.Run(new FormProduct());

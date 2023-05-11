@@ -151,7 +151,7 @@
             this.btnCancel.Location = new System.Drawing.Point(1277, 620);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(5);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(108, 39);
+            this.btnCancel.Size = new System.Drawing.Size(147, 49);
             this.btnCancel.TabIndex = 99;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -163,7 +163,7 @@
             this.btnSave.Location = new System.Drawing.Point(1426, 620);
             this.btnSave.Margin = new System.Windows.Forms.Padding(5);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(108, 39);
+            this.btnSave.Size = new System.Drawing.Size(147, 49);
             this.btnSave.TabIndex = 98;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -175,7 +175,7 @@
             this.btnFix.Location = new System.Drawing.Point(249, 620);
             this.btnFix.Margin = new System.Windows.Forms.Padding(5);
             this.btnFix.Name = "btnFix";
-            this.btnFix.Size = new System.Drawing.Size(108, 39);
+            this.btnFix.Size = new System.Drawing.Size(147, 49);
             this.btnFix.TabIndex = 97;
             this.btnFix.Text = "Update";
             this.btnFix.UseVisualStyleBackColor = true;
@@ -187,7 +187,7 @@
             this.btnAdd.Location = new System.Drawing.Point(68, 620);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(5);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(108, 39);
+            this.btnAdd.Size = new System.Drawing.Size(147, 49);
             this.btnAdd.TabIndex = 96;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -208,7 +208,7 @@
             this.btnBack.Location = new System.Drawing.Point(826, 620);
             this.btnBack.Margin = new System.Windows.Forms.Padding(5);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(108, 39);
+            this.btnBack.Size = new System.Drawing.Size(147, 49);
             this.btnBack.TabIndex = 101;
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = true;
@@ -252,7 +252,7 @@
             this.btnDelete.Location = new System.Drawing.Point(422, 620);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(5);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(108, 39);
+            this.btnDelete.Size = new System.Drawing.Size(147, 49);
             this.btnDelete.TabIndex = 100;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -264,7 +264,7 @@
             this.btnReload.Location = new System.Drawing.Point(656, 620);
             this.btnReload.Margin = new System.Windows.Forms.Padding(5);
             this.btnReload.Name = "btnReload";
-            this.btnReload.Size = new System.Drawing.Size(108, 39);
+            this.btnReload.Size = new System.Drawing.Size(147, 49);
             this.btnReload.TabIndex = 95;
             this.btnReload.Text = "Reload";
             this.btnReload.UseVisualStyleBackColor = true;

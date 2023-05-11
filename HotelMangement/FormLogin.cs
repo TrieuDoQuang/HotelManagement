@@ -13,7 +13,6 @@ namespace HotelMangement
 {
     public partial class FormLogin : Form
     {
-        int role = 1;
         public FormLogin()
         {
             InitializeComponent();
@@ -33,42 +32,60 @@ namespace HotelMangement
                              select user).SingleOrDefault();
 
             var userPassword = (from user in hotelEntity.Users
-                         where user.password == password.Text
-                         select user).SingleOrDefault();
-            
-            if (userPassword != null || userEmail != null)
+                                where user.password == password.Text
+                                select user).SingleOrDefault();
+            var usersrole = (from user in hotelEntity.Users
+                             where user.Email == email.Text && user.password == password.Text
+                             select user.role_id).SingleOrDefault();
+            try
             {
-                if (userEmail == null)
+                if (userPassword != null || userEmail != null)
                 {
-                    MessageBox.Show("Wrong username!");
-                    this.Close();
-                }
-                else if (userPassword == null)
-                {
-                    MessageBox.Show("Wrong password!");
-                    this.Close();
+                    if (userEmail == null)
+                    {
+                        MessageBox.Show("Wrong username!");
+                        this.Close();
+                    }
+                    else if (userPassword == null)
+                    {
+                        MessageBox.Show("Wrong password!");
+                        this.Close();
+                    }
+                    else
+                    {
+
+                        MessageBox.Show("Login successfully!");
+                        this.Text = "Login successfully!";
+                        this.Hide();
+                        string connectionString = "Data Source=192.168.1.4;Initial Catalog=HotelManagementSystem;User ID={0};Password={1};";
+                        if (Convert.ToInt32(usersrole) == 1)
+                        {
+                            hotelEntity.Database.Connection.ConnectionString = string.Format(connectionString, "testuser", "123");
+                            new AdminInterface().ShowDialog();
+                        }
+                        else if (Convert.ToInt32(usersrole) == 2)
+                        {
+                            hotelEntity.Database.Connection.ConnectionString = string.Format(connectionString, "testuser2", "123");
+                            new EmployeeInterface().ShowDialog();
+                        }
+                        else
+                        {
+                            hotelEntity.Database.Connection.ConnectionString = string.Format(connectionString, "testuser3", "123");
+                            new CustomerInterface().ShowDialog();
+                        }
+                        base.Close();
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Login successfully!");
-                    this.Text = "Login successfully!";
-                    this.Hide();
-                    if (role == 1)
-                    {       
-                        new AdminInterface { }.ShowDialog();
-                    }
-                    else if(role == 2)
-                    {
-                        new EmployeeInterface { }.ShowDialog();
-                    }
-                    base.Close();
+                    MessageBox.Show("User is not existed!");
+                    this.password.ResetText();
+                    this.email.ResetText();
                 }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("User is not existed!");
-                this.password.ResetText();
-                this.email.ResetText();
+                MessageBox.Show("Connection failed: " + ex.Message);
             }
         }
     }

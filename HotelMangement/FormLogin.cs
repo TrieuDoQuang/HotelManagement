@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Configuration;
 using HotelMangement.Interface;
 
 namespace HotelMangement
@@ -25,7 +26,7 @@ namespace HotelMangement
 
 
         private void loginBtn_Click(object sender, EventArgs e)
-        {
+        {     
             HotelManagementSystemEntities hotelEntity = new HotelManagementSystemEntities();
             var userEmail = (from user in hotelEntity.Users
                              where user.Email == email.Text
@@ -34,7 +35,8 @@ namespace HotelMangement
             var userPassword = (from user in hotelEntity.Users
                                 where user.password == password.Text
                                 select user).SingleOrDefault();
-            var usersrole = (from user in hotelEntity.Users
+
+            var usersRole = (from user in hotelEntity.Users
                              where user.Email == email.Text && user.password == password.Text
                              select user.role_id).SingleOrDefault();
             try
@@ -45,6 +47,7 @@ namespace HotelMangement
                     {
                         MessageBox.Show("Wrong username!");
                         this.Close();
+
                     }
                     else if (userPassword == null)
                     {
@@ -53,26 +56,50 @@ namespace HotelMangement
                     }
                     else
                     {
-
-                        MessageBox.Show("Login successfully!");
-                        this.Text = "Login successfully!";
-                        this.Hide();
-                        string connectionString = "Data Source=192.168.1.4;Initial Catalog=HotelManagementSystem;User ID={0};Password={1};";
-                        if (Convert.ToInt32(usersrole) == 1)
+                        
+                        if (Convert.ToInt32(usersRole) == 1)
                         {
-                            hotelEntity.Database.Connection.ConnectionString = string.Format(connectionString, "testuser", "123");
-                            new AdminInterface().ShowDialog();
+                            hotelEntity.Database.Connection.ConnectionString = ConfigurationManager.ConnectionStrings["HotelManagementSystemEntities_Admin"].ConnectionString;
+                            hotelEntity.Database.Connection.Open();
+                            if (hotelEntity.Database.Connection.State == System.Data.ConnectionState.Open)
+                            {
+                                MessageBox.Show("Login succesfully, Connected as Admin!");
+                                new AdminInterface().ShowDialog();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Connection failed");
+                            }
                         }
-                        else if (Convert.ToInt32(usersrole) == 2)
+                        else if (Convert.ToInt32(usersRole) == 2)
                         {
-                            hotelEntity.Database.Connection.ConnectionString = string.Format(connectionString, "testuser2", "123");
-                            new EmployeeInterface().ShowDialog();
+                            hotelEntity.Database.Connection.ConnectionString = ConfigurationManager.ConnectionStrings["HotelManagementSystemEntities_Employee"].ConnectionString;
+                            hotelEntity.Database.Connection.Open();
+                            if (hotelEntity.Database.Connection.State == System.Data.ConnectionState.Open)
+                            {
+                                MessageBox.Show("Login succesfully, Connected as Employee!");
+                                new EmployeeInterface().ShowDialog();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Connection failed");
+                            }
                         }
                         else
                         {
-                            hotelEntity.Database.Connection.ConnectionString = string.Format(connectionString, "testuser3", "123");
-                            new CustomerInterface().ShowDialog();
+                            hotelEntity.Database.Connection.ConnectionString = ConfigurationManager.ConnectionStrings["HotelManagementSystemEntities_Customer"].ConnectionString; ;
+                            hotelEntity.Database.Connection.Open();
+                            if (hotelEntity.Database.Connection.State == System.Data.ConnectionState.Open)
+                            {
+                                MessageBox.Show("Login succesfully, Connected as Customer!");
+                                new CustomerInterface().ShowDialog();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Connection failed");
+                            }
                         }
+                        this.Hide();
                         base.Close();
                     }
                 }

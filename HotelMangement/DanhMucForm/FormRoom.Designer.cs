@@ -72,12 +72,14 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Transparent;
-            this.label4.Location = new System.Drawing.Point(79, 280);
+
+            this.label4.Location = new System.Drawing.Point(98, 281);
             this.label4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(52, 25);
+            this.label4.Size = new System.Drawing.Size(58, 23);
+
             this.label4.TabIndex = 10;
-            this.label4.Text = "Giá:";
+            this.label4.Text = "Price";
             // 
             // txtCapacity
             // 
@@ -94,12 +96,14 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Transparent;
-            this.label2.Location = new System.Drawing.Point(30, 220);
+
+            this.label2.Location = new System.Drawing.Point(55, 220);
             this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(110, 25);
+            this.label2.Size = new System.Drawing.Size(101, 23);
+
             this.label2.TabIndex = 8;
-            this.label2.Text = "Sức chứa:";
+            this.label2.Text = "Capacity";
             // 
             // txtType
             // 
@@ -116,12 +120,14 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Transparent;
-            this.label3.Location = new System.Drawing.Point(16, 160);
+
+            this.label3.Location = new System.Drawing.Point(37, 161);
             this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(126, 25);
+            this.label3.Size = new System.Drawing.Size(119, 23);
+
             this.label3.TabIndex = 6;
-            this.label3.Text = "Loại phòng:";
+            this.label3.Text = "Room Type";
             // 
             // txtroom_No
             // 
@@ -138,12 +144,14 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Transparent;
-            this.label1.Location = new System.Drawing.Point(30, 100);
+
+            this.label1.Location = new System.Drawing.Point(5, 101);
             this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(112, 25);
+            this.label1.Size = new System.Drawing.Size(151, 23);
+
             this.label1.TabIndex = 4;
-            this.label1.Text = "Số phòng:";
+            this.label1.Text = "Room Number";
             // 
             // btnCancel
             // 
@@ -151,7 +159,9 @@
             this.btnCancel.Location = new System.Drawing.Point(1277, 620);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(5);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(131, 57);
+
+            this.btnCancel.Size = new System.Drawing.Size(147, 49);
+
             this.btnCancel.TabIndex = 99;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -163,7 +173,9 @@
             this.btnSave.Location = new System.Drawing.Point(1426, 620);
             this.btnSave.Margin = new System.Windows.Forms.Padding(5);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(131, 57);
+
+            this.btnSave.Size = new System.Drawing.Size(147, 49);
+
             this.btnSave.TabIndex = 98;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -175,7 +187,9 @@
             this.btnFix.Location = new System.Drawing.Point(249, 620);
             this.btnFix.Margin = new System.Windows.Forms.Padding(5);
             this.btnFix.Name = "btnFix";
-            this.btnFix.Size = new System.Drawing.Size(131, 57);
+
+            this.btnFix.Size = new System.Drawing.Size(147, 49);
+
             this.btnFix.TabIndex = 97;
             this.btnFix.Text = "Update";
             this.btnFix.UseVisualStyleBackColor = true;
@@ -187,7 +201,9 @@
             this.btnAdd.Location = new System.Drawing.Point(68, 620);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(5);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(131, 57);
+
+            this.btnAdd.Size = new System.Drawing.Size(147, 49);
+
             this.btnAdd.TabIndex = 96;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -208,7 +224,9 @@
             this.btnBack.Location = new System.Drawing.Point(826, 620);
             this.btnBack.Margin = new System.Windows.Forms.Padding(5);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(131, 57);
+
+            this.btnBack.Size = new System.Drawing.Size(147, 49);
+
             this.btnBack.TabIndex = 101;
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = true;
@@ -223,9 +241,11 @@
             this.lb1.Location = new System.Drawing.Point(27, 40);
             this.lb1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lb1.Name = "lb1";
-            this.lb1.Size = new System.Drawing.Size(115, 25);
+
+            this.lb1.Size = new System.Drawing.Size(93, 23);
+
             this.lb1.TabIndex = 0;
-            this.lb1.Text = "Mã phòng:";
+            this.lb1.Text = "Room ID";
             // 
             // panel
             // 
@@ -252,7 +272,9 @@
             this.btnDelete.Location = new System.Drawing.Point(422, 620);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(5);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(131, 57);
+
+            this.btnDelete.Size = new System.Drawing.Size(147, 49);
+
             this.btnDelete.TabIndex = 100;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -264,7 +286,9 @@
             this.btnReload.Location = new System.Drawing.Point(656, 620);
             this.btnReload.Margin = new System.Windows.Forms.Padding(5);
             this.btnReload.Name = "btnReload";
-            this.btnReload.Size = new System.Drawing.Size(131, 57);
+
+            this.btnReload.Size = new System.Drawing.Size(147, 49);
+
             this.btnReload.TabIndex = 95;
             this.btnReload.Text = "Reload";
             this.btnReload.UseVisualStyleBackColor = true;
@@ -290,9 +314,9 @@
             this.label10.Location = new System.Drawing.Point(696, 50);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(110, 23);
+            this.label10.Size = new System.Drawing.Size(93, 23);
             this.label10.TabIndex = 118;
-            this.label10.Text = "Mã phòng";
+            this.label10.Text = "Room ID";
             // 
             // textRoom_no
             // 

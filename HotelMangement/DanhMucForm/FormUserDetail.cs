@@ -30,9 +30,9 @@ namespace HotelMangement.DanhMucForm
                 DataTable dataTable = dbUD.TakeUserDetail();
 
                 // Change the column name
-                dataTable.Columns["book_ID"].ColumnName = "Mã phòng";
-                dataTable.Columns["room_ID"].ColumnName = "Số phòng";
-                dataTable.Columns["customerID"].ColumnName = "Mã khách hàng";
+                dataTable.Columns["book_ID"].ColumnName = "Booking ID";
+                dataTable.Columns["room_ID"].ColumnName = "Room ID";
+                dataTable.Columns["customerID"].ColumnName = "Customer ID";
                 // Set the DataSource of the DataGridView
                 dgvUSERDETAIL.DataSource = dataTable;
                 // Xóa trống các đối tượng trong Panel

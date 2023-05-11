@@ -14,11 +14,11 @@ namespace HotelMangement.BS_Layer
             HotelManagementSystemEntities qlhotelEntity = new HotelManagementSystemEntities();
             var roo = from p in qlhotelEntity.Rooms select p;
             DataTable dt = new DataTable();
-            dt.Columns.Add("Mã phòng");
-            dt.Columns.Add("Số phòng");
-            dt.Columns.Add("Loại phòng");
-            dt.Columns.Add("Sức chứa");
-            dt.Columns.Add("Giá");
+            dt.Columns.Add("Room ID");
+            dt.Columns.Add("Room Number");
+            dt.Columns.Add("Room Type");
+            dt.Columns.Add("Capacity");
+            dt.Columns.Add("Price");
             foreach (var p in roo)
             {
                 dt.Rows.Add(p.roomID, p.room_No, p.Type, p.Capacity, p.Price);

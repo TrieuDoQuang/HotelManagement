@@ -33,12 +33,12 @@ namespace HotelMangement.DanhMucForm
                 DataTable dataTable = dbPD.TakeProduct();
 
                 // Change the column name
-                dataTable.Columns["Product ID"].ColumnName = "Mã sản phẩm";
-                dataTable.Columns["cate ID"].ColumnName = "Mã cate";
+                dataTable.Columns["Product ID"].ColumnName = "Product ID";
+                dataTable.Columns["cate ID"].ColumnName = "Categories ID";
                 dataTable.Columns["Thumbnail"].ColumnName = "Thumbnail";
-                dataTable.Columns["Decription"].ColumnName = "Mô tả";
-                dataTable.Columns["Price"].ColumnName = "Giá";
-                dataTable.Columns["Amount"].ColumnName = "Số lượng";
+                dataTable.Columns["Decription"].ColumnName = "Description";
+                dataTable.Columns["Price"].ColumnName = "Price";
+                dataTable.Columns["Amount"].ColumnName = "Amount";
                 // Set the DataSource of the DataGridView
                 dgvProduct.DataSource = dataTable;
 

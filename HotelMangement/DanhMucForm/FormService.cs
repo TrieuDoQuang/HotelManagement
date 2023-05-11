@@ -30,14 +30,7 @@ namespace HotelMangement.DanhMucForm
 
                 DataTable dataTable = dbSE.TakeService();
 
-                // Change the column name
-                dataTable.Columns["Service ID"].ColumnName = "Mã dịch vụ";
-                dataTable.Columns["Booking ID"].ColumnName = "Mã đặt phòng";
-                dataTable.Columns["Customer ID"].ColumnName = "Mã khách hàng";
-                dataTable.Columns["Product ID"].ColumnName = "Mã sản phẩm";
-                dataTable.Columns["Price"].ColumnName = "Giá";
-                dataTable.Columns["Amount"].ColumnName = "Số lượng";
-                dataTable.Columns["Date of buy"].ColumnName = "Ngày mua";
+        
                 // Set the DataSource of the DataGridView
                 dgvService.DataSource = dataTable;
 

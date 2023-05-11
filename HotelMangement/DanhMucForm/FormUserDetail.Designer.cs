@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnReload = new System.Windows.Forms.Button();
-            this.dgvUSERDETAIL = new System.Windows.Forms.DataGridView();
             this.btnDelete = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txtbook_ID = new System.Windows.Forms.TextBox();
@@ -43,13 +45,14 @@
             this.label3 = new System.Windows.Forms.Label();
             this.panel = new System.Windows.Forms.Panel();
             this.updateBtn = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvUSERDETAIL)).BeginInit();
+            this.dgvUSERDETAIL = new Guna.UI2.WinForms.Guna2DataGridView();
             this.panel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUSERDETAIL)).BeginInit();
             this.SuspendLayout();
             // 
             // btnReload
             // 
-            this.btnReload.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReload.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReload.Location = new System.Drawing.Point(744, 542);
             this.btnReload.Margin = new System.Windows.Forms.Padding(4);
             this.btnReload.Name = "btnReload";
@@ -59,23 +62,9 @@
             this.btnReload.UseVisualStyleBackColor = true;
             this.btnReload.Click += new System.EventHandler(this.btnReLoad_Click);
             // 
-            // dgvUSERDETAIL
-            // 
-            this.dgvUSERDETAIL.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvUSERDETAIL.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
-            this.dgvUSERDETAIL.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dgvUSERDETAIL.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUSERDETAIL.Location = new System.Drawing.Point(716, 62);
-            this.dgvUSERDETAIL.Margin = new System.Windows.Forms.Padding(4);
-            this.dgvUSERDETAIL.Name = "dgvUSERDETAIL";
-            this.dgvUSERDETAIL.RowHeadersWidth = 51;
-            this.dgvUSERDETAIL.Size = new System.Drawing.Size(835, 442);
-            this.dgvUSERDETAIL.TabIndex = 130;
-            this.dgvUSERDETAIL.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUSERDETAIL_CellClick);
-            // 
             // btnDelete
             // 
-            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.Location = new System.Drawing.Point(508, 542);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnDelete.Name = "btnDelete";
@@ -89,12 +78,12 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.Control;
             this.label1.Location = new System.Drawing.Point(65, 200);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(96, 20);
+            this.label1.Size = new System.Drawing.Size(116, 23);
             this.label1.TabIndex = 4;
             this.label1.Text = "Mã phòng:";
             // 
@@ -111,18 +100,18 @@
             // 
             this.lb1.AutoSize = true;
             this.lb1.BackColor = System.Drawing.Color.Transparent;
-            this.lb1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb1.ForeColor = System.Drawing.SystemColors.Control;
             this.lb1.Location = new System.Drawing.Point(33, 120);
             this.lb1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lb1.Name = "lb1";
-            this.lb1.Size = new System.Drawing.Size(128, 20);
+            this.lb1.Size = new System.Drawing.Size(151, 23);
             this.lb1.TabIndex = 0;
             this.lb1.Text = "Mã đặt phòng:";
             // 
             // btnAdd
             // 
-            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.Location = new System.Drawing.Point(160, 542);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd.Name = "btnAdd";
@@ -143,7 +132,7 @@
             // 
             // btnBack
             // 
-            this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBack.Location = new System.Drawing.Point(878, 542);
             this.btnBack.Margin = new System.Windows.Forms.Padding(4);
             this.btnBack.Name = "btnBack";
@@ -155,7 +144,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.Location = new System.Drawing.Point(1455, 542);
             this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
@@ -176,7 +165,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Location = new System.Drawing.Point(1310, 542);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
@@ -190,12 +179,12 @@
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.Control;
             this.label3.Location = new System.Drawing.Point(20, 280);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(141, 20);
+            this.label3.Size = new System.Drawing.Size(171, 23);
             this.label3.TabIndex = 6;
             this.label3.Text = "Mã khách hàng:";
             // 
@@ -216,7 +205,7 @@
             // 
             // updateBtn
             // 
-            this.updateBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.updateBtn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.updateBtn.Location = new System.Drawing.Point(340, 542);
             this.updateBtn.Margin = new System.Windows.Forms.Padding(4);
             this.updateBtn.Name = "updateBtn";
@@ -226,15 +215,66 @@
             this.updateBtn.UseVisualStyleBackColor = true;
             this.updateBtn.Click += new System.EventHandler(this.updateBtn_Click);
             // 
+            // dgvUSERDETAIL
+            // 
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dgvUSERDETAIL.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvUSERDETAIL.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvUSERDETAIL.ColumnHeadersHeight = 30;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvUSERDETAIL.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvUSERDETAIL.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgvUSERDETAIL.Location = new System.Drawing.Point(716, 62);
+            this.dgvUSERDETAIL.Name = "dgvUSERDETAIL";
+            this.dgvUSERDETAIL.RowHeadersVisible = false;
+            this.dgvUSERDETAIL.RowHeadersWidth = 51;
+            this.dgvUSERDETAIL.RowTemplate.Height = 24;
+            this.dgvUSERDETAIL.Size = new System.Drawing.Size(835, 442);
+            this.dgvUSERDETAIL.TabIndex = 140;
+            this.dgvUSERDETAIL.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvUSERDETAIL.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.dgvUSERDETAIL.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.dgvUSERDETAIL.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.dgvUSERDETAIL.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.dgvUSERDETAIL.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.dgvUSERDETAIL.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgvUSERDETAIL.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.dgvUSERDETAIL.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvUSERDETAIL.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvUSERDETAIL.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.dgvUSERDETAIL.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvUSERDETAIL.ThemeStyle.HeaderStyle.Height = 30;
+            this.dgvUSERDETAIL.ThemeStyle.ReadOnly = false;
+            this.dgvUSERDETAIL.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvUSERDETAIL.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvUSERDETAIL.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvUSERDETAIL.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dgvUSERDETAIL.ThemeStyle.RowsStyle.Height = 24;
+            this.dgvUSERDETAIL.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgvUSERDETAIL.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            // 
             // FormUserDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
             this.ClientSize = new System.Drawing.Size(1712, 690);
+            this.Controls.Add(this.dgvUSERDETAIL);
             this.Controls.Add(this.updateBtn);
             this.Controls.Add(this.btnReload);
-            this.Controls.Add(this.dgvUSERDETAIL);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnBack);
@@ -245,9 +285,9 @@
             this.Name = "FormUserDetail";
             this.Text = "FormUserDetail";
             this.Load += new System.EventHandler(this.FormUserDetail_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvUSERDETAIL)).EndInit();
             this.panel.ResumeLayout(false);
             this.panel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUSERDETAIL)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -255,7 +295,6 @@
         #endregion
 
         private System.Windows.Forms.Button btnReload;
-        private System.Windows.Forms.DataGridView dgvUSERDETAIL;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtbook_ID;
@@ -269,5 +308,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel;
         private System.Windows.Forms.Button updateBtn;
+        private Guna.UI2.WinForms.Guna2DataGridView dgvUSERDETAIL;
     }
 }

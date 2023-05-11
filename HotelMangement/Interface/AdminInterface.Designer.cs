@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminInterface));
             this.leftPanel = new System.Windows.Forms.Panel();
             this.userDetailBtn = new FontAwesome.Sharp.IconButton();
             this.productBtn = new FontAwesome.Sharp.IconButton();
@@ -37,12 +36,9 @@
             this.roomBtn = new FontAwesome.Sharp.IconButton();
             this.userBtn = new FontAwesome.Sharp.IconButton();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.topPanel = new System.Windows.Forms.Panel();
             this.mainPanel = new System.Windows.Forms.Panel();
             this.leftPanel.SuspendLayout();
-            this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // leftPanel
@@ -195,23 +191,11 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.pictureBox4);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(300, 266);
             this.panel3.TabIndex = 8;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.BackgroundImage")));
-            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox4.InitialImage = null;
-            this.pictureBox4.Location = new System.Drawing.Point(38, 12);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(221, 198);
-            this.pictureBox4.TabIndex = 37;
-            this.pictureBox4.TabStop = false;
             // 
             // topPanel
             // 
@@ -245,8 +229,6 @@
             this.Text = "AdminInterface";
             this.Load += new System.EventHandler(this.AdminInterface_Load);
             this.leftPanel.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -261,7 +243,6 @@
         private FontAwesome.Sharp.IconButton roomBtn;
         private System.Windows.Forms.Panel topPanel;
         private System.Windows.Forms.Panel mainPanel;
-        private System.Windows.Forms.PictureBox pictureBox4;
         private FontAwesome.Sharp.IconButton userDetailBtn;
     }
 }

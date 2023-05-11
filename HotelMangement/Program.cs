@@ -24,7 +24,8 @@ namespace HotelMangement
             //Application.Run(new FormUserDetail());
             //Application.Run(new FormRole());
             //Application.Run(new FormUser());
-            Application.Run(new AdminInterface());
+            //Application.Run(new AdminInterface());
+            Application.Run(new CustomerInterface());
             //Application.Run(new FormService());
             //Application.Run(new FormProduct());
 

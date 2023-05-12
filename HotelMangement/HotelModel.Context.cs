@@ -140,5 +140,495 @@ namespace HotelMangement
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_upgraddiagrams");
         }
+    
+        public virtual int ADD_BOOKING(Nullable<int> staff_ID, Nullable<int> customer_ID, Nullable<System.DateTime> check_In, Nullable<System.DateTime> check_Out)
+        {
+            var staff_IDParameter = staff_ID.HasValue ?
+                new ObjectParameter("staff_ID", staff_ID) :
+                new ObjectParameter("staff_ID", typeof(int));
+    
+            var customer_IDParameter = customer_ID.HasValue ?
+                new ObjectParameter("customer_ID", customer_ID) :
+                new ObjectParameter("customer_ID", typeof(int));
+    
+            var check_InParameter = check_In.HasValue ?
+                new ObjectParameter("Check_In", check_In) :
+                new ObjectParameter("Check_In", typeof(System.DateTime));
+    
+            var check_OutParameter = check_Out.HasValue ?
+                new ObjectParameter("Check_Out", check_Out) :
+                new ObjectParameter("Check_Out", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ADD_BOOKING", staff_IDParameter, customer_IDParameter, check_InParameter, check_OutParameter);
+        }
+    
+        public virtual int ADD_BOOKING_DETAIL(Nullable<int> book_ID, Nullable<int> room_ID, Nullable<double> price, Nullable<double> unit)
+        {
+            var book_IDParameter = book_ID.HasValue ?
+                new ObjectParameter("book_ID", book_ID) :
+                new ObjectParameter("book_ID", typeof(int));
+    
+            var room_IDParameter = room_ID.HasValue ?
+                new ObjectParameter("room_ID", room_ID) :
+                new ObjectParameter("room_ID", typeof(int));
+    
+            var priceParameter = price.HasValue ?
+                new ObjectParameter("Price", price) :
+                new ObjectParameter("Price", typeof(double));
+    
+            var unitParameter = unit.HasValue ?
+                new ObjectParameter("Unit", unit) :
+                new ObjectParameter("Unit", typeof(double));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ADD_BOOKING_DETAIL", book_IDParameter, room_IDParameter, priceParameter, unitParameter);
+        }
+    
+        public virtual int ADD_CATEGORY(string cateName)
+        {
+            var cateNameParameter = cateName != null ?
+                new ObjectParameter("cateName", cateName) :
+                new ObjectParameter("cateName", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ADD_CATEGORY", cateNameParameter);
+        }
+    
+        public virtual int ADD_PRODUCT(Nullable<int> cate_ID, string title, string thumbnail, string decription, Nullable<double> price, Nullable<int> amount)
+        {
+            var cate_IDParameter = cate_ID.HasValue ?
+                new ObjectParameter("cate_ID", cate_ID) :
+                new ObjectParameter("cate_ID", typeof(int));
+    
+            var titleParameter = title != null ?
+                new ObjectParameter("Title", title) :
+                new ObjectParameter("Title", typeof(string));
+    
+            var thumbnailParameter = thumbnail != null ?
+                new ObjectParameter("Thumbnail", thumbnail) :
+                new ObjectParameter("Thumbnail", typeof(string));
+    
+            var decriptionParameter = decription != null ?
+                new ObjectParameter("Decription", decription) :
+                new ObjectParameter("Decription", typeof(string));
+    
+            var priceParameter = price.HasValue ?
+                new ObjectParameter("Price", price) :
+                new ObjectParameter("Price", typeof(double));
+    
+            var amountParameter = amount.HasValue ?
+                new ObjectParameter("Amount", amount) :
+                new ObjectParameter("Amount", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ADD_PRODUCT", cate_IDParameter, titleParameter, thumbnailParameter, decriptionParameter, priceParameter, amountParameter);
+        }
+    
+        public virtual int ADD_ROLE(string rName)
+        {
+            var rNameParameter = rName != null ?
+                new ObjectParameter("rName", rName) :
+                new ObjectParameter("rName", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ADD_ROLE", rNameParameter);
+        }
+    
+        public virtual int ADD_ROOM(string room_No, string type, Nullable<int> capacity, Nullable<double> price)
+        {
+            var room_NoParameter = room_No != null ?
+                new ObjectParameter("room_No", room_No) :
+                new ObjectParameter("room_No", typeof(string));
+    
+            var typeParameter = type != null ?
+                new ObjectParameter("Type", type) :
+                new ObjectParameter("Type", typeof(string));
+    
+            var capacityParameter = capacity.HasValue ?
+                new ObjectParameter("Capacity", capacity) :
+                new ObjectParameter("Capacity", typeof(int));
+    
+            var priceParameter = price.HasValue ?
+                new ObjectParameter("Price", price) :
+                new ObjectParameter("Price", typeof(double));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ADD_ROOM", room_NoParameter, typeParameter, capacityParameter, priceParameter);
+        }
+    
+        public virtual int ADD_SERVICE(Nullable<int> book_ID, Nullable<int> customerID, Nullable<int> product_ID, Nullable<double> price, Nullable<int> amount, Nullable<System.DateTime> buy_Date)
+        {
+            var book_IDParameter = book_ID.HasValue ?
+                new ObjectParameter("book_ID", book_ID) :
+                new ObjectParameter("book_ID", typeof(int));
+    
+            var customerIDParameter = customerID.HasValue ?
+                new ObjectParameter("customerID", customerID) :
+                new ObjectParameter("customerID", typeof(int));
+    
+            var product_IDParameter = product_ID.HasValue ?
+                new ObjectParameter("product_ID", product_ID) :
+                new ObjectParameter("product_ID", typeof(int));
+    
+            var priceParameter = price.HasValue ?
+                new ObjectParameter("Price", price) :
+                new ObjectParameter("Price", typeof(double));
+    
+            var amountParameter = amount.HasValue ?
+                new ObjectParameter("Amount", amount) :
+                new ObjectParameter("Amount", typeof(int));
+    
+            var buy_DateParameter = buy_Date.HasValue ?
+                new ObjectParameter("Buy_Date", buy_Date) :
+                new ObjectParameter("Buy_Date", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ADD_SERVICE", book_IDParameter, customerIDParameter, product_IDParameter, priceParameter, amountParameter, buy_DateParameter);
+        }
+    
+        public virtual int ADD_USER(string fullname, Nullable<System.DateTime> birthday, Nullable<bool> gender, string email, string phone_Number, string address, Nullable<int> role_id, string password)
+        {
+            var fullnameParameter = fullname != null ?
+                new ObjectParameter("Fullname", fullname) :
+                new ObjectParameter("Fullname", typeof(string));
+    
+            var birthdayParameter = birthday.HasValue ?
+                new ObjectParameter("Birthday", birthday) :
+                new ObjectParameter("Birthday", typeof(System.DateTime));
+    
+            var genderParameter = gender.HasValue ?
+                new ObjectParameter("Gender", gender) :
+                new ObjectParameter("Gender", typeof(bool));
+    
+            var emailParameter = email != null ?
+                new ObjectParameter("Email", email) :
+                new ObjectParameter("Email", typeof(string));
+    
+            var phone_NumberParameter = phone_Number != null ?
+                new ObjectParameter("Phone_Number", phone_Number) :
+                new ObjectParameter("Phone_Number", typeof(string));
+    
+            var addressParameter = address != null ?
+                new ObjectParameter("Address", address) :
+                new ObjectParameter("Address", typeof(string));
+    
+            var role_idParameter = role_id.HasValue ?
+                new ObjectParameter("role_id", role_id) :
+                new ObjectParameter("role_id", typeof(int));
+    
+            var passwordParameter = password != null ?
+                new ObjectParameter("password", password) :
+                new ObjectParameter("password", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ADD_USER", fullnameParameter, birthdayParameter, genderParameter, emailParameter, phone_NumberParameter, addressParameter, role_idParameter, passwordParameter);
+        }
+    
+        public virtual int ADD_USER_DETAIL(Nullable<int> book_ID, Nullable<int> room_ID, Nullable<int> customerID)
+        {
+            var book_IDParameter = book_ID.HasValue ?
+                new ObjectParameter("book_ID", book_ID) :
+                new ObjectParameter("book_ID", typeof(int));
+    
+            var room_IDParameter = room_ID.HasValue ?
+                new ObjectParameter("room_ID", room_ID) :
+                new ObjectParameter("room_ID", typeof(int));
+    
+            var customerIDParameter = customerID.HasValue ?
+                new ObjectParameter("customerID", customerID) :
+                new ObjectParameter("customerID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ADD_USER_DETAIL", book_IDParameter, room_IDParameter, customerIDParameter);
+        }
+    
+        public virtual int DELETE_BOOKING(Nullable<int> bookID)
+        {
+            var bookIDParameter = bookID.HasValue ?
+                new ObjectParameter("bookID", bookID) :
+                new ObjectParameter("bookID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DELETE_BOOKING", bookIDParameter);
+        }
+    
+        public virtual int DELETE_BOOKING_DETAIL(Nullable<int> book_ID, Nullable<int> room_ID)
+        {
+            var book_IDParameter = book_ID.HasValue ?
+                new ObjectParameter("book_ID", book_ID) :
+                new ObjectParameter("book_ID", typeof(int));
+    
+            var room_IDParameter = room_ID.HasValue ?
+                new ObjectParameter("room_ID", room_ID) :
+                new ObjectParameter("room_ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DELETE_BOOKING_DETAIL", book_IDParameter, room_IDParameter);
+        }
+    
+        public virtual int DELETE_CATEGORY(Nullable<int> cateID)
+        {
+            var cateIDParameter = cateID.HasValue ?
+                new ObjectParameter("cateID", cateID) :
+                new ObjectParameter("cateID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DELETE_CATEGORY", cateIDParameter);
+        }
+    
+        public virtual int DELETE_PRODUCT(Nullable<int> pID)
+        {
+            var pIDParameter = pID.HasValue ?
+                new ObjectParameter("pID", pID) :
+                new ObjectParameter("pID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DELETE_PRODUCT", pIDParameter);
+        }
+    
+        public virtual int DELETE_ROLE(Nullable<int> rID)
+        {
+            var rIDParameter = rID.HasValue ?
+                new ObjectParameter("rID", rID) :
+                new ObjectParameter("rID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DELETE_ROLE", rIDParameter);
+        }
+    
+        public virtual int DELETE_ROOM(Nullable<int> roomID)
+        {
+            var roomIDParameter = roomID.HasValue ?
+                new ObjectParameter("roomID", roomID) :
+                new ObjectParameter("roomID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DELETE_ROOM", roomIDParameter);
+        }
+    
+        public virtual int DELETE_SERVICE(Nullable<int> serID)
+        {
+            var serIDParameter = serID.HasValue ?
+                new ObjectParameter("serID", serID) :
+                new ObjectParameter("serID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DELETE_SERVICE", serIDParameter);
+        }
+    
+        public virtual int DELETE_USER(Nullable<int> userID)
+        {
+            var userIDParameter = userID.HasValue ?
+                new ObjectParameter("userID", userID) :
+                new ObjectParameter("userID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DELETE_USER", userIDParameter);
+        }
+    
+        public virtual int DELETE_USER_DETAIL(Nullable<int> book_ID, Nullable<int> room_ID, Nullable<int> customerID)
+        {
+            var book_IDParameter = book_ID.HasValue ?
+                new ObjectParameter("book_ID", book_ID) :
+                new ObjectParameter("book_ID", typeof(int));
+    
+            var room_IDParameter = room_ID.HasValue ?
+                new ObjectParameter("room_ID", room_ID) :
+                new ObjectParameter("room_ID", typeof(int));
+    
+            var customerIDParameter = customerID.HasValue ?
+                new ObjectParameter("customerID", customerID) :
+                new ObjectParameter("customerID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DELETE_USER_DETAIL", book_IDParameter, room_IDParameter, customerIDParameter);
+        }
+    
+        public virtual int UPDATE_BOOKING(Nullable<int> bookID, Nullable<int> staff_ID, Nullable<int> customer_ID, Nullable<System.DateTime> check_In, Nullable<System.DateTime> check_Out)
+        {
+            var bookIDParameter = bookID.HasValue ?
+                new ObjectParameter("bookID", bookID) :
+                new ObjectParameter("bookID", typeof(int));
+    
+            var staff_IDParameter = staff_ID.HasValue ?
+                new ObjectParameter("staff_ID", staff_ID) :
+                new ObjectParameter("staff_ID", typeof(int));
+    
+            var customer_IDParameter = customer_ID.HasValue ?
+                new ObjectParameter("customer_ID", customer_ID) :
+                new ObjectParameter("customer_ID", typeof(int));
+    
+            var check_InParameter = check_In.HasValue ?
+                new ObjectParameter("Check_In", check_In) :
+                new ObjectParameter("Check_In", typeof(System.DateTime));
+    
+            var check_OutParameter = check_Out.HasValue ?
+                new ObjectParameter("Check_Out", check_Out) :
+                new ObjectParameter("Check_Out", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UPDATE_BOOKING", bookIDParameter, staff_IDParameter, customer_IDParameter, check_InParameter, check_OutParameter);
+        }
+    
+        public virtual int UPDATE_BOOKING_DETAIL(Nullable<int> book_ID, Nullable<int> room_ID, Nullable<double> price, Nullable<double> unit)
+        {
+            var book_IDParameter = book_ID.HasValue ?
+                new ObjectParameter("book_ID", book_ID) :
+                new ObjectParameter("book_ID", typeof(int));
+    
+            var room_IDParameter = room_ID.HasValue ?
+                new ObjectParameter("room_ID", room_ID) :
+                new ObjectParameter("room_ID", typeof(int));
+    
+            var priceParameter = price.HasValue ?
+                new ObjectParameter("Price", price) :
+                new ObjectParameter("Price", typeof(double));
+    
+            var unitParameter = unit.HasValue ?
+                new ObjectParameter("Unit", unit) :
+                new ObjectParameter("Unit", typeof(double));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UPDATE_BOOKING_DETAIL", book_IDParameter, room_IDParameter, priceParameter, unitParameter);
+        }
+    
+        public virtual int UPDATE_CATEGORY(Nullable<int> cateID, string newCateName)
+        {
+            var cateIDParameter = cateID.HasValue ?
+                new ObjectParameter("cateID", cateID) :
+                new ObjectParameter("cateID", typeof(int));
+    
+            var newCateNameParameter = newCateName != null ?
+                new ObjectParameter("newCateName", newCateName) :
+                new ObjectParameter("newCateName", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UPDATE_CATEGORY", cateIDParameter, newCateNameParameter);
+        }
+    
+        public virtual int UPDATE_PRODUCT(Nullable<int> pID, Nullable<int> cate_ID, string title, string thumbnail, string decription, Nullable<double> price, Nullable<int> amount)
+        {
+            var pIDParameter = pID.HasValue ?
+                new ObjectParameter("pID", pID) :
+                new ObjectParameter("pID", typeof(int));
+    
+            var cate_IDParameter = cate_ID.HasValue ?
+                new ObjectParameter("cate_ID", cate_ID) :
+                new ObjectParameter("cate_ID", typeof(int));
+    
+            var titleParameter = title != null ?
+                new ObjectParameter("Title", title) :
+                new ObjectParameter("Title", typeof(string));
+    
+            var thumbnailParameter = thumbnail != null ?
+                new ObjectParameter("Thumbnail", thumbnail) :
+                new ObjectParameter("Thumbnail", typeof(string));
+    
+            var decriptionParameter = decription != null ?
+                new ObjectParameter("Decription", decription) :
+                new ObjectParameter("Decription", typeof(string));
+    
+            var priceParameter = price.HasValue ?
+                new ObjectParameter("Price", price) :
+                new ObjectParameter("Price", typeof(double));
+    
+            var amountParameter = amount.HasValue ?
+                new ObjectParameter("Amount", amount) :
+                new ObjectParameter("Amount", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UPDATE_PRODUCT", pIDParameter, cate_IDParameter, titleParameter, thumbnailParameter, decriptionParameter, priceParameter, amountParameter);
+        }
+    
+        public virtual int UPDATE_ROLE(Nullable<int> roleId, string roleName)
+        {
+            var roleIdParameter = roleId.HasValue ?
+                new ObjectParameter("roleId", roleId) :
+                new ObjectParameter("roleId", typeof(int));
+    
+            var roleNameParameter = roleName != null ?
+                new ObjectParameter("roleName", roleName) :
+                new ObjectParameter("roleName", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UPDATE_ROLE", roleIdParameter, roleNameParameter);
+        }
+    
+        public virtual int UPDATE_ROOM(Nullable<int> roomID, string roomNo, string type, Nullable<int> capacity, Nullable<double> price)
+        {
+            var roomIDParameter = roomID.HasValue ?
+                new ObjectParameter("roomID", roomID) :
+                new ObjectParameter("roomID", typeof(int));
+    
+            var roomNoParameter = roomNo != null ?
+                new ObjectParameter("roomNo", roomNo) :
+                new ObjectParameter("roomNo", typeof(string));
+    
+            var typeParameter = type != null ?
+                new ObjectParameter("type", type) :
+                new ObjectParameter("type", typeof(string));
+    
+            var capacityParameter = capacity.HasValue ?
+                new ObjectParameter("capacity", capacity) :
+                new ObjectParameter("capacity", typeof(int));
+    
+            var priceParameter = price.HasValue ?
+                new ObjectParameter("price", price) :
+                new ObjectParameter("price", typeof(double));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UPDATE_ROOM", roomIDParameter, roomNoParameter, typeParameter, capacityParameter, priceParameter);
+        }
+    
+        public virtual int UPDATE_SERVICE(Nullable<int> serID, Nullable<int> book_ID, Nullable<int> customerID, Nullable<int> product_ID, Nullable<double> price, Nullable<int> amount, Nullable<System.DateTime> buy_Date)
+        {
+            var serIDParameter = serID.HasValue ?
+                new ObjectParameter("serID", serID) :
+                new ObjectParameter("serID", typeof(int));
+    
+            var book_IDParameter = book_ID.HasValue ?
+                new ObjectParameter("book_ID", book_ID) :
+                new ObjectParameter("book_ID", typeof(int));
+    
+            var customerIDParameter = customerID.HasValue ?
+                new ObjectParameter("customerID", customerID) :
+                new ObjectParameter("customerID", typeof(int));
+    
+            var product_IDParameter = product_ID.HasValue ?
+                new ObjectParameter("product_ID", product_ID) :
+                new ObjectParameter("product_ID", typeof(int));
+    
+            var priceParameter = price.HasValue ?
+                new ObjectParameter("Price", price) :
+                new ObjectParameter("Price", typeof(double));
+    
+            var amountParameter = amount.HasValue ?
+                new ObjectParameter("Amount", amount) :
+                new ObjectParameter("Amount", typeof(int));
+    
+            var buy_DateParameter = buy_Date.HasValue ?
+                new ObjectParameter("Buy_Date", buy_Date) :
+                new ObjectParameter("Buy_Date", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UPDATE_SERVICE", serIDParameter, book_IDParameter, customerIDParameter, product_IDParameter, priceParameter, amountParameter, buy_DateParameter);
+        }
+    
+        public virtual int UPDATE_USER(Nullable<int> userID, string fullname, Nullable<System.DateTime> birthday, Nullable<bool> gender, string email, string phone_Number, string address, Nullable<int> role_id, string password)
+        {
+            var userIDParameter = userID.HasValue ?
+                new ObjectParameter("userID", userID) :
+                new ObjectParameter("userID", typeof(int));
+    
+            var fullnameParameter = fullname != null ?
+                new ObjectParameter("Fullname", fullname) :
+                new ObjectParameter("Fullname", typeof(string));
+    
+            var birthdayParameter = birthday.HasValue ?
+                new ObjectParameter("Birthday", birthday) :
+                new ObjectParameter("Birthday", typeof(System.DateTime));
+    
+            var genderParameter = gender.HasValue ?
+                new ObjectParameter("Gender", gender) :
+                new ObjectParameter("Gender", typeof(bool));
+    
+            var emailParameter = email != null ?
+                new ObjectParameter("Email", email) :
+                new ObjectParameter("Email", typeof(string));
+    
+            var phone_NumberParameter = phone_Number != null ?
+                new ObjectParameter("Phone_Number", phone_Number) :
+                new ObjectParameter("Phone_Number", typeof(string));
+    
+            var addressParameter = address != null ?
+                new ObjectParameter("Address", address) :
+                new ObjectParameter("Address", typeof(string));
+    
+            var role_idParameter = role_id.HasValue ?
+                new ObjectParameter("role_id", role_id) :
+                new ObjectParameter("role_id", typeof(int));
+    
+            var passwordParameter = password != null ?
+                new ObjectParameter("password", password) :
+                new ObjectParameter("password", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UPDATE_USER", userIDParameter, fullnameParameter, birthdayParameter, genderParameter, emailParameter, phone_NumberParameter, addressParameter, role_idParameter, passwordParameter);
+        }
     }
 }

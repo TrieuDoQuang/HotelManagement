@@ -1,9 +1,13 @@
-﻿using System;
+﻿using Guna.UI2.WinForms.Suite;
+using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace HotelMangement.BS_Layer
 {
@@ -43,40 +47,43 @@ namespace HotelMangement.BS_Layer
         }
         public bool AddRoom(int roomID, string room_No, string Type, int Capacity, double Price, ref string err)
         {
-            HotelManagementSystemEntities qlhotelEntity = new HotelManagementSystemEntities();
-            Room roo = new Room();
-            roo.roomID = roomID;
-            roo.room_No = room_No;
-            roo.Type = Type;
-            roo.Capacity = Capacity;
-            roo.Price = Price;
-            qlhotelEntity.Rooms.Add(roo);
-            qlhotelEntity.SaveChanges();
+            try
+            {
+                HotelManagementSystemEntities qlhotelEntity = new HotelManagementSystemEntities();
+                var proce = qlhotelEntity.ADD_ROOM(room_No, Type, Capacity, Price);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.InnerException.Message);
+                return false;
+            }
             return true;
         }
         public bool DeleteRoom(ref string err, int roomID)
         {
-            HotelManagementSystemEntities qlhotelEntity = new HotelManagementSystemEntities();
-            Room roo = new Room();
-            roo.roomID = roomID;
-            qlhotelEntity.Rooms.Attach(roo);
-            qlhotelEntity.Rooms.Remove(roo);
-            qlhotelEntity.SaveChanges();
+            try
+            {
+                HotelManagementSystemEntities qlhotelEntity = new HotelManagementSystemEntities();
+                var proce = qlhotelEntity.DELETE_ROOM(roomID);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.InnerException.Message);
+                return false;
+            }
             return true;
         }
         public bool UpdateRoom(int roomID, string room_No, string Type, int Capacity, double Price, ref string err)
         {
-            HotelManagementSystemEntities qlhotelEntity = new HotelManagementSystemEntities();
-            var rooQuery = (from roo in qlhotelEntity.Rooms
-                           where roo.roomID == roomID
-                           select roo).SingleOrDefault();
-            if (rooQuery != null)
+            try
             {
-                rooQuery.room_No = room_No;
-                rooQuery.Type = Type;
-                rooQuery.Capacity = Capacity;
-                rooQuery.Price = Price;
-                qlhotelEntity.SaveChanges();
+                HotelManagementSystemEntities qlhotelEntity = new HotelManagementSystemEntities();
+                var proce = qlhotelEntity.UPDATE_ROOM(roomID, room_No, Type, Capacity, Price);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.InnerException.Message);
+                return false;
             }
             return true;
         }

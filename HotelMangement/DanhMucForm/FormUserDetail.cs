@@ -128,20 +128,10 @@ namespace HotelMangement.DanhMucForm
             // Thêm dữ liệu
             if (Them)
             {
-                try
-                {
-                    // Thực hiện lệnh
-                    BLUserDetail blUd = new BLUserDetail();
-                    blUd.AddUserDetail(Convert.ToInt32(this.txtbook_ID.Text), Convert.ToInt32(this.txtroom_ID.Text), Convert.ToInt32(this.txtcustomerID.Text), ref err);
-                    // Load lại dữ liệu trên DataGridView
-                    LoadData();
-                    // Thông báo
-                    MessageBox.Show("Đã thêm xong!");
-                }
-                catch
-                {
-                    MessageBox.Show("Không thêm được. Lỗi rồi!");
-                }
+                BLUserDetail blUd = new BLUserDetail();
+                if(blUd.AddUserDetail(Convert.ToInt32(this.txtbook_ID.Text), Convert.ToInt32(this.txtroom_ID.Text), Convert.ToInt32(this.txtcustomerID.Text), ref err));
+                    MessageBox.Show("Add successfully!");
+                LoadData();
             }
             else
             {

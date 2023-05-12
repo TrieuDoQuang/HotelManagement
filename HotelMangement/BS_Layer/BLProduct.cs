@@ -1,9 +1,12 @@
-﻿using System;
+﻿using Guna.UI2.WinForms.Suite;
+using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace HotelMangement.BS_Layer
 {
@@ -18,6 +21,7 @@ namespace HotelMangement.BS_Layer
             DataTable dt = new DataTable();
             dt.Columns.Add("Product ID");
             dt.Columns.Add("cate ID");
+            dt.Columns.Add("Title");
             dt.Columns.Add("Thumbnail");
             dt.Columns.Add("Decription");
             dt.Columns.Add("Price");
@@ -26,50 +30,50 @@ namespace HotelMangement.BS_Layer
 
             foreach (var p in tps)
             {
-                dt.Rows.Add(p.pID, p.cate_ID, p.Thumbnail, p.Decription, p.Price, p.Amount);
+                dt.Rows.Add(p.pID, p.cate_ID,p.Title, p.Thumbnail, p.Decription, p.Price, p.Amount);
             }
             return dt;
         }
-        public bool AddProduct(int pID, int cate_ID, string Thumbnail, string Decription, double Price, int Amount, ref string err)
+        public bool AddProduct(int pID, int cate_ID,string Title, string Thumbnail, string Decription, double Price, int Amount, ref string err)
         {
-            HotelManagementSystemEntities hotelEtity = new HotelManagementSystemEntities();
-
-            Product pro = new Product();
-            pro.pID = pID;
-            pro.cate_ID = cate_ID;
-            pro.Thumbnail = Thumbnail;
-            pro.Decription = Decription;
-            pro.Price = Price;
-            pro.Amount = Amount;
-            hotelEtity.Products.Add(pro);
-            hotelEtity.SaveChanges();
+            try
+            {
+                HotelManagementSystemEntities qlhotelEntity = new HotelManagementSystemEntities();
+                var proce = qlhotelEntity.ADD_PRODUCT(cate_ID,Title, Thumbnail, Decription, Price, Amount);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.InnerException.Message);
+                return false;
+            }
             return true;
 
         }
         public bool DeleteProduct(ref string err, int pID)
         {
-            HotelManagementSystemEntities hotelEtity = new HotelManagementSystemEntities();
-            Product pro = new Product();
-            pro.pID = pID;
-            hotelEtity.Products.Attach(pro);
-            hotelEtity.Products.Remove(pro);
-            hotelEtity.SaveChanges();
+            try
+            {
+                HotelManagementSystemEntities qlhotelEntity = new HotelManagementSystemEntities();
+                var proce = qlhotelEntity.DELETE_PRODUCT(pID);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.InnerException.Message);
+                return false;
+            }
             return true;
         }
-        public bool UpdateProduct(int pID, int cate_ID, string Thumbnail, string Decription, double Price, int Amount, ref string err)
+        public bool UpdateProduct(int pID, int cate_ID,string Title, string Thumbnail, string Decription, double Price, int Amount, ref string err)
         {
-            HotelManagementSystemEntities hotelEtity = new HotelManagementSystemEntities();
-            var tpQuery = (from pro in hotelEtity.Products
-                           where pro.pID == pID
-                           select pro).SingleOrDefault();
-            if (tpQuery != null)
+            try
             {
-                tpQuery.cate_ID = cate_ID;
-                tpQuery.Thumbnail = Thumbnail;
-                tpQuery.Decription = Decription;
-                tpQuery.Price = Price;
-                tpQuery.Amount = Amount;
-                hotelEtity.SaveChanges();
+                HotelManagementSystemEntities qlhotelEntity = new HotelManagementSystemEntities();
+                var proce = qlhotelEntity.UPDATE_PRODUCT(pID,cate_ID, Title, Thumbnail, Decription, Price, Amount);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.InnerException.Message);
+                return false;
             }
             return true;
         }

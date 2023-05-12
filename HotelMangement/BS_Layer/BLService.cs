@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace HotelMangement.BS_Layer
 {
@@ -32,46 +34,44 @@ namespace HotelMangement.BS_Layer
         }
         public bool AddService(int serID, int book_ID, int customerID, int product_ID, double Price, int Amount, DateTime Buy_Date, ref string err)
         {
-            HotelManagementSystemEntities hotelEtity = new HotelManagementSystemEntities();
-
-            Service sv = new Service();
-            sv.serID = serID;
-            sv.book_ID = book_ID;
-            sv.customerID = customerID;
-            sv.product_ID = product_ID;
-            sv.Price = Price;
-            sv.Amount = Amount;
-            sv.Buy_Date = Buy_Date;
-            hotelEtity.Services.Add(sv);
-            hotelEtity.SaveChanges();
+            try
+            {
+                HotelManagementSystemEntities qlhotelEntity = new HotelManagementSystemEntities();
+                var proce = qlhotelEntity.ADD_SERVICE(book_ID, customerID, product_ID, Price, Amount, Buy_Date);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.InnerException.Message);
+                return false;
+            }
             return true;
 
         }
         public bool DeleteService(ref string err, int serID)
         {
-            HotelManagementSystemEntities hotelEtity = new HotelManagementSystemEntities();
-            Service sv = new Service();
-            sv.serID = serID;
-            hotelEtity.Services.Attach(sv);
-            hotelEtity.Services.Remove(sv);
-            hotelEtity.SaveChanges();
+            try
+            {
+                HotelManagementSystemEntities qlhotelEntity = new HotelManagementSystemEntities();
+                var proce = qlhotelEntity.DELETE_SERVICE(serID);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.InnerException.Message);
+                return false;
+            }
             return true;
         }
         public bool UpdateService(int serID, int book_ID, int customerID, int product_ID, double Price, int Amount, DateTime Buy_Date, ref string err)
         {
-            HotelManagementSystemEntities hotelEtity = new HotelManagementSystemEntities();
-            var tpQuery = (from sv in hotelEtity.Services
-                           where sv.serID == serID
-                           select sv).SingleOrDefault();
-            if (tpQuery != null)
+            try
             {
-                tpQuery.book_ID = book_ID;
-                tpQuery.customerID = customerID;
-                tpQuery.product_ID = product_ID;
-                tpQuery.Price = Price;
-                tpQuery.Amount = Amount;
-                tpQuery.Buy_Date = Buy_Date;
-                hotelEtity.SaveChanges();
+                HotelManagementSystemEntities qlhotelEntity = new HotelManagementSystemEntities();
+                var proce = qlhotelEntity.UPDATE_SERVICE(serID, book_ID, customerID, product_ID, Price, Amount, Buy_Date);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.InnerException.Message);
+                return false;
             }
             return true;
         }

@@ -167,20 +167,12 @@ namespace HotelMangement.DanhMucForm
             // Thêm dữ liệu
             if (Them)
             {
-                try
-                {
-                    // Thực hiện lệnh
-                    BLRoom blRo = new BLRoom();
-                    blRo.AddRoom(Convert.ToInt32(this.txtroomID.Text), this.txtroom_No.Text, this.txtType.Text, Convert.ToInt32(this.txtCapacity.Text),Convert.ToDouble(this.txtPrice.Text), ref err);
-                    // Load lại dữ liệu trên DataGridView
-                    LoadData();
-                    // Thông báo
-                    MessageBox.Show("Đã thêm xong!");
-                }
-                catch
-                {
-                    MessageBox.Show("Không thêm được. Lỗi rồi!");
-                }
+                // Thực hiện lệnh
+                BLRoom blRo = new BLRoom();
+                if(blRo.AddRoom(Convert.ToInt32(this.txtroomID.Text), this.txtroom_No.Text, this.txtType.Text, Convert.ToInt32(this.txtCapacity.Text), Convert.ToDouble(this.txtPrice.Text), ref err));
+                    MessageBox.Show("Add successfully!");
+                LoadData();
+                
             }
             else
             {

@@ -35,6 +35,7 @@ namespace HotelMangement.DanhMucForm
                 // Change the column name
                 dataTable.Columns["Product ID"].ColumnName = "Product ID";
                 dataTable.Columns["cate ID"].ColumnName = "Categories ID";
+                dataTable.Columns["Title"].ColumnName = "Title";
                 dataTable.Columns["Thumbnail"].ColumnName = "Thumbnail";
                 dataTable.Columns["Decription"].ColumnName = "Description";
                 dataTable.Columns["Price"].ColumnName = "Price";
@@ -47,6 +48,7 @@ namespace HotelMangement.DanhMucForm
                 // Xóa trống các đối tượng trong Panel
                 this.txtProID.ResetText();
                 this.txtCateID.ResetText();
+                this.txtTitle.ResetText();
                 this.txtThumb.ResetText();
                 this.txtDec.ResetText();
                 this.txtPrice.ResetText();
@@ -65,7 +67,7 @@ namespace HotelMangement.DanhMucForm
             }
             catch
             {
-                MessageBox.Show("Không lấy được nội dung trong table ROOM. Lỗi rồi!!!");
+                MessageBox.Show("Không lấy được nội dung trong table PRODUCT. Lỗi rồi!!!");
             }
         }
 
@@ -80,6 +82,7 @@ namespace HotelMangement.DanhMucForm
             // Xóa trống các đối tượng trong Panel
             this.txtProID.ResetText();
             this.txtCateID.ResetText();
+            this.txtTitle.ResetText();
             this.txtThumb.ResetText();
             this.txtDec.ResetText();
             this.txtPrice.ResetText();
@@ -103,26 +106,17 @@ namespace HotelMangement.DanhMucForm
             // Thêm dữ liệu
             if (Them)
             {
-                try
-                {
-                    // Thực hiện lệnh
-                    BlProduct dbPD = new BlProduct();
-                    dbPD.AddProduct(Convert.ToInt32(this.txtProID.Text), Convert.ToInt32(this.txtCateID.Text), this.txtThumb.Text, this.txtDec.Text, Convert.ToDouble(this.txtPrice.Text), Convert.ToInt32(this.txtAmount.Text), ref err);
-                    // Load lại dữ liệu trên DataGridView
-                    LoadData();
-                    // Thông báo
-                    MessageBox.Show("Đã thêm xong!");
-                }
-                catch
-                {
-                    MessageBox.Show("Không thêm được. Lỗi rồi!");
-                }
+                BlProduct dbPD = new BlProduct();
+                if(dbPD.AddProduct(Convert.ToInt32(this.txtProID.Text), Convert.ToInt32(this.txtCateID.Text), this.txtTitle.Text, this.txtThumb.Text, this.txtDec.Text, Convert.ToDouble(this.txtPrice.Text), Convert.ToInt32(this.txtAmount.Text), ref err));
+                    MessageBox.Show("Add successfully!");
+                LoadData();
+                
             }
             else
             {
                 // Thực hiện lệnh
                 BlProduct dbPD = new BlProduct();
-                dbPD.UpdateProduct(Convert.ToInt32(this.txtProID.Text), Convert.ToInt32(this.txtCateID.Text), this.txtThumb.Text, this.txtDec.Text, Convert.ToDouble(this.txtPrice.Text), Convert.ToInt32(this.txtAmount.Text), ref err);
+                dbPD.UpdateProduct(Convert.ToInt32(this.txtProID.Text), Convert.ToInt32(this.txtCateID.Text),this.txtTitle.Text, this.txtThumb.Text, this.txtDec.Text, Convert.ToDouble(this.txtPrice.Text), Convert.ToInt32(this.txtAmount.Text), ref err);
                 // Load lại dữ liệu trên DataGridView
                 LoadData();
                 // Thông báo
@@ -136,6 +130,7 @@ namespace HotelMangement.DanhMucForm
             // Xóa trống các đối tượng trong Panel
             this.txtProID.ResetText();
             this.txtCateID.ResetText();
+            this.txtTitle.ResetText();
             this.txtThumb.ResetText();
             this.txtDec.ResetText();
             this.txtPrice.ResetText();
@@ -199,14 +194,16 @@ namespace HotelMangement.DanhMucForm
             dgvProduct.Rows[r].Cells[0].Value.ToString();
             this.txtCateID.Text =
             dgvProduct.Rows[r].Cells[1].Value.ToString();
-            this.txtThumb.Text =
+            this.txtTitle.Text =
             dgvProduct.Rows[r].Cells[2].Value.ToString();
-            this.txtDec.Text =
+            this.txtThumb.Text =
             dgvProduct.Rows[r].Cells[3].Value.ToString();
-            this.txtPrice.Text =
+            this.txtDec.Text =
             dgvProduct.Rows[r].Cells[4].Value.ToString();
-            this.txtAmount.Text =
+            this.txtPrice.Text =
             dgvProduct.Rows[r].Cells[5].Value.ToString();
+            this.txtAmount.Text =
+            dgvProduct.Rows[r].Cells[6].Value.ToString();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)

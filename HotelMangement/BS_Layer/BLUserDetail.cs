@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace HotelMangement.BS_Layer
 {
@@ -25,23 +27,30 @@ namespace HotelMangement.BS_Layer
         }
         public bool AddUserDetail(int book_ID, int room_ID,int customerID, ref string err)
         {
-            HotelManagementSystemEntities qlhotelEntity = new HotelManagementSystemEntities();
-            UserDetail uD = new UserDetail();
-            uD.book_ID = book_ID; uD.room_ID = room_ID; uD.customerID = customerID;
-            qlhotelEntity.UserDetails.Add(uD);
-            qlhotelEntity.SaveChanges();
+            try
+            {
+                HotelManagementSystemEntities qlhotelEntity = new HotelManagementSystemEntities();
+                var proce = qlhotelEntity.ADD_USER_DETAIL(book_ID, room_ID, customerID);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.InnerException.Message);
+                return false;
+            }
             return true;
         }
         public bool DeleteUserDetail(ref string err, int book_ID,int room_ID,int customerID)
         {
-            HotelManagementSystemEntities qlhotelEntity = new HotelManagementSystemEntities();
-            UserDetail uD = new UserDetail();
-            uD.book_ID = book_ID;
-            uD.room_ID = room_ID;
-            uD.customerID = customerID;
-            qlhotelEntity.UserDetails.Attach(uD);
-            qlhotelEntity.UserDetails.Remove(uD);
-            qlhotelEntity.SaveChanges();
+            try
+            {
+                HotelManagementSystemEntities qlhotelEntity = new HotelManagementSystemEntities();
+                var proce = qlhotelEntity.DELETE_USER_DETAIL(book_ID, room_ID, customerID);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.InnerException.Message);
+                return false;
+            }
             return true;
         }
         public bool UpdateUserDetail(int book_ID, int room_ID,int customerID, ref string err)

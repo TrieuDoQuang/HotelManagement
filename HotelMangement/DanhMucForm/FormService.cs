@@ -57,7 +57,7 @@ namespace HotelMangement.DanhMucForm
             }
             catch
             {
-                MessageBox.Show("Không lấy được nội dung trong table ROOM. Lỗi rồi!!!");
+                MessageBox.Show("Không lấy được nội dung trong table SERVICE. Lỗi rồi!!!");
             }
         }
 
@@ -95,20 +95,10 @@ namespace HotelMangement.DanhMucForm
             // Thêm dữ liệu
             if (Them)
             {
-                try
-                {
-                    // Thực hiện lệnh
-                    BLService dbSE = new BLService();
-                    dbSE.AddService(Convert.ToInt32(this.txtSerID.Text), Convert.ToInt32(this.txtBookID.Text), Convert.ToInt32(this.txtCusID.Text), Convert.ToInt32(this.txtProID.Text), Convert.ToDouble(this.txtPrice.Text), Convert.ToInt32(this.txtAmount.Text), dtpPaydate.Value, ref err);
-                    // Load lại dữ liệu trên DataGridView
-                    LoadData();
-                    // Thông báo
-                    MessageBox.Show("Đã thêm xong!");
-                }
-                catch
-                {
-                    MessageBox.Show("Không thêm được. Lỗi rồi!");
-                }
+                BLService dbSE = new BLService();
+                if(dbSE.AddService(Convert.ToInt32(this.txtSerID.Text), Convert.ToInt32(this.txtBookID.Text), Convert.ToInt32(this.txtCusID.Text), Convert.ToInt32(this.txtProID.Text), Convert.ToDouble(this.txtPrice.Text), Convert.ToInt32(this.txtAmount.Text), dtpPaydate.Value, ref err));
+                    MessageBox.Show("Add successfully!");
+                LoadData();
             }
             else
             {

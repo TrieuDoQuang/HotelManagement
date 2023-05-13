@@ -1,9 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace HotelMangement.BS_Layer
 {
@@ -53,50 +57,45 @@ namespace HotelMangement.BS_Layer
             }
             return dt;
         }
-            public bool AddUser(int userID, string Fullname, string password, DateTime Birthday, bool Gender, string Email, string Phone_Number, string Address,int role_id, ref string err)
+        public bool AddUser(int userID, string Fullname, string password, DateTime Birthday, bool Gender, string Email, string Phone_Number, string Address,int role_id, ref string err)
         {
-            HotelManagementSystemEntities qlhotelEntity = new HotelManagementSystemEntities();
-            User us = new User();
-            us.userID = userID;
-            us.Fullname = Fullname;
-            us.password = password;
-            us.Birthday = Birthday;
-            us.Gender = Gender;
-            us.Email = Email;
-            us.Phone_Number = Phone_Number;
-            us.Address = Address;
-            us.role_id = role_id;
-            qlhotelEntity.Users.Add(us);
-            qlhotelEntity.SaveChanges();
+            try
+            {
+                HotelManagementSystemEntities qlhotelEntity = new HotelManagementSystemEntities();
+                var proce = qlhotelEntity.ADD_USER(Fullname, Birthday, Gender, Email, Phone_Number, Address, role_id, password);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.InnerException.Message);
+                return false;
+            }
             return true;
         }
         public bool DeleteUser(ref string err, int userID)
         {
-            HotelManagementSystemEntities qlhotelEntity = new HotelManagementSystemEntities();
-            User us = new User();
-            us.userID = userID;
-            qlhotelEntity.Users.Attach(us);
-            qlhotelEntity.Users.Remove(us);
-            qlhotelEntity.SaveChanges();
+            try
+            {
+                HotelManagementSystemEntities qlhotelEntity = new HotelManagementSystemEntities();
+                var proce = qlhotelEntity.DELETE_USER(userID);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.InnerException.Message);
+                return false;
+            }
             return true;
         }
         public bool UpdateUser(int userID, string Fullname, string password, DateTime Birthday, bool Gender, string Email, string Phone_Number, string Address, int role_id, ref string err)
         {
-            HotelManagementSystemEntities qlhotelEntity = new HotelManagementSystemEntities();
-            var usQuery = (from us in qlhotelEntity.Users
-                             where us.userID == userID
-                             select us).SingleOrDefault();
-            if (usQuery != null)
+            try
             {
-                usQuery.Fullname = Fullname;
-                usQuery.password = password;
-                usQuery.Birthday = Birthday;
-                usQuery.Gender = Gender;
-                usQuery.Email = Email;
-                usQuery.Phone_Number = Phone_Number;
-                usQuery.Address = Address;
-                usQuery.role_id = role_id;
-                qlhotelEntity.SaveChanges();
+                HotelManagementSystemEntities qlhotelEntity = new HotelManagementSystemEntities();
+                var proce = qlhotelEntity.UPDATE_USER(userID,Fullname,Birthday,Gender,Email,Phone_Number,Address,role_id, password);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.InnerException.Message);
+                return false;
             }
             return true;
         }

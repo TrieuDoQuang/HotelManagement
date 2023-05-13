@@ -718,31 +718,31 @@
             <End Role="UserDetail" EntitySet="UserDetails" />
           </AssociationSet>
           <FunctionImport Name="sp_alterdiagram">
-          <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="diagramname" Mode="In" Type="String" />
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
             <Parameter Name="version" Mode="In" Type="Int32" />
             <Parameter Name="definition" Mode="In" Type="Binary" />
           </FunctionImport>
           <FunctionImport Name="sp_creatediagram">
-          <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="diagramname" Mode="In" Type="String" />
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
             <Parameter Name="version" Mode="In" Type="Int32" />
             <Parameter Name="definition" Mode="In" Type="Binary" />
           </FunctionImport>
           <FunctionImport Name="sp_dropdiagram">
-          <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="diagramname" Mode="In" Type="String" />
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_helpdiagramdefinition">
-          <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="diagramname" Mode="In" Type="String" />
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_helpdiagrams">
-          <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="diagramname" Mode="In" Type="String" />
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_renamediagram">
-          <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="diagramname" Mode="In" Type="String" />
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
             <Parameter Name="new_diagramname" Mode="In" Type="String" />
           </FunctionImport>
@@ -769,13 +769,13 @@
             <End Role="UserDetail" EntitySet="UserDetails" />
           </AssociationSet>
           <FunctionImport Name="ADD_BOOKING">
-          <Parameter Name="staff_ID" Mode="In" Type="Int32" />
+            <Parameter Name="staff_ID" Mode="In" Type="Int32" />
             <Parameter Name="customer_ID" Mode="In" Type="Int32" />
             <Parameter Name="Check_In" Mode="In" Type="DateTime" />
             <Parameter Name="Check_Out" Mode="In" Type="DateTime" />
           </FunctionImport>
           <FunctionImport Name="ADD_BOOKING_DETAIL">
-          <Parameter Name="book_ID" Mode="In" Type="Int32" />
+            <Parameter Name="book_ID" Mode="In" Type="Int32" />
             <Parameter Name="room_ID" Mode="In" Type="Int32" />
             <Parameter Name="Price" Mode="In" Type="Double" />
             <Parameter Name="Unit" Mode="In" Type="Double" />
@@ -784,7 +784,7 @@
           <Parameter Name="cateName" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="ADD_PRODUCT">
-          <Parameter Name="cate_ID" Mode="In" Type="Int32" />
+            <Parameter Name="cate_ID" Mode="In" Type="Int32" />
             <Parameter Name="Title" Mode="In" Type="String" />
             <Parameter Name="Thumbnail" Mode="In" Type="String" />
             <Parameter Name="Decription" Mode="In" Type="String" />
@@ -795,13 +795,13 @@
           <Parameter Name="rName" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="ADD_ROOM">
-          <Parameter Name="room_No" Mode="In" Type="String" />
+            <Parameter Name="room_No" Mode="In" Type="String" />
             <Parameter Name="Type" Mode="In" Type="String" />
             <Parameter Name="Capacity" Mode="In" Type="Int32" />
             <Parameter Name="Price" Mode="In" Type="Double" />
           </FunctionImport>
           <FunctionImport Name="ADD_SERVICE">
-          <Parameter Name="book_ID" Mode="In" Type="Int32" />
+            <Parameter Name="book_ID" Mode="In" Type="Int32" />
             <Parameter Name="customerID" Mode="In" Type="Int32" />
             <Parameter Name="product_ID" Mode="In" Type="Int32" />
             <Parameter Name="Price" Mode="In" Type="Double" />
@@ -809,7 +809,7 @@
             <Parameter Name="Buy_Date" Mode="In" Type="DateTime" />
           </FunctionImport>
           <FunctionImport Name="ADD_USER">
-          <Parameter Name="Fullname" Mode="In" Type="String" />
+            <Parameter Name="Fullname" Mode="In" Type="String" />
             <Parameter Name="Birthday" Mode="In" Type="DateTime" />
             <Parameter Name="Gender" Mode="In" Type="Boolean" />
             <Parameter Name="Email" Mode="In" Type="String" />
@@ -819,7 +819,7 @@
             <Parameter Name="password" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="ADD_USER_DETAIL">
-          <Parameter Name="book_ID" Mode="In" Type="Int32" />
+            <Parameter Name="book_ID" Mode="In" Type="Int32" />
             <Parameter Name="room_ID" Mode="In" Type="Int32" />
             <Parameter Name="customerID" Mode="In" Type="Int32" />
           </FunctionImport>
@@ -827,7 +827,7 @@
           <Parameter Name="bookID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="DELETE_BOOKING_DETAIL">
-          <Parameter Name="book_ID" Mode="In" Type="Int32" />
+            <Parameter Name="book_ID" Mode="In" Type="Int32" />
             <Parameter Name="room_ID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="DELETE_CATEGORY">
@@ -849,29 +849,29 @@
           <Parameter Name="userID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="DELETE_USER_DETAIL">
-          <Parameter Name="book_ID" Mode="In" Type="Int32" />
+            <Parameter Name="book_ID" Mode="In" Type="Int32" />
             <Parameter Name="room_ID" Mode="In" Type="Int32" />
             <Parameter Name="customerID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="UPDATE_BOOKING">
-          <Parameter Name="bookID" Mode="In" Type="Int32" />
+            <Parameter Name="bookID" Mode="In" Type="Int32" />
             <Parameter Name="staff_ID" Mode="In" Type="Int32" />
             <Parameter Name="customer_ID" Mode="In" Type="Int32" />
             <Parameter Name="Check_In" Mode="In" Type="DateTime" />
             <Parameter Name="Check_Out" Mode="In" Type="DateTime" />
           </FunctionImport>
           <FunctionImport Name="UPDATE_BOOKING_DETAIL">
-          <Parameter Name="book_ID" Mode="In" Type="Int32" />
+            <Parameter Name="book_ID" Mode="In" Type="Int32" />
             <Parameter Name="room_ID" Mode="In" Type="Int32" />
             <Parameter Name="Price" Mode="In" Type="Double" />
             <Parameter Name="Unit" Mode="In" Type="Double" />
           </FunctionImport>
           <FunctionImport Name="UPDATE_CATEGORY">
-          <Parameter Name="cateID" Mode="In" Type="Int32" />
+            <Parameter Name="cateID" Mode="In" Type="Int32" />
             <Parameter Name="newCateName" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="UPDATE_PRODUCT">
-          <Parameter Name="pID" Mode="In" Type="Int32" />
+            <Parameter Name="pID" Mode="In" Type="Int32" />
             <Parameter Name="cate_ID" Mode="In" Type="Int32" />
             <Parameter Name="Title" Mode="In" Type="String" />
             <Parameter Name="Thumbnail" Mode="In" Type="String" />
@@ -880,18 +880,18 @@
             <Parameter Name="Amount" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="UPDATE_ROLE">
-          <Parameter Name="roleId" Mode="In" Type="Int32" />
+            <Parameter Name="roleId" Mode="In" Type="Int32" />
             <Parameter Name="roleName" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="UPDATE_ROOM">
-          <Parameter Name="roomID" Mode="In" Type="Int32" />
+            <Parameter Name="roomID" Mode="In" Type="Int32" />
             <Parameter Name="roomNo" Mode="In" Type="String" />
             <Parameter Name="type" Mode="In" Type="String" />
             <Parameter Name="capacity" Mode="In" Type="Int32" />
             <Parameter Name="price" Mode="In" Type="Double" />
           </FunctionImport>
           <FunctionImport Name="UPDATE_SERVICE">
-          <Parameter Name="serID" Mode="In" Type="Int32" />
+            <Parameter Name="serID" Mode="In" Type="Int32" />
             <Parameter Name="book_ID" Mode="In" Type="Int32" />
             <Parameter Name="customerID" Mode="In" Type="Int32" />
             <Parameter Name="product_ID" Mode="In" Type="Int32" />
@@ -900,7 +900,7 @@
             <Parameter Name="Buy_Date" Mode="In" Type="DateTime" />
           </FunctionImport>
           <FunctionImport Name="UPDATE_USER">
-          <Parameter Name="userID" Mode="In" Type="Int32" />
+            <Parameter Name="userID" Mode="In" Type="Int32" />
             <Parameter Name="Fullname" Mode="In" Type="String" />
             <Parameter Name="Birthday" Mode="In" Type="DateTime" />
             <Parameter Name="Gender" Mode="In" Type="Boolean" />
@@ -1138,7 +1138,7 @@
           <FunctionImportMapping FunctionImportName="UPDATE_ROOM" FunctionName="HotelManagementSystemModel.Store.UPDATE_ROOM" />
           <FunctionImportMapping FunctionImportName="UPDATE_SERVICE" FunctionName="HotelManagementSystemModel.Store.UPDATE_SERVICE" />
           <FunctionImportMapping FunctionImportName="UPDATE_USER" FunctionName="HotelManagementSystemModel.Store.UPDATE_USER" />
-        </EntityContainerMapping>
+          </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>

@@ -88,23 +88,29 @@
     <Compile Include="Category.cs">
       <DependentUpon>HotelModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="DanhMucForm\FormCustomerBooking.cs">
+    <Compile Include="DanhMucForm\FormBooking.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DanhMucForm\FormCustomerBooking.Designer.cs">
-      <DependentUpon>FormCustomerBooking.cs</DependentUpon>
+    <Compile Include="DanhMucForm\FormBooking.Designer.cs">
+      <DependentUpon>FormBooking.cs</DependentUpon>
     </Compile>
-    <Compile Include="DanhMucForm\FormCustomerServices.cs">
+    <Compile Include="DanhMucForm\FormEmployeeBooking.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DanhMucForm\FormCustomerServices.Designer.cs">
-      <DependentUpon>FormCustomerServices.cs</DependentUpon>
+    <Compile Include="DanhMucForm\FormEmployeeBooking.Designer.cs">
+      <DependentUpon>FormEmployeeBooking.cs</DependentUpon>
     </Compile>
     <Compile Include="DanhMucForm\FormBookingDetail.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DanhMucForm\FormBookingDetail.Designer.cs">
       <DependentUpon>FormBookingDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DanhMucForm\FormEmployeeServices.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DanhMucForm\FormEmployeeServices.Designer.cs">
+      <DependentUpon>FormEmployeeServices.cs</DependentUpon>
     </Compile>
     <Compile Include="DanhMucForm\FormProduct.cs">
       <SubType>Form</SubType>
@@ -163,12 +169,6 @@
     <Compile Include="Interface\AdminInterface.Designer.cs">
       <DependentUpon>AdminInterface.cs</DependentUpon>
     </Compile>
-    <Compile Include="Interface\CustomerInterface.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Interface\CustomerInterface.Designer.cs">
-      <DependentUpon>CustomerInterface.cs</DependentUpon>
-    </Compile>
     <Compile Include="Interface\EmployeeInterface.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -198,14 +198,17 @@
     <Compile Include="UserDetail.cs">
       <DependentUpon>HotelModel.tt</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="DanhMucForm\FormCustomerBooking.resx">
-      <DependentUpon>FormCustomerBooking.cs</DependentUpon>
+    <EmbeddedResource Include="DanhMucForm\FormBooking.resx">
+      <DependentUpon>FormBooking.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DanhMucForm\FormCustomerServices.resx">
-      <DependentUpon>FormCustomerServices.cs</DependentUpon>
+    <EmbeddedResource Include="DanhMucForm\FormEmployeeBooking.resx">
+      <DependentUpon>FormEmployeeBooking.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DanhMucForm\FormBookingDetail.resx">
       <DependentUpon>FormBookingDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DanhMucForm\FormEmployeeServices.resx">
+      <DependentUpon>FormEmployeeServices.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DanhMucForm\FormProduct.resx">
       <DependentUpon>FormProduct.cs</DependentUpon>
@@ -227,9 +230,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Interface\AdminInterface.resx">
       <DependentUpon>AdminInterface.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Interface\CustomerInterface.resx">
-      <DependentUpon>CustomerInterface.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Interface\EmployeeInterface.resx">
       <DependentUpon>EmployeeInterface.cs</DependentUpon>

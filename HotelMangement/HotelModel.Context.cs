@@ -37,6 +37,7 @@ namespace HotelMangement
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<UserDetail> UserDetails { get; set; }
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<VIEW_PRODUCT> VIEW_PRODUCT { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {
@@ -1119,6 +1120,25 @@ namespace HotelMangement
                 new ObjectParameter("password", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<User>("UPDATE_USER", mergeOption, userIDParameter, fullnameParameter, birthdayParameter, genderParameter, emailParameter, phone_NumberParameter, addressParameter, role_idParameter, passwordParameter);
+        }
+    
+        public virtual ObjectResult<FindServiceByName_Result> FindServiceByName(string name)
+        {
+            var nameParameter = name != null ?
+                new ObjectParameter("Name", name) :
+                new ObjectParameter("Name", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<FindServiceByName_Result>("FindServiceByName", nameParameter);
+        }
+    
+        public virtual ObjectResult<GetBookedRooms_Result> GetBookedRooms()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetBookedRooms_Result>("GetBookedRooms");
+        }
+    
+        public virtual ObjectResult<GetAvailableRooms_Result> GetAvailableRooms()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetAvailableRooms_Result>("GetAvailableRooms");
         }
     }
 }

@@ -107,7 +107,7 @@ namespace HotelMangement.DanhMucForm
             if (Them)
             {
                 BlProduct dbPD = new BlProduct();
-                if(dbPD.AddProduct(Convert.ToInt32(this.txtProID.Text), Convert.ToInt32(this.txtCateID.Text), this.txtTitle.Text, this.txtThumb.Text, this.txtDec.Text, Convert.ToDouble(this.txtPrice.Text), Convert.ToInt32(this.txtAmount.Text), ref err));
+                if(dbPD.AddProduct(Convert.ToInt32(this.txtProID.Text), Convert.ToInt32(this.txtCateID.Text), this.txtTitle.Text, this.txtThumb.Text, this.txtDec.Text, Convert.ToDouble(this.txtPrice.Text), Convert.ToInt32(this.txtAmount.Text), ref err)==true)
                     MessageBox.Show("Add successfully!");
                 LoadData();
                 

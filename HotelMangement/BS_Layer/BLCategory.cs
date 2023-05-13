@@ -29,7 +29,7 @@ namespace HotelMangement.BS_Layer
         {
             HotelManagementSystemEntities hotelEtity = new HotelManagementSystemEntities();
 
-            Category ct = new Category();
+            Category ct = new Category();   
             ct.cateID = cateID;
             ct.cateName = cateName;
             hotelEtity.Categories.Add(ct);

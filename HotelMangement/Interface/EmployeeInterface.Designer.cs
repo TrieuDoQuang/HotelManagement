@@ -35,7 +35,6 @@
             this.serviceBtn = new FontAwesome.Sharp.IconButton();
             this.bookingBtn = new FontAwesome.Sharp.IconButton();
             this.roomBtn = new FontAwesome.Sharp.IconButton();
-            this.userBtn = new FontAwesome.Sharp.IconButton();
             this.panel3 = new System.Windows.Forms.Panel();
             this.topPanel = new System.Windows.Forms.Panel();
             this.leftPanel.SuspendLayout();
@@ -69,7 +68,6 @@
             this.leftPanel.Controls.Add(this.serviceBtn);
             this.leftPanel.Controls.Add(this.bookingBtn);
             this.leftPanel.Controls.Add(this.roomBtn);
-            this.leftPanel.Controls.Add(this.userBtn);
             this.leftPanel.Controls.Add(this.panel3);
             this.leftPanel.Controls.Add(this.button1);
             this.leftPanel.Dock = System.Windows.Forms.DockStyle.Left;
@@ -89,7 +87,7 @@
             this.productBtn.IconColor = System.Drawing.Color.Gainsboro;
             this.productBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.productBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.productBtn.Location = new System.Drawing.Point(0, 658);
+            this.productBtn.Location = new System.Drawing.Point(0, 560);
             this.productBtn.Name = "productBtn";
             this.productBtn.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.productBtn.Size = new System.Drawing.Size(300, 98);
@@ -110,7 +108,7 @@
             this.serviceBtn.IconColor = System.Drawing.Color.Gainsboro;
             this.serviceBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.serviceBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.serviceBtn.Location = new System.Drawing.Point(0, 560);
+            this.serviceBtn.Location = new System.Drawing.Point(0, 462);
             this.serviceBtn.Name = "serviceBtn";
             this.serviceBtn.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.serviceBtn.Size = new System.Drawing.Size(300, 98);
@@ -131,7 +129,7 @@
             this.bookingBtn.IconColor = System.Drawing.Color.Gainsboro;
             this.bookingBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.bookingBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bookingBtn.Location = new System.Drawing.Point(0, 462);
+            this.bookingBtn.Location = new System.Drawing.Point(0, 364);
             this.bookingBtn.Name = "bookingBtn";
             this.bookingBtn.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.bookingBtn.Size = new System.Drawing.Size(300, 98);
@@ -152,7 +150,7 @@
             this.roomBtn.IconColor = System.Drawing.Color.Gainsboro;
             this.roomBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.roomBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.roomBtn.Location = new System.Drawing.Point(0, 364);
+            this.roomBtn.Location = new System.Drawing.Point(0, 266);
             this.roomBtn.Name = "roomBtn";
             this.roomBtn.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.roomBtn.Size = new System.Drawing.Size(300, 98);
@@ -161,27 +159,6 @@
             this.roomBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.roomBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.roomBtn.UseVisualStyleBackColor = true;
-            // 
-            // userBtn
-            // 
-            this.userBtn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.userBtn.FlatAppearance.BorderSize = 0;
-            this.userBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.userBtn.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userBtn.ForeColor = System.Drawing.Color.Gainsboro;
-            this.userBtn.IconChar = FontAwesome.Sharp.IconChar.AddressBook;
-            this.userBtn.IconColor = System.Drawing.Color.Gainsboro;
-            this.userBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.userBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.userBtn.Location = new System.Drawing.Point(0, 266);
-            this.userBtn.Name = "userBtn";
-            this.userBtn.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.userBtn.Size = new System.Drawing.Size(300, 98);
-            this.userBtn.TabIndex = 9;
-            this.userBtn.Text = "Users List";
-            this.userBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.userBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.userBtn.UseVisualStyleBackColor = true;
             // 
             // panel3
             // 
@@ -226,7 +203,6 @@
         private FontAwesome.Sharp.IconButton serviceBtn;
         private FontAwesome.Sharp.IconButton bookingBtn;
         private FontAwesome.Sharp.IconButton roomBtn;
-        private FontAwesome.Sharp.IconButton userBtn;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel topPanel;
     }

@@ -27,7 +27,7 @@ namespace HotelMangement.Interface
 
         private void serviceBtn_Click(object sender, EventArgs e)
         {
-            openChildForm(new FormCustomerServices());
+            openChildForm(new FormEmployeeServices());
         }
 
         private void checkOutBtn_Click(object sender, EventArgs e)

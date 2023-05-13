@@ -94,17 +94,23 @@
     <Compile Include="DanhMucForm\FormBooking.Designer.cs">
       <DependentUpon>FormBooking.cs</DependentUpon>
     </Compile>
-    <Compile Include="DanhMucForm\FormCustomerBooking.cs">
+    <Compile Include="DanhMucForm\FormEmployeeBooking.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DanhMucForm\FormCustomerBooking.Designer.cs">
-      <DependentUpon>FormCustomerBooking.cs</DependentUpon>
+    <Compile Include="DanhMucForm\FormEmployeeBooking.Designer.cs">
+      <DependentUpon>FormEmployeeBooking.cs</DependentUpon>
     </Compile>
     <Compile Include="DanhMucForm\FormBookingDetail.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DanhMucForm\FormBookingDetail.Designer.cs">
       <DependentUpon>FormBookingDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DanhMucForm\FormEmployeeServices.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DanhMucForm\FormEmployeeServices.Designer.cs">
+      <DependentUpon>FormEmployeeServices.cs</DependentUpon>
     </Compile>
     <Compile Include="DanhMucForm\FormProduct.cs">
       <SubType>Form</SubType>
@@ -195,11 +201,14 @@
     <EmbeddedResource Include="DanhMucForm\FormBooking.resx">
       <DependentUpon>FormBooking.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DanhMucForm\FormCustomerBooking.resx">
-      <DependentUpon>FormCustomerBooking.cs</DependentUpon>
+    <EmbeddedResource Include="DanhMucForm\FormEmployeeBooking.resx">
+      <DependentUpon>FormEmployeeBooking.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DanhMucForm\FormBookingDetail.resx">
       <DependentUpon>FormBookingDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DanhMucForm\FormEmployeeServices.resx">
+      <DependentUpon>FormEmployeeServices.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DanhMucForm\FormProduct.resx">
       <DependentUpon>FormProduct.cs</DependentUpon>

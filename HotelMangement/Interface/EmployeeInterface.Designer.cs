@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.mainPanel = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
             this.topPanel = new System.Windows.Forms.Panel();
             this.checkOutBtn = new FontAwesome.Sharp.IconButton();
             this.serviceBtn = new FontAwesome.Sharp.IconButton();
@@ -42,25 +41,12 @@
             // mainPanel
             // 
             this.mainPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
-            this.mainPanel.Controls.Add(this.label3);
             this.mainPanel.Controls.Add(this.topPanel);
             this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainPanel.Location = new System.Drawing.Point(0, 0);
             this.mainPanel.Name = "mainPanel";
             this.mainPanel.Size = new System.Drawing.Size(1942, 1000);
             this.mainPanel.TabIndex = 7;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label3.Location = new System.Drawing.Point(413, 394);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(1016, 23);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "Khi nhap mong muon thi se pop up thong tin phong khach san cai nao available cai " +
-    " nao unavailable";
             // 
             // topPanel
             // 
@@ -149,7 +135,7 @@
             this.panel1.Size = new System.Drawing.Size(540, 127);
             this.panel1.TabIndex = 0;
             // 
-            // CustomerInterface
+            // EmployeeInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -158,11 +144,10 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "CustomerInterface";
+            this.Name = "EmployeeInterface";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CustomerInterface";
             this.mainPanel.ResumeLayout(false);
-            this.mainPanel.PerformLayout();
             this.topPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -172,7 +157,6 @@
 
         private System.Windows.Forms.Panel mainPanel;
         private System.Windows.Forms.Panel topPanel;
-        private System.Windows.Forms.Label label3;
         private FontAwesome.Sharp.IconButton checkOutBtn;
         private FontAwesome.Sharp.IconButton serviceBtn;
         private FontAwesome.Sharp.IconButton bookingBtn;

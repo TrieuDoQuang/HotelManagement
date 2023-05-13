@@ -15,6 +15,29 @@ namespace HotelMangement.DanhMucForm
         public FormEmployeeBooking()
         {
             InitializeComponent();
+            LoadAvaiRoom();
+            LoadBookedRoom();
         }
+        void LoadAvaiRoom()
+        {
+            HotelManagementSystemEntities qlhotelEntity = new HotelManagementSystemEntities();
+            var view = qlhotelEntity.GetAvailableRooms();
+            dgvAvaiRoom.DataSource = view;
+            dgvAvaiRoom.AutoGenerateColumns = true;
+            dgvAvaiRoom.ColumnHeadersHeight = 30;
+            dgvAvaiRoom.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            
+        }
+        void LoadBookedRoom()
+        {
+            HotelManagementSystemEntities qlhotelEntity = new HotelManagementSystemEntities();
+            var view = qlhotelEntity.GetBookedRooms();
+            dgvBookedRoom.DataSource = view;
+            dgvBookedRoom.AutoGenerateColumns = true;
+            dgvBookedRoom.ColumnHeadersHeight = 30;
+            dgvBookedRoom.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        }
+
     }
+    
 }

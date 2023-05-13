@@ -129,7 +129,7 @@ namespace HotelMangement.DanhMucForm
             if (Them)
             {
                 BLUserDetail blUd = new BLUserDetail();
-                if(blUd.AddUserDetail(Convert.ToInt32(this.txtbook_ID.Text), Convert.ToInt32(this.txtroom_ID.Text), Convert.ToInt32(this.txtcustomerID.Text), ref err));
+                if(blUd.AddUserDetail(Convert.ToInt32(this.txtbook_ID.Text), Convert.ToInt32(this.txtroom_ID.Text), Convert.ToInt32(this.txtcustomerID.Text), ref err))
                     MessageBox.Show("Add successfully!");
                 LoadData();
             }

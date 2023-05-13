@@ -189,7 +189,7 @@ namespace HotelMangement.DanhMucForm
             if (Them)
             {
                 BLUser blU = new BLUser();
-                if(blU.AddUser(Convert.ToInt32(this.txtuserID.Text), this.txtFullname.Text, this.txtPassword.Text, DateTime.Parse(this.txtBirthday.Text), bool.Parse(this.txtGender.Text), this.txtEmail.Text, this.txtPhone_Number.Text, this.txtAddress.Text, Convert.ToInt32(this.txtrole_id.Text), ref err));
+                if(blU.AddUser(Convert.ToInt32(this.txtuserID.Text), this.txtFullname.Text, this.txtPassword.Text, DateTime.Parse(this.txtBirthday.Text), bool.Parse(this.txtGender.Text), this.txtEmail.Text, this.txtPhone_Number.Text, this.txtAddress.Text, Convert.ToInt32(this.txtrole_id.Text), ref err))
                     MessageBox.Show("Add successfully!");  
                 LoadData();
             }

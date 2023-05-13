@@ -21,12 +21,12 @@ namespace HotelMangement
             //Application.Run(new FormLogin());
             //Application.Run(new FormRoom());
             //Application.Run(new FormBookingDetail());
-            Application.Run(new FormUserDetail());
+            //Application.Run(new FormUserDetail());
             //Application.Run(new FormUser());
             //Application.Run(new AdminInterface());
             //Application.Run(new CustomerInterface());
             //Application.Run(new FormService());
-            //Application.Run(new FormProduct());
+            Application.Run(new FormProduct());
 
         }
     }

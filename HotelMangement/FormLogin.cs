@@ -92,7 +92,7 @@ namespace HotelMangement
                             if (hotelEntity.Database.Connection.State == System.Data.ConnectionState.Open)
                             {
                                 MessageBox.Show("Login succesfully, Connected as Customer!");
-                                new CustomerInterface().ShowDialog();
+                                new EmployeeInterface().ShowDialog();
                             }
                             else
                             {

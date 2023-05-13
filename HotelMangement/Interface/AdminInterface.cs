@@ -26,7 +26,7 @@ namespace HotelMangement.Interface
 
         }
 
-        private void bookingBtn_Click(object sender, EventArgs e)
+        private void bookingDetailBtn_Click(object sender, EventArgs e)
         {
             openChildForm(new FormBookingDetail());
         }
@@ -54,6 +54,11 @@ namespace HotelMangement.Interface
         private void userDetailBtn_Click(object sender, EventArgs e)
         {
             openChildForm(new FormUserDetail());
+        }
+
+        private void bookingBtn_Click(object sender, EventArgs e)
+        {
+            openChildForm(new FormBooking());
         }
 
         private void openChildForm(Form childForm)

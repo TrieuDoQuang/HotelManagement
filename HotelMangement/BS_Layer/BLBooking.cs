@@ -11,7 +11,7 @@ namespace HotelMangement.BS_Layer
     {
         public DataTable TakeBooking()
         {
-            HotelManagementSystemEntities hotelEntity = new HotelManagementSystemEntities();
+            HotelManagementSystemEntities   hotelEntity = new HotelManagementSystemEntities();
             var tps =
             from p in hotelEntity.Bookings
             select p;

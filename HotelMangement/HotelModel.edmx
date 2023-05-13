@@ -1185,7 +1185,6 @@ warning 6002: The table/view 'HotelManagementSystem.dbo.VIEW_PRODUCT' does not h
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="UPDATE_USER" FunctionName="HotelManagementSystemModel.Store.UPDATE_USER" />
           <FunctionImportMapping FunctionImportName="ADD_BOOKING" FunctionName="HotelManagementSystemModel.Store.ADD_BOOKING" />
           <FunctionImportMapping FunctionImportName="ADD_BOOKING_DETAIL" FunctionName="HotelManagementSystemModel.Store.ADD_BOOKING_DETAIL" />
           <FunctionImportMapping FunctionImportName="ADD_CATEGORY" FunctionName="HotelManagementSystemModel.Store.ADD_CATEGORY" />

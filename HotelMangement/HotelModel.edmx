@@ -105,7 +105,7 @@
           <Property Name="Phone_Number" Type="nvarchar" MaxLength="20" />
           <Property Name="Address" Type="nvarchar" MaxLength="200" />
           <Property Name="role_id" Type="int" />
-          <Property Name="password" Type="varchar" MaxLength="10" />
+          <Property Name="password" Type="nchar" MaxLength="10" />
         </EntityType>
         <Association Name="FK__Booking__custome__3F466844">
           <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
@@ -768,22 +768,22 @@
             <End Role="User" EntitySet="Users" />
             <End Role="UserDetail" EntitySet="UserDetails" />
           </AssociationSet>
-          <FunctionImport Name="ADD_BOOKING">
+          <FunctionImport Name="ADD_BOOKING" EntitySet="Bookings" ReturnType="Collection(HotelManagementSystemModel.Booking)">
             <Parameter Name="staff_ID" Mode="In" Type="Int32" />
             <Parameter Name="customer_ID" Mode="In" Type="Int32" />
             <Parameter Name="Check_In" Mode="In" Type="DateTime" />
             <Parameter Name="Check_Out" Mode="In" Type="DateTime" />
           </FunctionImport>
-          <FunctionImport Name="ADD_BOOKING_DETAIL">
+          <FunctionImport Name="ADD_BOOKING_DETAIL" EntitySet="BookingDetails" ReturnType="Collection(HotelManagementSystemModel.BookingDetail)">
             <Parameter Name="book_ID" Mode="In" Type="Int32" />
             <Parameter Name="room_ID" Mode="In" Type="Int32" />
             <Parameter Name="Price" Mode="In" Type="Double" />
             <Parameter Name="Unit" Mode="In" Type="Double" />
           </FunctionImport>
-          <FunctionImport Name="ADD_CATEGORY">
+          <FunctionImport Name="ADD_CATEGORY" EntitySet="Categories" ReturnType="Collection(HotelManagementSystemModel.Category)">
           <Parameter Name="cateName" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="ADD_PRODUCT">
+          <FunctionImport Name="ADD_PRODUCT" EntitySet="Products" ReturnType="Collection(HotelManagementSystemModel.Product)">
             <Parameter Name="cate_ID" Mode="In" Type="Int32" />
             <Parameter Name="Title" Mode="In" Type="String" />
             <Parameter Name="Thumbnail" Mode="In" Type="String" />
@@ -791,16 +791,16 @@
             <Parameter Name="Price" Mode="In" Type="Double" />
             <Parameter Name="Amount" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="ADD_ROLE">
+          <FunctionImport Name="ADD_ROLE" EntitySet="Roles" ReturnType="Collection(HotelManagementSystemModel.Role)">
           <Parameter Name="rName" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="ADD_ROOM">
+          <FunctionImport Name="ADD_ROOM" EntitySet="Rooms" ReturnType="Collection(HotelManagementSystemModel.Room)">
             <Parameter Name="room_No" Mode="In" Type="String" />
             <Parameter Name="Type" Mode="In" Type="String" />
             <Parameter Name="Capacity" Mode="In" Type="Int32" />
             <Parameter Name="Price" Mode="In" Type="Double" />
           </FunctionImport>
-          <FunctionImport Name="ADD_SERVICE">
+          <FunctionImport Name="ADD_SERVICE" EntitySet="Services" ReturnType="Collection(HotelManagementSystemModel.Service)">
             <Parameter Name="book_ID" Mode="In" Type="Int32" />
             <Parameter Name="customerID" Mode="In" Type="Int32" />
             <Parameter Name="product_ID" Mode="In" Type="Int32" />
@@ -808,7 +808,7 @@
             <Parameter Name="Amount" Mode="In" Type="Int32" />
             <Parameter Name="Buy_Date" Mode="In" Type="DateTime" />
           </FunctionImport>
-          <FunctionImport Name="ADD_USER">
+          <FunctionImport Name="ADD_USER" EntitySet="Users" ReturnType="Collection(HotelManagementSystemModel.User)">
             <Parameter Name="Fullname" Mode="In" Type="String" />
             <Parameter Name="Birthday" Mode="In" Type="DateTime" />
             <Parameter Name="Gender" Mode="In" Type="Boolean" />
@@ -818,59 +818,59 @@
             <Parameter Name="role_id" Mode="In" Type="Int32" />
             <Parameter Name="password" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="ADD_USER_DETAIL">
+          <FunctionImport Name="ADD_USER_DETAIL" EntitySet="UserDetails" ReturnType="Collection(HotelManagementSystemModel.UserDetail)">
             <Parameter Name="book_ID" Mode="In" Type="Int32" />
             <Parameter Name="room_ID" Mode="In" Type="Int32" />
             <Parameter Name="customerID" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="DELETE_BOOKING">
+          <FunctionImport Name="DELETE_BOOKING" EntitySet="Bookings" ReturnType="Collection(HotelManagementSystemModel.Booking)">
           <Parameter Name="bookID" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="DELETE_BOOKING_DETAIL">
+          <FunctionImport Name="DELETE_BOOKING_DETAIL" EntitySet="BookingDetails" ReturnType="Collection(HotelManagementSystemModel.BookingDetail)">
             <Parameter Name="book_ID" Mode="In" Type="Int32" />
             <Parameter Name="room_ID" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="DELETE_CATEGORY">
+          <FunctionImport Name="DELETE_CATEGORY" EntitySet="Categories" ReturnType="Collection(HotelManagementSystemModel.Category)">
           <Parameter Name="cateID" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="DELETE_PRODUCT">
+          <FunctionImport Name="DELETE_PRODUCT" EntitySet="Products" ReturnType="Collection(HotelManagementSystemModel.Product)">
           <Parameter Name="pID" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="DELETE_ROLE">
+          <FunctionImport Name="DELETE_ROLE" EntitySet="Roles" ReturnType="Collection(HotelManagementSystemModel.Role)">
           <Parameter Name="rID" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="DELETE_ROOM">
+          <FunctionImport Name="DELETE_ROOM" EntitySet="Rooms" ReturnType="Collection(HotelManagementSystemModel.Room)">
           <Parameter Name="roomID" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="DELETE_SERVICE">
+          <FunctionImport Name="DELETE_SERVICE" EntitySet="Services" ReturnType="Collection(HotelManagementSystemModel.Service)">
           <Parameter Name="serID" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="DELETE_USER">
+          <FunctionImport Name="DELETE_USER" EntitySet="Users" ReturnType="Collection(HotelManagementSystemModel.User)">
           <Parameter Name="userID" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="DELETE_USER_DETAIL">
+          <FunctionImport Name="DELETE_USER_DETAIL" EntitySet="UserDetails" ReturnType="Collection(HotelManagementSystemModel.UserDetail)">
             <Parameter Name="book_ID" Mode="In" Type="Int32" />
             <Parameter Name="room_ID" Mode="In" Type="Int32" />
             <Parameter Name="customerID" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="UPDATE_BOOKING">
-            <Parameter Name="bookID" Mode="In" Type="Int32" />
+          <FunctionImport Name="UPDATE_BOOKING" EntitySet="Bookings" ReturnType="Collection(HotelManagementSystemModel.Booking)">
+          <Parameter Name="bookID" Mode="In" Type="Int32" />
             <Parameter Name="staff_ID" Mode="In" Type="Int32" />
             <Parameter Name="customer_ID" Mode="In" Type="Int32" />
             <Parameter Name="Check_In" Mode="In" Type="DateTime" />
             <Parameter Name="Check_Out" Mode="In" Type="DateTime" />
           </FunctionImport>
-          <FunctionImport Name="UPDATE_BOOKING_DETAIL">
+          <FunctionImport Name="UPDATE_BOOKING_DETAIL" EntitySet="BookingDetails" ReturnType="Collection(HotelManagementSystemModel.BookingDetail)">
             <Parameter Name="book_ID" Mode="In" Type="Int32" />
             <Parameter Name="room_ID" Mode="In" Type="Int32" />
             <Parameter Name="Price" Mode="In" Type="Double" />
             <Parameter Name="Unit" Mode="In" Type="Double" />
           </FunctionImport>
-          <FunctionImport Name="UPDATE_CATEGORY">
+          <FunctionImport Name="UPDATE_CATEGORY" EntitySet="Categories" ReturnType="Collection(HotelManagementSystemModel.Category)">
             <Parameter Name="cateID" Mode="In" Type="Int32" />
             <Parameter Name="newCateName" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="UPDATE_PRODUCT">
+          <FunctionImport Name="UPDATE_PRODUCT" EntitySet="Products" ReturnType="Collection(HotelManagementSystemModel.Product)">
             <Parameter Name="pID" Mode="In" Type="Int32" />
             <Parameter Name="cate_ID" Mode="In" Type="Int32" />
             <Parameter Name="Title" Mode="In" Type="String" />
@@ -879,18 +879,18 @@
             <Parameter Name="Price" Mode="In" Type="Double" />
             <Parameter Name="Amount" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="UPDATE_ROLE">
+          <FunctionImport Name="UPDATE_ROLE" EntitySet="Roles" ReturnType="Collection(HotelManagementSystemModel.Role)">
             <Parameter Name="roleId" Mode="In" Type="Int32" />
             <Parameter Name="roleName" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="UPDATE_ROOM">
+          <FunctionImport Name="UPDATE_ROOM" EntitySet="Rooms" ReturnType="Collection(HotelManagementSystemModel.Room)">
             <Parameter Name="roomID" Mode="In" Type="Int32" />
             <Parameter Name="roomNo" Mode="In" Type="String" />
             <Parameter Name="type" Mode="In" Type="String" />
             <Parameter Name="capacity" Mode="In" Type="Int32" />
             <Parameter Name="price" Mode="In" Type="Double" />
           </FunctionImport>
-          <FunctionImport Name="UPDATE_SERVICE">
+          <FunctionImport Name="UPDATE_SERVICE" EntitySet="Services" ReturnType="Collection(HotelManagementSystemModel.Service)">
             <Parameter Name="serID" Mode="In" Type="Int32" />
             <Parameter Name="book_ID" Mode="In" Type="Int32" />
             <Parameter Name="customerID" Mode="In" Type="Int32" />
@@ -899,7 +899,7 @@
             <Parameter Name="Amount" Mode="In" Type="Int32" />
             <Parameter Name="Buy_Date" Mode="In" Type="DateTime" />
           </FunctionImport>
-          <FunctionImport Name="UPDATE_USER">
+          <FunctionImport Name="UPDATE_USER" EntitySet="Users" ReturnType="Collection(HotelManagementSystemModel.User)">
             <Parameter Name="userID" Mode="In" Type="Int32" />
             <Parameter Name="Fullname" Mode="In" Type="String" />
             <Parameter Name="Birthday" Mode="In" Type="DateTime" />
@@ -923,7 +923,7 @@
           <Property Name="Phone_Number" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="role_id" Type="Int32" />
-          <Property Name="password" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <NavigationProperty Name="Bookings" Relationship="HotelManagementSystemModel.FK__Booking__custome__3F466844" FromRole="User" ToRole="Booking" />
           <NavigationProperty Name="Bookings1" Relationship="HotelManagementSystemModel.FK__Booking__staff_I__3E52440B" FromRole="User" ToRole="Booking" />
           <NavigationProperty Name="Role" Relationship="HotelManagementSystemModel.FK__Users__role_id__398D8EEE" FromRole="User" ToRole="Role" />
@@ -1112,6 +1112,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="UPDATE_USER" FunctionName="HotelManagementSystemModel.Store.UPDATE_USER" />
           <FunctionImportMapping FunctionImportName="ADD_BOOKING" FunctionName="HotelManagementSystemModel.Store.ADD_BOOKING" />
           <FunctionImportMapping FunctionImportName="ADD_BOOKING_DETAIL" FunctionName="HotelManagementSystemModel.Store.ADD_BOOKING_DETAIL" />
           <FunctionImportMapping FunctionImportName="ADD_CATEGORY" FunctionName="HotelManagementSystemModel.Store.ADD_CATEGORY" />
@@ -1137,7 +1138,6 @@
           <FunctionImportMapping FunctionImportName="UPDATE_ROLE" FunctionName="HotelManagementSystemModel.Store.UPDATE_ROLE" />
           <FunctionImportMapping FunctionImportName="UPDATE_ROOM" FunctionName="HotelManagementSystemModel.Store.UPDATE_ROOM" />
           <FunctionImportMapping FunctionImportName="UPDATE_SERVICE" FunctionName="HotelManagementSystemModel.Store.UPDATE_SERVICE" />
-          <FunctionImportMapping FunctionImportName="UPDATE_USER" FunctionName="HotelManagementSystemModel.Store.UPDATE_USER" />
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

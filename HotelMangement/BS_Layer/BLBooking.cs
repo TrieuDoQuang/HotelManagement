@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI.WebControls;
+using System.Windows;
 
 namespace HotelMangement.BS_Layer
 {
@@ -30,42 +33,47 @@ namespace HotelMangement.BS_Layer
         }
         public bool AddBooking(int bookID, int staffID, int cusID, DateTime checkIn, DateTime checkOut, ref string err)
         {
-            HotelManagementSystemEntities hotelEtity = new HotelManagementSystemEntities();
-
-            Booking bk = new Booking();
-            bk.bookID = bookID;
-            bk.staff_ID = staffID;
-            bk.customer_ID = cusID;
-            bk.Check_In = checkIn;
-            bk.Check_Out = checkOut;
-            hotelEtity.Bookings.Add(bk);
-            hotelEtity.SaveChanges();
+            try
+            {
+                HotelManagementSystemEntities qlhotelEntity = new HotelManagementSystemEntities();
+                var proce = qlhotelEntity.ADD_BOOKING(staffID, cusID, checkIn, checkOut);
+                qlhotelEntity.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.InnerException.Message);
+                return false;
+            }
             return true;
 
         }
         public bool DeleteBooking(ref string err, int bookID)
         {
-            HotelManagementSystemEntities hotelEtity = new HotelManagementSystemEntities();
-            Booking bk = new Booking();
-            bk.bookID = bookID;
-            hotelEtity.Bookings.Attach(bk);
-            hotelEtity.Bookings.Remove(bk);
-            hotelEtity.SaveChanges();
+            try
+            {
+                HotelManagementSystemEntities qlhotelEntity = new HotelManagementSystemEntities();
+                var proce = qlhotelEntity.DELETE_BOOKING(bookID);
+                qlhotelEntity.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.InnerException.Message);
+                return false;
+            }
             return true;
         }
         public bool UpdateBooking(int bookID, int staffID, int cusID, DateTime checkIn, DateTime checkOut, ref string err)
         {
-            HotelManagementSystemEntities hotelEtity = new HotelManagementSystemEntities();
-            var tpQuery = (from bk in hotelEtity.Bookings
-                           where bk.bookID == bookID
-                           select bk).SingleOrDefault();
-            if (tpQuery != null)
+            try
             {
-                tpQuery.staff_ID = staffID;
-                tpQuery.customer_ID = cusID;
-                tpQuery.Check_In = checkIn;
-                tpQuery.Check_Out = checkOut;
-                hotelEtity.SaveChanges();
+                HotelManagementSystemEntities qlhotelEntity = new HotelManagementSystemEntities();
+                var proce = qlhotelEntity.UPDATE_BOOKING(bookID, staffID, cusID, checkIn, checkOut);
+                qlhotelEntity.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.InnerException.Message);
+                return false;
             }
             return true;
         }

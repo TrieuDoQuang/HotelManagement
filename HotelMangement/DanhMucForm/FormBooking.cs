@@ -154,16 +154,16 @@ namespace HotelMangement.DanhMucForm
             // Thêm dữ liệu
             if (Them)
             {
-                //BLBookingDetail blBd = new BLBookingDetail();
-                //if (blBd.AddBookingDetail(Convert.ToInt32(this.txtbook_ID.Text), Convert.ToInt32(this.txtStaff_ID.Text), Convert.ToDouble(this.txtCustomer_ID.Text), Convert.ToInt32(this.txtUnit.Text), ref err))
+                BLBooking bk = new BLBooking();
+                if (bk.AddBooking(Convert.ToInt32(this.txtbook_ID.Text), Convert.ToInt32(this.txtStaff_ID.Text), Convert.ToInt32(this.txtCustomer_ID.Text), dtpCheckIn.Value,dtpCheckOut.Value, ref err))
                     MessageBox.Show("Add successfully");
                 LoadData();
             }
             else
             {
                 // Thực hiện lệnh
-                //BLBookingDetail blBd = new BLBookingDetail();
-                //blBd.UpdateBookingDetail(Convert.ToInt32(this.txtbook_ID.Text), Convert.ToInt32(this.txtStaff_ID.Text), Convert.ToDouble(this.txtCustomer_ID.Text), Convert.ToInt32(this.txtUnit.Text), ref err);
+                BLBooking bk = new BLBooking();
+                bk.UpdateBooking(Convert.ToInt32(this.txtbook_ID.Text), Convert.ToInt32(this.txtStaff_ID.Text), Convert.ToInt32(this.txtCustomer_ID.Text), dtpCheckIn.Value,dtpCheckOut.Value, ref err);
                 // Load lại dữ liệu trên DataGridView
                 LoadData();
                 // Thông báo
@@ -192,7 +192,7 @@ namespace HotelMangement.DanhMucForm
                 // Kiểm tra có nhắp chọn nút Ok không?
                 if (traloi == DialogResult.Yes)
                 {
-                    //dbBooking.DeleteBookingDetail(ref err, Convert.ToInt32(strBD1), Convert.ToInt32(strBD2));
+                    dbBooking.DeleteBooking(ref err, Convert.ToInt32(strBD1));
                     // Cập nhật lại DataGridView
                     LoadData();
                     // Thông báo

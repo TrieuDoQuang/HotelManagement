@@ -100,12 +100,6 @@
     <Compile Include="DanhMucForm\FormCustomerBooking.Designer.cs">
       <DependentUpon>FormCustomerBooking.cs</DependentUpon>
     </Compile>
-    <Compile Include="DanhMucForm\FormCustomerServices.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DanhMucForm\FormCustomerServices.Designer.cs">
-      <DependentUpon>FormCustomerServices.cs</DependentUpon>
-    </Compile>
     <Compile Include="DanhMucForm\FormBookingDetail.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -169,12 +163,6 @@
     <Compile Include="Interface\AdminInterface.Designer.cs">
       <DependentUpon>AdminInterface.cs</DependentUpon>
     </Compile>
-    <Compile Include="Interface\CustomerInterface.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Interface\CustomerInterface.Designer.cs">
-      <DependentUpon>CustomerInterface.cs</DependentUpon>
-    </Compile>
     <Compile Include="Interface\EmployeeInterface.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -210,9 +198,6 @@
     <EmbeddedResource Include="DanhMucForm\FormCustomerBooking.resx">
       <DependentUpon>FormCustomerBooking.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DanhMucForm\FormCustomerServices.resx">
-      <DependentUpon>FormCustomerServices.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="DanhMucForm\FormBookingDetail.resx">
       <DependentUpon>FormBookingDetail.cs</DependentUpon>
     </EmbeddedResource>
@@ -236,9 +221,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Interface\AdminInterface.resx">
       <DependentUpon>AdminInterface.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Interface\CustomerInterface.resx">
-      <DependentUpon>CustomerInterface.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Interface\EmployeeInterface.resx">
       <DependentUpon>EmployeeInterface.cs</DependentUpon>

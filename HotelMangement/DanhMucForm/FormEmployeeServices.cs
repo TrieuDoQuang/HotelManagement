@@ -93,17 +93,17 @@ namespace HotelMangement.DanhMucForm
 
         private void btnDeleteService_Click(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    HotelManagementSystemEntities qlhotelEntity = new HotelManagementSystemEntities();
-            //    var proce = qlhotelEntity.DELETE_SERVICE(
-            //        Convert.ToInt32(dgvBookedServices.Rows[rBooked].Cells[1].Value.ToString())
-            //    );
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show("An error occurred: " + ex.InnerException.Message);
-            //}
+            try
+            {
+                HotelManagementSystemEntities qlhotelEntity = new HotelManagementSystemEntities();
+                var proce = qlhotelEntity.DELETE_SERVICE(
+                    Convert.ToInt32(dgvBookedServices.Rows[rBooked].Cells[1].Value.ToString())
+                );
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.InnerException.Message);
+            }
         }
 
         private void dgvBookedServices_CellContentClick(object sender, DataGridViewCellEventArgs e)

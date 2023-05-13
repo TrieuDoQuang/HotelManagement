@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace HotelMangement.DanhMucForm
 {
-    public partial class FormCustomerBooking : Form
+    public partial class FormEmployeeServices : Form
     {
-        public FormCustomerBooking()
+        public FormEmployeeServices()
         {
             InitializeComponent();
         }

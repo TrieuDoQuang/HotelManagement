@@ -37,6 +37,9 @@ namespace HotelMangement
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<UserDetail> UserDetails { get; set; }
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Show_AvailableRoom> Show_AvailableRoom { get; set; }
+        public virtual DbSet<Show_BookedRoom> Show_BookedRoom { get; set; }
+        public virtual DbSet<Show_AvailableProduct> Show_AvailableProduct { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {
@@ -631,23 +634,13 @@ namespace HotelMangement
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UPDATE_USER", userIDParameter, fullnameParameter, birthdayParameter, genderParameter, emailParameter, phone_NumberParameter, addressParameter, role_idParameter, passwordParameter);
         }
     
-        public virtual ObjectResult<FindServiceByName_Result> FindServiceByName(string name)
+        public virtual int FindServiceByName(string name)
         {
             var nameParameter = name != null ?
                 new ObjectParameter("Name", name) :
                 new ObjectParameter("Name", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<FindServiceByName_Result>("FindServiceByName", nameParameter);
-        }
-    
-        public virtual int GetBookedRooms()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("GetBookedRooms");
-        }
-    
-        public virtual int GetAvailableRooms()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("GetAvailableRooms");
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("FindServiceByName", nameParameter);
         }
     }
 }

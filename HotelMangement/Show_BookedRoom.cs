@@ -10,13 +10,13 @@
 namespace HotelMangement
 {
     using System;
+    using System.Collections.Generic;
     
-    public partial class GetAvailableRooms_Result
+    public partial class Show_BookedRoom
     {
-        public int roomID { get; set; }
-        public string room_No { get; set; }
-        public string Type { get; set; }
-        public Nullable<int> Capacity { get; set; }
-        public Nullable<double> Price { get; set; }
+        public string Customer_Name { get; set; }
+        public string Room_Number { get; set; }
+        public Nullable<System.DateTime> Check_In { get; set; }
+        public Nullable<System.DateTime> Check_Out { get; set; }
     }
 }

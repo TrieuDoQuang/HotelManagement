@@ -14,12 +14,8 @@ namespace HotelMangement
     public partial class FindServiceByName_Result
     {
         public string Fullname { get; set; }
-        public int serID { get; set; }
-        public Nullable<int> book_ID { get; set; }
-        public Nullable<int> customerID { get; set; }
-        public Nullable<int> product_ID { get; set; }
-        public Nullable<double> Price { get; set; }
+        public string Product_Name { get; set; }
         public Nullable<int> Amount { get; set; }
-        public Nullable<System.DateTime> Buy_Date { get; set; }
+        public Nullable<double> Price { get; set; }
     }
 }

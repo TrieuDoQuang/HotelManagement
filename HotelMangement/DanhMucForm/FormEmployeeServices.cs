@@ -25,7 +25,7 @@ namespace HotelMangement.DanhMucForm
         void LoadDataAvai()
         {
             HotelManagementSystemEntities qlhotelEntity = new HotelManagementSystemEntities();
-            var view = qlhotelEntity.VIEW_PRODUCT.ToList();
+            var view = qlhotelEntity.Show_AvailableProduct.ToList();
             dgvAvaiServices.DataSource = view;
             dgvAvaiServices.AutoGenerateColumns = true;     
             dgvAvaiServices.ColumnHeadersHeight = 30;

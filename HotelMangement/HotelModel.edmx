@@ -105,7 +105,40 @@
           <Property Name="Phone_Number" Type="nvarchar" MaxLength="20" />
           <Property Name="Address" Type="nvarchar" MaxLength="200" />
           <Property Name="role_id" Type="int" />
-          <Property Name="password" Type="nchar" MaxLength="10" />
+          <Property Name="password" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'HotelManagementSystem.dbo.Show_AvailableProduct' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Show_AvailableProduct">
+          <Key>
+            <PropertyRef Name="Product ID" />
+          </Key>
+          <Property Name="Product ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Product Name" Type="nvarchar" MaxLength="150" />
+          <Property Name="Price" Type="float" />
+          <Property Name="Amount" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'HotelManagementSystem.dbo.Show_AvailableRoom' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Show_AvailableRoom">
+          <Key>
+            <PropertyRef Name="Room Number" />
+          </Key>
+          <Property Name="Room Number" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Type" Type="nvarchar" MaxLength="20" />
+          <Property Name="Capacity" Type="int" />
+          <Property Name="Price" Type="float" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'HotelManagementSystem.dbo.Show_BookedRoom' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Show_BookedRoom">
+          <Key>
+            <PropertyRef Name="Room Number" />
+          </Key>
+          <Property Name="Customer Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Room Number" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Check In" Type="datetime" />
+          <Property Name="Check Out" Type="datetime" />
         </EntityType>
         <Association Name="FK__Booking__custome__3F466844">
           <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
@@ -336,6 +369,9 @@
           <Parameter Name="room_ID" Type="int" Mode="In" />
           <Parameter Name="customerID" Type="int" Mode="In" />
         </Function>
+        <Function Name="FindServiceByName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Name" Type="nvarchar" Mode="In" />
+        </Function>
         <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
         <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
@@ -435,6 +471,30 @@
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserDetail" EntityType="Self.UserDetail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Show_AvailableProduct" EntityType="Self.Show_AvailableProduct" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Show_AvailableProduct].[Product ID] AS [Product ID], 
+    [Show_AvailableProduct].[Product Name] AS [Product Name], 
+    [Show_AvailableProduct].[Price] AS [Price], 
+    [Show_AvailableProduct].[Amount] AS [Amount]
+    FROM [dbo].[Show_AvailableProduct] AS [Show_AvailableProduct]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Show_AvailableRoom" EntityType="Self.Show_AvailableRoom" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Show_AvailableRoom].[Room Number] AS [Room Number], 
+    [Show_AvailableRoom].[Type] AS [Type], 
+    [Show_AvailableRoom].[Capacity] AS [Capacity], 
+    [Show_AvailableRoom].[Price] AS [Price]
+    FROM [dbo].[Show_AvailableRoom] AS [Show_AvailableRoom]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Show_BookedRoom" EntityType="Self.Show_BookedRoom" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Show_BookedRoom].[Customer Name] AS [Customer Name], 
+    [Show_BookedRoom].[Room Number] AS [Room Number], 
+    [Show_BookedRoom].[Check In] AS [Check In], 
+    [Show_BookedRoom].[Check Out] AS [Check Out]
+    FROM [dbo].[Show_BookedRoom] AS [Show_BookedRoom]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK__Booking__custome__3F466844" Association="Self.FK__Booking__custome__3F466844">
             <End Role="Users" EntitySet="Users" />
             <End Role="Booking" EntitySet="Booking" />
@@ -910,11 +970,12 @@
             <Parameter Name="role_id" Mode="In" Type="Int32" />
             <Parameter Name="password" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="FindServiceByName" ReturnType="Collection(HotelManagementSystemModel.FindServiceByName_Result)">
+          <FunctionImport Name="FindServiceByName">
           <Parameter Name="Name" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="GetBookedRooms" />
-          <FunctionImport Name="GetAvailableRooms" />
+          <EntitySet Name="Show_AvailableRoom" EntityType="HotelManagementSystemModel.Show_AvailableRoom" />
+          <EntitySet Name="Show_BookedRoom" EntityType="HotelManagementSystemModel.Show_BookedRoom" />
+          <EntitySet Name="Show_AvailableProduct" EntityType="HotelManagementSystemModel.Show_AvailableProduct" />
         </EntityContainer>
         <EntityType Name="User">
           <Key>
@@ -928,7 +989,7 @@
           <Property Name="Phone_Number" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="role_id" Type="Int32" />
-          <Property Name="password" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="password" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Bookings" Relationship="HotelManagementSystemModel.FK__Booking__custome__3F466844" FromRole="User" ToRole="Booking" />
           <NavigationProperty Name="Bookings1" Relationship="HotelManagementSystemModel.FK__Booking__staff_I__3E52440B" FromRole="User" ToRole="Booking" />
           <NavigationProperty Name="Role" Relationship="HotelManagementSystemModel.FK__Users__role_id__398D8EEE" FromRole="User" ToRole="Role" />
@@ -995,16 +1056,39 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Show_AvailableRoom">
+          <Key>
+            <PropertyRef Name="Room_Number" />
+          </Key>
+          <Property Name="Room_Number" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Capacity" Type="Int32" />
+          <Property Name="Price" Type="Double" />
+        </EntityType>
+        <EntityType Name="Show_BookedRoom">
+          <Key>
+            <PropertyRef Name="Room_Number" />
+          </Key>
+          <Property Name="Customer_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Room_Number" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Check_In" Type="DateTime" Precision="3" />
+          <Property Name="Check_Out" Type="DateTime" Precision="3" />
+        </EntityType>
         <ComplexType Name="FindServiceByName_Result">
           <Property Type="String" Name="Fullname" Nullable="true" MaxLength="50" />
-          <Property Type="Int32" Name="serID" Nullable="false" />
-          <Property Type="Int32" Name="book_ID" Nullable="true" />
-          <Property Type="Int32" Name="customerID" Nullable="true" />
-          <Property Type="Int32" Name="product_ID" Nullable="true" />
-          <Property Type="Double" Name="Price" Nullable="true" />
+          <Property Type="String" Name="Product_Name" Nullable="true" MaxLength="150" />
           <Property Type="Int32" Name="Amount" Nullable="true" />
-          <Property Type="DateTime" Name="Buy_Date" Nullable="true" Precision="23" />
+          <Property Type="Double" Name="Price" Nullable="true" />
         </ComplexType>
+        <EntityType Name="Show_AvailableProduct">
+          <Key>
+            <PropertyRef Name="Product_ID" />
+          </Key>
+          <Property Name="Product_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Product_Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Double" />
+          <Property Name="Amount" Type="Int32" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1153,6 +1237,38 @@
           <FunctionImportMapping FunctionImportName="UPDATE_ROOM" FunctionName="HotelManagementSystemModel.Store.UPDATE_ROOM" />
           <FunctionImportMapping FunctionImportName="UPDATE_SERVICE" FunctionName="HotelManagementSystemModel.Store.UPDATE_SERVICE" />
           <FunctionImportMapping FunctionImportName="UPDATE_USER" FunctionName="HotelManagementSystemModel.Store.UPDATE_USER" />
+          <EntitySetMapping Name="Show_AvailableRoom">
+            <EntityTypeMapping TypeName="HotelManagementSystemModel.Show_AvailableRoom">
+              <MappingFragment StoreEntitySet="Show_AvailableRoom">
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Capacity" ColumnName="Capacity" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Room_Number" ColumnName="Room Number" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Show_BookedRoom">
+            <EntityTypeMapping TypeName="HotelManagementSystemModel.Show_BookedRoom">
+              <MappingFragment StoreEntitySet="Show_BookedRoom">
+                <ScalarProperty Name="Check_Out" ColumnName="Check Out" />
+                <ScalarProperty Name="Check_In" ColumnName="Check In" />
+                <ScalarProperty Name="Room_Number" ColumnName="Room Number" />
+                <ScalarProperty Name="Customer_Name" ColumnName="Customer Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="FindServiceByName" FunctionName="HotelManagementSystemModel.Store.FindServiceByName">
+          </FunctionImportMapping>
+          <EntitySetMapping Name="Show_AvailableProduct">
+            <EntityTypeMapping TypeName="HotelManagementSystemModel.Show_AvailableProduct">
+              <MappingFragment StoreEntitySet="Show_AvailableProduct">
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Product_Name" ColumnName="Product Name" />
+                <ScalarProperty Name="Product_ID" ColumnName="Product ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

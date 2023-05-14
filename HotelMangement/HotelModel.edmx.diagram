@@ -27,7 +27,6 @@
         <AssociationConnector Association="HotelManagementSystemModel.FK__Users__role_id__398D8EEE" />
         <AssociationConnector Association="HotelManagementSystemModel.FK__Service__custome__5070F446" />
         <AssociationConnector Association="HotelManagementSystemModel.FK__UserDetai__custo__47DBAE45" />
-        <EntityTypeShape EntityType="HotelManagementSystemModel.VIEW_PRODUCT" Width="1.5" PointX="10.375" PointY="8.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

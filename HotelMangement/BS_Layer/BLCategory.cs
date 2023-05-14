@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace HotelMangement.BS_Layer
 {
@@ -27,36 +28,47 @@ namespace HotelMangement.BS_Layer
         }
         public bool AddCate(int cateID, string cateName, ref string err)
         {
-            HotelManagementSystemEntities hotelEtity = new HotelManagementSystemEntities();
-
-            Category ct = new Category();   
-            ct.cateID = cateID;
-            ct.cateName = cateName;
-            hotelEtity.Categories.Add(ct);
-            hotelEtity.SaveChanges();
+            try
+            {
+                HotelManagementSystemEntities qlhotelEntity = new HotelManagementSystemEntities();
+                var proce = qlhotelEntity.ADD_CATEGORY(cateName);
+                qlhotelEntity.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.InnerException.Message);
+                return false;
+            }
             return true;
 
         }
         public bool DeleteCate(ref string err, int cateID)
         {
-            HotelManagementSystemEntities hotelEtity = new HotelManagementSystemEntities();
-            Category ct = new Category();
-            ct.cateID = cateID;
-            hotelEtity.Categories.Attach(ct);
-            hotelEtity.Categories.Remove(ct);
-            hotelEtity.SaveChanges();
+            try
+            {
+                HotelManagementSystemEntities qlhotelEntity = new HotelManagementSystemEntities();
+                var proce = qlhotelEntity.DELETE_CATEGORY(cateID);
+                qlhotelEntity.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.InnerException.Message);
+                return false;
+            }
             return true;
         }
         public bool UpdateCate(int cateID, string cateName, ref string err)
         {
-            HotelManagementSystemEntities hotelEtity = new HotelManagementSystemEntities();
-            var tpQuery = (from ct in hotelEtity.Categories
-                           where ct.cateID == cateID
-                           select ct).SingleOrDefault();
-            if (tpQuery != null)
+            try
             {
-                tpQuery.cateName = cateName;
-                hotelEtity.SaveChanges();
+                HotelManagementSystemEntities qlhotelEntity = new HotelManagementSystemEntities();
+                var proce = qlhotelEntity.UPDATE_CATEGORY(cateID, cateName);
+                qlhotelEntity.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.InnerException.Message);
+                return false;
             }
             return true;
         }

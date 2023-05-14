@@ -105,23 +105,7 @@
           <Property Name="Phone_Number" Type="nvarchar" MaxLength="20" />
           <Property Name="Address" Type="nvarchar" MaxLength="200" />
           <Property Name="role_id" Type="int" />
-          <Property Name="password" Type="varchar" MaxLength="10" />
-
-        </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'HotelManagementSystem.dbo.VIEW_PRODUCT' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-        <EntityType Name="VIEW_PRODUCT">
-          <Key>
-            <PropertyRef Name="pID" />
-          </Key>
-          <Property Name="pID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="cate_ID" Type="int" />
-          <Property Name="Title" Type="nvarchar" MaxLength="150" />
-          <Property Name="Thumbnail" Type="nvarchar" MaxLength="500" />
-          <Property Name="Decription" Type="ntext" />
-          <Property Name="Price" Type="float" />
-          <Property Name="Amount" Type="int" />
-
+          <Property Name="password" Type="nchar" MaxLength="10" />
         </EntityType>
         <Association Name="FK__Booking__custome__3F466844">
           <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
@@ -352,12 +336,7 @@ warning 6002: The table/view 'HotelManagementSystem.dbo.VIEW_PRODUCT' does not h
           <Parameter Name="room_ID" Type="int" Mode="In" />
           <Parameter Name="customerID" Type="int" Mode="In" />
         </Function>
-        <Function Name="FindServiceByName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="Name" Type="nvarchar" Mode="In" />
-        </Function>
         <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
-        <Function Name="GetAvailableRooms" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-        <Function Name="GetBookedRooms" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
           <Parameter Name="owner_id" Type="int" Mode="In" />
@@ -456,17 +435,6 @@ warning 6002: The table/view 'HotelManagementSystem.dbo.VIEW_PRODUCT' does not h
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserDetail" EntityType="Self.UserDetail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="VIEW_PRODUCT" EntityType="Self.VIEW_PRODUCT" store:Type="Views" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [VIEW_PRODUCT].[pID] AS [pID], 
-    [VIEW_PRODUCT].[cate_ID] AS [cate_ID], 
-    [VIEW_PRODUCT].[Title] AS [Title], 
-    [VIEW_PRODUCT].[Thumbnail] AS [Thumbnail], 
-    [VIEW_PRODUCT].[Decription] AS [Decription], 
-    [VIEW_PRODUCT].[Price] AS [Price], 
-    [VIEW_PRODUCT].[Amount] AS [Amount]
-    FROM [dbo].[VIEW_PRODUCT] AS [VIEW_PRODUCT]</DefiningQuery>
-          </EntitySet>
           <AssociationSet Name="FK__Booking__custome__3F466844" Association="Self.FK__Booking__custome__3F466844">
             <End Role="Users" EntitySet="Users" />
             <End Role="Booking" EntitySet="Booking" />
@@ -942,12 +910,11 @@ warning 6002: The table/view 'HotelManagementSystem.dbo.VIEW_PRODUCT' does not h
             <Parameter Name="role_id" Mode="In" Type="Int32" />
             <Parameter Name="password" Mode="In" Type="String" />
           </FunctionImport>
-          <EntitySet Name="VIEW_PRODUCT" EntityType="HotelManagementSystemModel.VIEW_PRODUCT" />
           <FunctionImport Name="FindServiceByName" ReturnType="Collection(HotelManagementSystemModel.FindServiceByName_Result)">
           <Parameter Name="Name" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="GetBookedRooms" ReturnType="Collection(HotelManagementSystemModel.GetBookedRooms_Result)" />
-          <FunctionImport Name="GetAvailableRooms" ReturnType="Collection(HotelManagementSystemModel.GetAvailableRooms_Result)" />
+          <FunctionImport Name="GetBookedRooms" />
+          <FunctionImport Name="GetAvailableRooms" />
         </EntityContainer>
         <EntityType Name="User">
           <Key>
@@ -961,7 +928,7 @@ warning 6002: The table/view 'HotelManagementSystem.dbo.VIEW_PRODUCT' does not h
           <Property Name="Phone_Number" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="role_id" Type="Int32" />
-          <Property Name="password" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <NavigationProperty Name="Bookings" Relationship="HotelManagementSystemModel.FK__Booking__custome__3F466844" FromRole="User" ToRole="Booking" />
           <NavigationProperty Name="Bookings1" Relationship="HotelManagementSystemModel.FK__Booking__staff_I__3E52440B" FromRole="User" ToRole="Booking" />
           <NavigationProperty Name="Role" Relationship="HotelManagementSystemModel.FK__Users__role_id__398D8EEE" FromRole="User" ToRole="Role" />
@@ -1028,18 +995,6 @@ warning 6002: The table/view 'HotelManagementSystem.dbo.VIEW_PRODUCT' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="VIEW_PRODUCT">
-          <Key>
-            <PropertyRef Name="pID" />
-          </Key>
-          <Property Name="pID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="cate_ID" Type="Int32" />
-          <Property Name="Title" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="Thumbnail" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="Decription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Price" Type="Double" />
-          <Property Name="Amount" Type="Int32" />
-        </EntityType>
         <ComplexType Name="FindServiceByName_Result">
           <Property Type="String" Name="Fullname" Nullable="true" MaxLength="50" />
           <Property Type="Int32" Name="serID" Nullable="false" />
@@ -1049,21 +1004,6 @@ warning 6002: The table/view 'HotelManagementSystem.dbo.VIEW_PRODUCT' does not h
           <Property Type="Double" Name="Price" Nullable="true" />
           <Property Type="Int32" Name="Amount" Nullable="true" />
           <Property Type="DateTime" Name="Buy_Date" Nullable="true" Precision="23" />
-        </ComplexType>
-        <ComplexType Name="GetBookedRooms_Result">
-          <Property Type="String" Name="CustomerName" Nullable="true" MaxLength="50" />
-          <Property Type="Int32" Name="roomID" Nullable="false" />
-          <Property Type="String" Name="room_No" Nullable="false" MaxLength="20" />
-          <Property Type="String" Name="Type" Nullable="true" MaxLength="20" />
-          <Property Type="Int32" Name="Capacity" Nullable="true" />
-          <Property Type="Double" Name="Price" Nullable="true" />
-        </ComplexType>
-        <ComplexType Name="GetAvailableRooms_Result">
-          <Property Type="Int32" Name="roomID" Nullable="false" />
-          <Property Type="String" Name="room_No" Nullable="false" MaxLength="20" />
-          <Property Type="String" Name="Type" Nullable="true" MaxLength="20" />
-          <Property Type="Int32" Name="Capacity" Nullable="true" />
-          <Property Type="Double" Name="Price" Nullable="true" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1213,57 +1153,6 @@ warning 6002: The table/view 'HotelManagementSystem.dbo.VIEW_PRODUCT' does not h
           <FunctionImportMapping FunctionImportName="UPDATE_ROOM" FunctionName="HotelManagementSystemModel.Store.UPDATE_ROOM" />
           <FunctionImportMapping FunctionImportName="UPDATE_SERVICE" FunctionName="HotelManagementSystemModel.Store.UPDATE_SERVICE" />
           <FunctionImportMapping FunctionImportName="UPDATE_USER" FunctionName="HotelManagementSystemModel.Store.UPDATE_USER" />
-          <EntitySetMapping Name="VIEW_PRODUCT">
-            <EntityTypeMapping TypeName="HotelManagementSystemModel.VIEW_PRODUCT">
-              <MappingFragment StoreEntitySet="VIEW_PRODUCT">
-                <ScalarProperty Name="Amount" ColumnName="Amount" />
-                <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="Decription" ColumnName="Decription" />
-                <ScalarProperty Name="Thumbnail" ColumnName="Thumbnail" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="cate_ID" ColumnName="cate_ID" />
-                <ScalarProperty Name="pID" ColumnName="pID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="FindServiceByName" FunctionName="HotelManagementSystemModel.Store.FindServiceByName">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="HotelManagementSystemModel.FindServiceByName_Result">
-                <ScalarProperty Name="Fullname" ColumnName="Fullname" />
-                <ScalarProperty Name="serID" ColumnName="serID" />
-                <ScalarProperty Name="book_ID" ColumnName="book_ID" />
-                <ScalarProperty Name="customerID" ColumnName="customerID" />
-                <ScalarProperty Name="product_ID" ColumnName="product_ID" />
-                <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="Amount" ColumnName="Amount" />
-                <ScalarProperty Name="Buy_Date" ColumnName="Buy_Date" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetBookedRooms" FunctionName="HotelManagementSystemModel.Store.GetBookedRooms">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="HotelManagementSystemModel.GetBookedRooms_Result">
-                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
-                <ScalarProperty Name="roomID" ColumnName="roomID" />
-                <ScalarProperty Name="room_No" ColumnName="room_No" />
-                <ScalarProperty Name="Type" ColumnName="Type" />
-                <ScalarProperty Name="Capacity" ColumnName="Capacity" />
-                <ScalarProperty Name="Price" ColumnName="Price" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetAvailableRooms" FunctionName="HotelManagementSystemModel.Store.GetAvailableRooms">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="HotelManagementSystemModel.GetAvailableRooms_Result">
-                <ScalarProperty Name="roomID" ColumnName="roomID" />
-                <ScalarProperty Name="room_No" ColumnName="room_No" />
-                <ScalarProperty Name="Type" ColumnName="Type" />
-                <ScalarProperty Name="Capacity" ColumnName="Capacity" />
-                <ScalarProperty Name="Price" ColumnName="Price" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

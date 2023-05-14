@@ -630,6 +630,7 @@ namespace HotelMangement
                 new ObjectParameter("password", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UPDATE_USER", userIDParameter, fullnameParameter, birthdayParameter, genderParameter, emailParameter, phone_NumberParameter, addressParameter, role_idParameter, passwordParameter);
+
         }
     
         public virtual ObjectResult<FindServiceByName_Result> FindServiceByName(string name)
@@ -649,6 +650,7 @@ namespace HotelMangement
         public virtual ObjectResult<GetAvailableRooms_Result> GetAvailableRooms()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetAvailableRooms_Result>("GetAvailableRooms");
+
         }
     }
 }

@@ -142,11 +142,20 @@
     <Compile Include="DanhMucForm\FormUserDetail.Designer.cs">
       <DependentUpon>FormUserDetail.cs</DependentUpon>
     </Compile>
+    <Compile Include="FindServiceByName_Result.cs">
+      <DependentUpon>HotelModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GetAvailableRooms_Result.cs">
+      <DependentUpon>HotelModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetBookedRooms_Result.cs">
+      <DependentUpon>HotelModel.tt</DependentUpon>
     </Compile>
     <Compile Include="HotelModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -196,6 +205,9 @@
       <DependentUpon>HotelModel.tt</DependentUpon>
     </Compile>
     <Compile Include="UserDetail.cs">
+      <DependentUpon>HotelModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VIEW_PRODUCT.cs">
       <DependentUpon>HotelModel.tt</DependentUpon>
     </Compile>
     <EmbeddedResource Include="DanhMucForm\FormBooking.resx">

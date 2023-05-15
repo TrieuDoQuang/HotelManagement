@@ -32,7 +32,7 @@ namespace HotelMangement.Interface
 
         private void checkOutBtn_Click(object sender, EventArgs e)
         {
-
+            openChildForm(new FormCheckOut());
         }
 
         private void openChildForm(Form childForm)

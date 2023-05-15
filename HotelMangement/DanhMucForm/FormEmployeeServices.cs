@@ -32,6 +32,8 @@ namespace HotelMangement.DanhMucForm
             dgvAvaiServices.AutoGenerateColumns = true;
             dgvAvaiServices.ColumnHeadersHeight = 30;
             dgvAvaiServices.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvAvaiServices.Columns[0].HeaderText = "Product ID";
+            dgvAvaiServices.Columns[1].HeaderText = "Product Name";
             dgvAvaiServices_CellClick(null, null);
         }
         void LoadDataBooked()
@@ -40,6 +42,7 @@ namespace HotelMangement.DanhMucForm
             {
                 HotelManagementSystemEntities qlhotelEntity = new HotelManagementSystemEntities();
                 string name = txtName.Text;
+                //var pro = qlhotelEntity.Database.ExecuteSqlCommand($"Exec FindServiceByName N'{name}'");
                 var pro = qlhotelEntity.Database.SqlQuery<ServiceModel>("FindServiceByName @Name", new SqlParameter("@Name", name)).ToList();
                 dgvBookedServices.DataSource = pro;
                 dgvBookedServices.ColumnHeadersHeight = 30;
@@ -115,12 +118,21 @@ namespace HotelMangement.DanhMucForm
         }
         public class ServiceModel
         {
-            public int SerID { get; set; }
-            public int Book_ID { get; set; }
-            public int CustomerID { get; set; }
-            public int Product_ID { get; set; }
-            public double Price { get; set; }
+            [DisplayName("Service ID")]
+            public int serID { get; set; }
+
+            [DisplayName("Customer Name")]
+            public string Fullname { get; set; }
+
+            [DisplayName("Product Name")]
+            public string ProductName { get; set; }
+
+            [DisplayName("Booking ID")]
+            public int book_ID { get; set; }
             public int Amount { get; set; }
+            public double Price { get; set; }
+
+            [DisplayName("Buy Date")]
             public DateTime Buy_Date { get; set; }
         }
         public class MyDbContext : DbContext

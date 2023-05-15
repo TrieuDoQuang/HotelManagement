@@ -643,5 +643,80 @@ namespace HotelMangement
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("FindServiceByName", nameParameter);
         }
+    
+        public virtual int ADD_CUSTOMERS(Nullable<int> cID, string fullname, Nullable<System.DateTime> birthDay, Nullable<bool> gender, string mail, string phoneNo, string add)
+        {
+            var cIDParameter = cID.HasValue ?
+                new ObjectParameter("cID", cID) :
+                new ObjectParameter("cID", typeof(int));
+    
+            var fullnameParameter = fullname != null ?
+                new ObjectParameter("Fullname", fullname) :
+                new ObjectParameter("Fullname", typeof(string));
+    
+            var birthDayParameter = birthDay.HasValue ?
+                new ObjectParameter("birthDay", birthDay) :
+                new ObjectParameter("birthDay", typeof(System.DateTime));
+    
+            var genderParameter = gender.HasValue ?
+                new ObjectParameter("gender", gender) :
+                new ObjectParameter("gender", typeof(bool));
+    
+            var mailParameter = mail != null ?
+                new ObjectParameter("mail", mail) :
+                new ObjectParameter("mail", typeof(string));
+    
+            var phoneNoParameter = phoneNo != null ?
+                new ObjectParameter("PhoneNo", phoneNo) :
+                new ObjectParameter("PhoneNo", typeof(string));
+    
+            var addParameter = add != null ?
+                new ObjectParameter("add", add) :
+                new ObjectParameter("add", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ADD_CUSTOMERS", cIDParameter, fullnameParameter, birthDayParameter, genderParameter, mailParameter, phoneNoParameter, addParameter);
+        }
+    
+        public virtual int DELETE_CUSTOMERS(Nullable<int> cID)
+        {
+            var cIDParameter = cID.HasValue ?
+                new ObjectParameter("cID", cID) :
+                new ObjectParameter("cID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DELETE_CUSTOMERS", cIDParameter);
+        }
+    
+        public virtual int UPDATE_CUSTOMERS(Nullable<int> cID, string fullname, Nullable<System.DateTime> birthDay, Nullable<bool> gender, string mail, string phoneNo, string add)
+        {
+            var cIDParameter = cID.HasValue ?
+                new ObjectParameter("cID", cID) :
+                new ObjectParameter("cID", typeof(int));
+    
+            var fullnameParameter = fullname != null ?
+                new ObjectParameter("Fullname", fullname) :
+                new ObjectParameter("Fullname", typeof(string));
+    
+            var birthDayParameter = birthDay.HasValue ?
+                new ObjectParameter("birthDay", birthDay) :
+                new ObjectParameter("birthDay", typeof(System.DateTime));
+    
+            var genderParameter = gender.HasValue ?
+                new ObjectParameter("gender", gender) :
+                new ObjectParameter("gender", typeof(bool));
+    
+            var mailParameter = mail != null ?
+                new ObjectParameter("mail", mail) :
+                new ObjectParameter("mail", typeof(string));
+    
+            var phoneNoParameter = phoneNo != null ?
+                new ObjectParameter("PhoneNo", phoneNo) :
+                new ObjectParameter("PhoneNo", typeof(string));
+    
+            var addParameter = add != null ?
+                new ObjectParameter("add", add) :
+                new ObjectParameter("add", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UPDATE_CUSTOMERS", cIDParameter, fullnameParameter, birthDayParameter, genderParameter, mailParameter, phoneNoParameter, addParameter);
+        }
     }
 }

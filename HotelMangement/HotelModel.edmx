@@ -311,6 +311,15 @@ warning 6002: The table/view 'HotelManagementSystem.dbo.Show_BookedRoom' does no
         <Function Name="ADD_CATEGORY" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="cateName" Type="nvarchar" Mode="In" />
         </Function>
+        <Function Name="ADD_CUSTOMERS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cID" Type="int" Mode="In" />
+          <Parameter Name="Fullname" Type="nvarchar" Mode="In" />
+          <Parameter Name="birthDay" Type="date" Mode="In" />
+          <Parameter Name="gender" Type="bit" Mode="In" />
+          <Parameter Name="mail" Type="nvarchar" Mode="In" />
+          <Parameter Name="PhoneNo" Type="nvarchar" Mode="In" />
+          <Parameter Name="add" Type="nvarchar" Mode="In" />
+        </Function>
         <Function Name="ADD_PRODUCT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="cate_ID" Type="int" Mode="In" />
           <Parameter Name="Title" Type="nvarchar" Mode="In" />
@@ -360,6 +369,9 @@ warning 6002: The table/view 'HotelManagementSystem.dbo.Show_BookedRoom' does no
         </Function>
         <Function Name="DELETE_CATEGORY" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="cateID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DELETE_CUSTOMERS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cID" Type="int" Mode="In" />
         </Function>
         <Function Name="DELETE_PRODUCT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="pID" Type="int" Mode="In" />
@@ -431,6 +443,15 @@ warning 6002: The table/view 'HotelManagementSystem.dbo.Show_BookedRoom' does no
         <Function Name="UPDATE_CATEGORY" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="cateID" Type="int" Mode="In" />
           <Parameter Name="newCateName" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="UPDATE_CUSTOMERS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cID" Type="int" Mode="In" />
+          <Parameter Name="Fullname" Type="nvarchar" Mode="In" />
+          <Parameter Name="birthDay" Type="date" Mode="In" />
+          <Parameter Name="gender" Type="bit" Mode="In" />
+          <Parameter Name="mail" Type="nvarchar" Mode="In" />
+          <Parameter Name="PhoneNo" Type="nvarchar" Mode="In" />
+          <Parameter Name="add" Type="nvarchar" Mode="In" />
         </Function>
         <Function Name="UPDATE_PRODUCT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="pID" Type="int" Mode="In" />
@@ -1005,6 +1026,27 @@ warning 6002: The table/view 'HotelManagementSystem.dbo.Show_BookedRoom' does no
             <End Role="Customer" EntitySet="Customers" />
             <End Role="UserDetail" EntitySet="UserDetails" />
           </AssociationSet>
+          <FunctionImport Name="ADD_CUSTOMERS">
+            <Parameter Name="cID" Mode="In" Type="Int32" />
+            <Parameter Name="Fullname" Mode="In" Type="String" />
+            <Parameter Name="birthDay" Mode="In" Type="DateTime" />
+            <Parameter Name="gender" Mode="In" Type="Boolean" />
+            <Parameter Name="mail" Mode="In" Type="String" />
+            <Parameter Name="PhoneNo" Mode="In" Type="String" />
+            <Parameter Name="add" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="DELETE_CUSTOMERS">
+          <Parameter Name="cID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UPDATE_CUSTOMERS">
+            <Parameter Name="cID" Mode="In" Type="Int32" />
+            <Parameter Name="Fullname" Mode="In" Type="String" />
+            <Parameter Name="birthDay" Mode="In" Type="DateTime" />
+            <Parameter Name="gender" Mode="In" Type="Boolean" />
+            <Parameter Name="mail" Mode="In" Type="String" />
+            <Parameter Name="PhoneNo" Mode="In" Type="String" />
+            <Parameter Name="add" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="User">
           <Key>
@@ -1362,6 +1404,9 @@ warning 6002: The table/view 'HotelManagementSystem.dbo.Show_BookedRoom' does no
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="ADD_CUSTOMERS" FunctionName="HotelManagementSystemModel.Store.ADD_CUSTOMERS" />
+          <FunctionImportMapping FunctionImportName="DELETE_CUSTOMERS" FunctionName="HotelManagementSystemModel.Store.DELETE_CUSTOMERS" />
+          <FunctionImportMapping FunctionImportName="UPDATE_CUSTOMERS" FunctionName="HotelManagementSystemModel.Store.UPDATE_CUSTOMERS" />
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

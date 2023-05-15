@@ -24,10 +24,10 @@ namespace HotelMangement
             //Application.Run(new FormUserDetail());
             //Application.Run(new FormUser());
             //Application.Run(new AdminInterface());
-            //Application.Run(new EmployeeInterface());
+            Application.Run(new EmployeeInterface());
             //Application.Run(new FormService());
             //Application.Run(new FormProduct());
-            Application.Run(new FormEmployeeServices());
+            //Application.Run(new FormEmployeeServices());
             //Application.Run(new FormEmployeeBooking());
 
         }

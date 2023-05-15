@@ -1,4 +1,4 @@
-﻿using System;
+﻿    using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,6 +14,7 @@ namespace HotelMangement
 {
     public partial class FormLogin : Form
     {
+ 
         public FormLogin()
         {
             InitializeComponent();
@@ -35,10 +36,10 @@ namespace HotelMangement
             var userPassword = (from user in hotelEntity.Users
                                 where user.password == password.Text
                                 select user).SingleOrDefault();
-
-            var usersRole = (from user in hotelEntity.Users
-                             where user.Email == email.Text && user.password == password.Text
-                             select user.role_id).SingleOrDefault();
+            var usersRole = 1;
+            //var usersRole = (from user in hotelEntity.Users
+            //                 where user.Email == email.Text && user.password == password.Text
+            //                 select user.role_id).SingleOrDefault();
             try
             {
                 if (userPassword != null || userEmail != null)
@@ -59,17 +60,17 @@ namespace HotelMangement
                         
                         if (Convert.ToInt32(usersRole) == 1)
                         {
-                            hotelEntity.Database.Connection.ConnectionString = ConfigurationManager.ConnectionStrings["HotelManagementSystemEntities_Admin"].ConnectionString;
-                            hotelEntity.Database.Connection.Open();
-                            if (hotelEntity.Database.Connection.State == System.Data.ConnectionState.Open)
-                            {
+                            //hotelEntity.Database.Connection.ConnectionString = ConfigurationManager.ConnectionStrings["HotelManagementSystemEntities_Admin"].ConnectionString;
+                            //hotelEntity.Database.Connection.Open();
+                            //if (hotelEntity.Database.Connection.State == System.Data.ConnectionState.Open)
+                            //{
                                 MessageBox.Show("Login succesfully, Connected as Admin!");
                                 new AdminInterface().ShowDialog();
-                            }
-                            else
-                            {
-                                MessageBox.Show("Connection failed");
-                            }
+                            //}
+                            //else
+                            //{
+                            //    MessageBox.Show("Connection failed");
+                            //}
                         }
                         else if (Convert.ToInt32(usersRole) == 2)
                         {

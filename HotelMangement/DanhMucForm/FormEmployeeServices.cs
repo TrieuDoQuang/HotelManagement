@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
+using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
@@ -27,30 +29,29 @@ namespace HotelMangement.DanhMucForm
             HotelManagementSystemEntities qlhotelEntity = new HotelManagementSystemEntities();
             var view = qlhotelEntity.Show_AvailableProduct.ToList();
             dgvAvaiServices.DataSource = view;
-            dgvAvaiServices.AutoGenerateColumns = true;     
+            dgvAvaiServices.AutoGenerateColumns = true;
             dgvAvaiServices.ColumnHeadersHeight = 30;
             dgvAvaiServices.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvAvaiServices_CellContentClick(null, null);
+            dgvAvaiServices_CellClick(null, null);
         }
         void LoadDataBooked()
         {
-            HotelManagementSystemEntities qlhotelEntity = new HotelManagementSystemEntities();
             if (txtName.Text != null)
             {
+                HotelManagementSystemEntities qlhotelEntity = new HotelManagementSystemEntities();
                 string name = txtName.Text;
-                var pro = qlhotelEntity.FindServiceByName(name);
+                var pro = qlhotelEntity.Database.SqlQuery<ServiceModel>("FindServiceByName @Name", new SqlParameter("@Name", name)).ToList();
                 dgvBookedServices.DataSource = pro;
                 dgvBookedServices.ColumnHeadersHeight = 30;
-                dgvBookedServices.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                customerID = ReturnCustomerID(name);
-               
+                dgvBookedServices.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                dgvBookedServices_CellClick(null, null);
             }
         }
 
         private void findBtn_Click(object sender, EventArgs e)
         {
             LoadDataBooked();
-            dgvBookedServices_CellContentClick(null, null);
+            customerID = ReturnCustomerID(txtName.Text);
         }
 
         private void btnAddService_Click(object sender, EventArgs e)
@@ -58,12 +59,11 @@ namespace HotelMangement.DanhMucForm
             try
             {
                 HotelManagementSystemEntities qlhotelEntity = new HotelManagementSystemEntities();
-                int price = Convert.ToInt32(dgvAvaiServices.Rows[rAvai].Cells[0].Value.ToString()) * Convert.ToInt32(txtAmount.Text);
                 var proce = qlhotelEntity.ADD_SERVICE(
                     Convert.ToInt32(txtBookID.Text),
                     customerID,
                     Convert.ToInt32(dgvAvaiServices.Rows[rAvai].Cells[0].Value.ToString()),
-                    Convert.ToDouble(price),
+                    Convert.ToDouble(dgvAvaiServices.Rows[rAvai].Cells[2].Value.ToString()),
                     Convert.ToInt32(txtAmount.Text),
                     DateTime.Now
                     );
@@ -76,17 +76,18 @@ namespace HotelMangement.DanhMucForm
             LoadDataBooked();
         }
 
-        private void dgvAvaiServices_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvAvaiServices_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            int rAvai = dgvAvaiServices.CurrentCell.RowIndex;
+            rAvai = dgvAvaiServices.CurrentCell.RowIndex;
+            this.txtNameProduct.Text = dgvAvaiServices.Rows[rAvai].Cells[1].Value.ToString();
         }
         int ReturnCustomerID(string name)
         {
             HotelManagementSystemEntities qlhotelEntity = new HotelManagementSystemEntities();
-            var us = from p in qlhotelEntity.Users select p;
+            var us = from p in qlhotelEntity.Customers select p;
             foreach (var p in us)
             {
-                if(p.Fullname==name) return p.userID;
+                if (p.Fullname == name) return p.cID;
             }
             return 0;
         }
@@ -97,8 +98,10 @@ namespace HotelMangement.DanhMucForm
             {
                 HotelManagementSystemEntities qlhotelEntity = new HotelManagementSystemEntities();
                 var proce = qlhotelEntity.DELETE_SERVICE(
-                    Convert.ToInt32(dgvBookedServices.Rows[rBooked].Cells[1].Value.ToString())
+                    Convert.ToInt32(dgvBookedServices.Rows[rBooked].Cells[0].Value.ToString())
                 );
+                LoadDataAvai();
+                LoadDataBooked();
             }
             catch (Exception ex)
             {
@@ -106,11 +109,23 @@ namespace HotelMangement.DanhMucForm
             }
         }
 
-        private void dgvBookedServices_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvBookedServices_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            rBooked= dgvBookedServices.CurrentCell.RowIndex;
-            LoadDataAvai();
-            LoadDataBooked();
+            rBooked = dgvBookedServices.CurrentCell.RowIndex;
+        }
+        public class ServiceModel
+        {
+            public int SerID { get; set; }
+            public int Book_ID { get; set; }
+            public int CustomerID { get; set; }
+            public int Product_ID { get; set; }
+            public double Price { get; set; }
+            public int Amount { get; set; }
+            public DateTime Buy_Date { get; set; }
+        }
+        public class MyDbContext : DbContext
+        {
+            public DbSet<ServiceModel> Services { get; set; }
         }
     }
 }

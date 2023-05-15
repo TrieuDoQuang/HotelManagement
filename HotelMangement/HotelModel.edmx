@@ -32,6 +32,18 @@
           <Property Name="cateID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="cateName" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="Customers">
+          <Key>
+            <PropertyRef Name="cID" />
+          </Key>
+          <Property Name="cID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Fullname" Type="nvarchar" MaxLength="50" />
+          <Property Name="Birthday" Type="date" />
+          <Property Name="Gender" Type="bit" />
+          <Property Name="Email" Type="nvarchar" MaxLength="150" />
+          <Property Name="Phone_Number" Type="nvarchar" MaxLength="20" />
+          <Property Name="Address" Type="nvarchar" MaxLength="200" />
+        </EntityType>
         <EntityType Name="Product">
           <Key>
             <PropertyRef Name="pID" />
@@ -140,18 +152,6 @@ warning 6002: The table/view 'HotelManagementSystem.dbo.Show_BookedRoom' does no
           <Property Name="Check In" Type="datetime" />
           <Property Name="Check Out" Type="datetime" />
         </EntityType>
-        <Association Name="FK__Booking__custome__3F466844">
-          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
-          <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="userID" />
-            </Principal>
-            <Dependent Role="Booking">
-              <PropertyRef Name="customer_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__Booking__staff_I__3E52440B">
           <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
           <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
@@ -212,18 +212,6 @@ warning 6002: The table/view 'HotelManagementSystem.dbo.Show_BookedRoom' does no
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Service__custome__5070F446">
-          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
-          <End Role="Service" Type="Self.Service" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="userID" />
-            </Principal>
-            <Dependent Role="Service">
-              <PropertyRef Name="customerID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__Service__product__5165187F">
           <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
           <End Role="Service" Type="Self.Service" Multiplicity="*" />
@@ -248,18 +236,6 @@ warning 6002: The table/view 'HotelManagementSystem.dbo.Show_BookedRoom' does no
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__UserDetai__custo__47DBAE45">
-          <End Role="Users" Type="Self.Users" Multiplicity="1" />
-          <End Role="UserDetail" Type="Self.UserDetail" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="userID" />
-            </Principal>
-            <Dependent Role="UserDetail">
-              <PropertyRef Name="customerID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__UserDetai__room___46E78A0C">
           <End Role="Room" Type="Self.Room" Multiplicity="1" />
           <End Role="UserDetail" Type="Self.UserDetail" Multiplicity="*" />
@@ -281,6 +257,42 @@ warning 6002: The table/view 'HotelManagementSystem.dbo.Show_BookedRoom' does no
             </Principal>
             <Dependent Role="Users">
               <PropertyRef Name="role_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Booking_Customers">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
+          <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="cID" />
+            </Principal>
+            <Dependent Role="Booking">
+              <PropertyRef Name="customer_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Service_Customers">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
+          <End Role="Service" Type="Self.Service" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="cID" />
+            </Principal>
+            <Dependent Role="Service">
+              <PropertyRef Name="customerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserDetail_Customers">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+          <End Role="UserDetail" Type="Self.UserDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="cID" />
+            </Principal>
+            <Dependent Role="UserDetail">
+              <PropertyRef Name="customerID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -464,6 +476,7 @@ warning 6002: The table/view 'HotelManagementSystem.dbo.Show_BookedRoom' does no
           <EntitySet Name="Booking" EntityType="Self.Booking" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="BookingDetail" EntityType="Self.BookingDetail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Room" EntityType="Self.Room" Schema="dbo" store:Type="Tables" />
@@ -495,10 +508,6 @@ warning 6002: The table/view 'HotelManagementSystem.dbo.Show_BookedRoom' does no
     [Show_BookedRoom].[Check Out] AS [Check Out]
     FROM [dbo].[Show_BookedRoom] AS [Show_BookedRoom]</DefiningQuery>
           </EntitySet>
-          <AssociationSet Name="FK__Booking__custome__3F466844" Association="Self.FK__Booking__custome__3F466844">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="Booking" EntitySet="Booking" />
-          </AssociationSet>
           <AssociationSet Name="FK__Booking__staff_I__3E52440B" Association="Self.FK__Booking__staff_I__3E52440B">
             <End Role="Users" EntitySet="Users" />
             <End Role="Booking" EntitySet="Booking" />
@@ -519,20 +528,12 @@ warning 6002: The table/view 'HotelManagementSystem.dbo.Show_BookedRoom' does no
             <End Role="Booking" EntitySet="Booking" />
             <End Role="Service" EntitySet="Service" />
           </AssociationSet>
-          <AssociationSet Name="FK__Service__custome__5070F446" Association="Self.FK__Service__custome__5070F446">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="Service" EntitySet="Service" />
-          </AssociationSet>
           <AssociationSet Name="FK__Service__product__5165187F" Association="Self.FK__Service__product__5165187F">
             <End Role="Product" EntitySet="Product" />
             <End Role="Service" EntitySet="Service" />
           </AssociationSet>
           <AssociationSet Name="FK__UserDetai__book___45F365D3" Association="Self.FK__UserDetai__book___45F365D3">
             <End Role="Booking" EntitySet="Booking" />
-            <End Role="UserDetail" EntitySet="UserDetail" />
-          </AssociationSet>
-          <AssociationSet Name="FK__UserDetai__custo__47DBAE45" Association="Self.FK__UserDetai__custo__47DBAE45">
-            <End Role="Users" EntitySet="Users" />
             <End Role="UserDetail" EntitySet="UserDetail" />
           </AssociationSet>
           <AssociationSet Name="FK__UserDetai__room___46E78A0C" Association="Self.FK__UserDetai__room___46E78A0C">
@@ -542,6 +543,18 @@ warning 6002: The table/view 'HotelManagementSystem.dbo.Show_BookedRoom' does no
           <AssociationSet Name="FK__Users__role_id__398D8EEE" Association="Self.FK__Users__role_id__398D8EEE">
             <End Role="Roles" EntitySet="Roles" />
             <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Booking_Customers" Association="Self.FK_Booking_Customers">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Booking" EntitySet="Booking" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Service_Customers" Association="Self.FK_Service_Customers">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Service" EntitySet="Service" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserDetail_Customers" Association="Self.FK_UserDetail_Customers">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="UserDetail" EntitySet="UserDetail" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -562,6 +575,7 @@ warning 6002: The table/view 'HotelManagementSystem.dbo.Show_BookedRoom' does no
           <NavigationProperty Name="UserDetails" Relationship="Self.FK__UserDetai__book___45F365D3" FromRole="Booking" ToRole="UserDetail" />
           <NavigationProperty Name="User" Relationship="HotelManagementSystemModel.FK__Booking__custome__3F466844" FromRole="Booking" ToRole="User" />
           <NavigationProperty Name="User1" Relationship="HotelManagementSystemModel.FK__Booking__staff_I__3E52440B" FromRole="Booking" ToRole="User" />
+          <NavigationProperty Name="Customer" Relationship="HotelManagementSystemModel.FK_Booking_Customers" FromRole="Booking" ToRole="Customer" />
         </EntityType>
         <EntityType Name="BookingDetail">
           <Key>
@@ -631,6 +645,7 @@ warning 6002: The table/view 'HotelManagementSystem.dbo.Show_BookedRoom' does no
           <NavigationProperty Name="Booking" Relationship="Self.FK__Service__book_ID__4F7CD00D" FromRole="Service" ToRole="Booking" />
           <NavigationProperty Name="Product" Relationship="Self.FK__Service__product__5165187F" FromRole="Service" ToRole="Product" />
           <NavigationProperty Name="User" Relationship="HotelManagementSystemModel.FK__Service__custome__5070F446" FromRole="Service" ToRole="User" />
+          <NavigationProperty Name="Customer" Relationship="HotelManagementSystemModel.FK_Service_Customers" FromRole="Service" ToRole="Customer" />
         </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
@@ -654,6 +669,7 @@ warning 6002: The table/view 'HotelManagementSystem.dbo.Show_BookedRoom' does no
           <NavigationProperty Name="Booking" Relationship="Self.FK__UserDetai__book___45F365D3" FromRole="UserDetail" ToRole="Booking" />
           <NavigationProperty Name="Room" Relationship="Self.FK__UserDetai__room___46E78A0C" FromRole="UserDetail" ToRole="Room" />
           <NavigationProperty Name="User" Relationship="HotelManagementSystemModel.FK__UserDetai__custo__47DBAE45" FromRole="UserDetail" ToRole="User" />
+          <NavigationProperty Name="Customer" Relationship="HotelManagementSystemModel.FK_UserDetail_Customers" FromRole="UserDetail" ToRole="Customer" />
         </EntityType>
         <Association Name="FK__BookingDe__book___4222D4EF">
           <End Role="Booking" Type="Self.Booking" Multiplicity="1" />
@@ -976,6 +992,19 @@ warning 6002: The table/view 'HotelManagementSystem.dbo.Show_BookedRoom' does no
           <EntitySet Name="Show_AvailableRoom" EntityType="HotelManagementSystemModel.Show_AvailableRoom" />
           <EntitySet Name="Show_BookedRoom" EntityType="HotelManagementSystemModel.Show_BookedRoom" />
           <EntitySet Name="Show_AvailableProduct" EntityType="HotelManagementSystemModel.Show_AvailableProduct" />
+          <EntitySet Name="Customers" EntityType="HotelManagementSystemModel.Customer" />
+          <AssociationSet Name="FK_Booking_Customers" Association="HotelManagementSystemModel.FK_Booking_Customers">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Booking" EntitySet="Bookings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Service_Customers" Association="HotelManagementSystemModel.FK_Service_Customers">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Service" EntitySet="Services" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserDetail_Customers" Association="HotelManagementSystemModel.FK_UserDetail_Customers">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="UserDetail" EntitySet="UserDetails" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="User">
           <Key>
@@ -1089,6 +1118,57 @@ warning 6002: The table/view 'HotelManagementSystem.dbo.Show_BookedRoom' does no
           <Property Name="Price" Type="Double" />
           <Property Name="Amount" Type="Int32" />
         </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="cID" />
+          </Key>
+          <Property Name="cID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fullname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Birthday" Type="DateTime" Precision="0" />
+          <Property Name="Gender" Type="Boolean" />
+          <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Phone_Number" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Bookings" Relationship="HotelManagementSystemModel.FK_Booking_Customers" FromRole="Customer" ToRole="Booking" />
+          <NavigationProperty Name="Services" Relationship="HotelManagementSystemModel.FK_Service_Customers" FromRole="Customer" ToRole="Service" />
+          <NavigationProperty Name="UserDetails" Relationship="HotelManagementSystemModel.FK_UserDetail_Customers" FromRole="Customer" ToRole="UserDetail" />
+        </EntityType>
+        <Association Name="FK_Booking_Customers">
+          <End Type="HotelManagementSystemModel.Customer" Role="Customer" Multiplicity="0..1" />
+          <End Type="HotelManagementSystemModel.Booking" Role="Booking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="cID" />
+            </Principal>
+            <Dependent Role="Booking">
+              <PropertyRef Name="customer_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Service_Customers">
+          <End Type="HotelManagementSystemModel.Customer" Role="Customer" Multiplicity="0..1" />
+          <End Type="HotelManagementSystemModel.Service" Role="Service" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="cID" />
+            </Principal>
+            <Dependent Role="Service">
+              <PropertyRef Name="customerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserDetail_Customers">
+          <End Type="HotelManagementSystemModel.Customer" Role="Customer" Multiplicity="1" />
+          <End Type="HotelManagementSystemModel.UserDetail" Role="UserDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="cID" />
+            </Principal>
+            <Dependent Role="UserDetail">
+              <PropertyRef Name="customerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1266,6 +1346,19 @@ warning 6002: The table/view 'HotelManagementSystem.dbo.Show_BookedRoom' does no
                 <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="Product_Name" ColumnName="Product Name" />
                 <ScalarProperty Name="Product_ID" ColumnName="Product ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="HotelManagementSystemModel.Customer">
+              <MappingFragment StoreEntitySet="Customers">
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Phone_Number" ColumnName="Phone_Number" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+                <ScalarProperty Name="Fullname" ColumnName="Fullname" />
+                <ScalarProperty Name="cID" ColumnName="cID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

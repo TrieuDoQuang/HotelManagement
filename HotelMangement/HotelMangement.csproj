@@ -88,6 +88,9 @@
     <Compile Include="Category.cs">
       <DependentUpon>HotelModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Customer.cs">
+      <DependentUpon>HotelModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="DanhMucForm\FormBooking.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -40,6 +40,7 @@ namespace HotelMangement
         public virtual DbSet<Show_AvailableRoom> Show_AvailableRoom { get; set; }
         public virtual DbSet<Show_BookedRoom> Show_BookedRoom { get; set; }
         public virtual DbSet<Show_AvailableProduct> Show_AvailableProduct { get; set; }
+        public virtual DbSet<Customer> Customers { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {

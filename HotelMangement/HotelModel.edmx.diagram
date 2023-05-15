@@ -30,6 +30,10 @@
         <EntityTypeShape EntityType="HotelManagementSystemModel.Show_AvailableRoom" Width="1.5" PointX="0.75" PointY="8.75" />
         <EntityTypeShape EntityType="HotelManagementSystemModel.Show_BookedRoom" Width="1.5" PointX="2.75" PointY="8.75" />
         <EntityTypeShape EntityType="HotelManagementSystemModel.Show_AvailableProduct" Width="1.5" PointX="10.375" PointY="8.75" />
+        <EntityTypeShape EntityType="HotelManagementSystemModel.Customer" Width="1.5" PointX="3" PointY="0.75" />
+        <AssociationConnector Association="HotelManagementSystemModel.FK_Booking_Customers" />
+        <AssociationConnector Association="HotelManagementSystemModel.FK_Service_Customers" />
+        <AssociationConnector Association="HotelManagementSystemModel.FK_UserDetail_Customers" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

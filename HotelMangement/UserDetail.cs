@@ -21,5 +21,6 @@ namespace HotelMangement
         public virtual Booking Booking { get; set; }
         public virtual Room Room { get; set; }
         public virtual User User { get; set; }
+        public virtual Customer Customer { get; set; }
     }
 }

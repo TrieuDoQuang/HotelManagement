@@ -48,6 +48,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.btnDeleteService = new Guna.UI2.WinForms.Guna2Button();
+            this.txtNameProduct = new Guna.UI2.WinForms.Guna2TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAvaiServices)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBookedServices)).BeginInit();
             this.SuspendLayout();
@@ -151,7 +152,7 @@
             this.dgvAvaiServices.ThemeStyle.RowsStyle.Height = 24;
             this.dgvAvaiServices.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvAvaiServices.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.dgvAvaiServices.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAvaiServices_CellContentClick);
+            this.dgvAvaiServices.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAvaiServices_CellClick);
             // 
             // label1
             // 
@@ -230,7 +231,7 @@
             this.dgvBookedServices.ThemeStyle.RowsStyle.Height = 24;
             this.dgvBookedServices.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvBookedServices.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.dgvBookedServices.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBookedServices_CellContentClick);
+            this.dgvBookedServices.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBookedServices_CellClick);
             // 
             // findBtn
             // 
@@ -369,12 +370,35 @@
             this.btnDeleteService.Text = "Delete Service";
             this.btnDeleteService.Click += new System.EventHandler(this.btnDeleteService_Click);
             // 
+            // txtNameProduct
+            // 
+            this.txtNameProduct.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtNameProduct.DefaultText = "";
+            this.txtNameProduct.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtNameProduct.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtNameProduct.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtNameProduct.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtNameProduct.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
+            this.txtNameProduct.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtNameProduct.Font = new System.Drawing.Font("Century Gothic", 13.8F);
+            this.txtNameProduct.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtNameProduct.Location = new System.Drawing.Point(571, 215);
+            this.txtNameProduct.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNameProduct.Name = "txtNameProduct";
+            this.txtNameProduct.PasswordChar = '\0';
+            this.txtNameProduct.PlaceholderText = "";
+            this.txtNameProduct.SelectedText = "";
+            this.txtNameProduct.Size = new System.Drawing.Size(157, 29);
+            this.txtNameProduct.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
+            this.txtNameProduct.TabIndex = 98;
+            // 
             // FormEmployeeServices
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
             this.ClientSize = new System.Drawing.Size(1370, 607);
+            this.Controls.Add(this.txtNameProduct);
             this.Controls.Add(this.btnDeleteService);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -414,5 +438,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private Guna.UI2.WinForms.Guna2Button btnDeleteService;
+        private Guna.UI2.WinForms.Guna2TextBox txtNameProduct;
     }
 }

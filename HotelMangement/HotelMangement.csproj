@@ -127,6 +127,12 @@
     <Compile Include="DanhMucForm\FormProduct.Designer.cs">
       <DependentUpon>FormProduct.cs</DependentUpon>
     </Compile>
+    <Compile Include="DanhMucForm\FormReceipt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DanhMucForm\FormReceipt.Designer.cs">
+      <DependentUpon>FormReceipt.cs</DependentUpon>
+    </Compile>
     <Compile Include="DanhMucForm\FormRoom.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -236,6 +242,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DanhMucForm\FormProduct.resx">
       <DependentUpon>FormProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DanhMucForm\FormReceipt.resx">
+      <DependentUpon>FormReceipt.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DanhMucForm\FormRoom.resx">
       <DependentUpon>FormRoom.cs</DependentUpon>

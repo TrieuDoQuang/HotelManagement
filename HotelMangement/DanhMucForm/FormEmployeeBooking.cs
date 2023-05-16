@@ -21,7 +21,7 @@ namespace HotelMangement.DanhMucForm
         void LoadAvaiRoom()
         {
             HotelManagementSystemEntities qlhotelEntity = new HotelManagementSystemEntities();
-            var view = qlhotelEntity.Show_AvailableRoom.ToList();
+            var view = qlhotelEntity.View_AvailableProduct.ToList();
             dgvAvaiRoom.DataSource = view;
             dgvAvaiRoom.AutoGenerateColumns = true;
             dgvAvaiRoom.ColumnHeadersHeight = 30;
@@ -31,7 +31,7 @@ namespace HotelMangement.DanhMucForm
         void LoadBookedRoom()
         {
             HotelManagementSystemEntities qlhotelEntity = new HotelManagementSystemEntities();
-            var view = qlhotelEntity.Show_BookedRoom.ToList();
+            var view = qlhotelEntity.View_AvailableProduct.ToList();
             dgvBookedRoom.DataSource = view;
             dgvBookedRoom.AutoGenerateColumns = true;
             dgvBookedRoom.ColumnHeadersHeight = 30;

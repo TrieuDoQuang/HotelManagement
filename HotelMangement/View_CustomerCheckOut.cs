@@ -12,11 +12,14 @@ namespace HotelMangement
     using System;
     using System.Collections.Generic;
     
-    public partial class Show_AvailableProduct
+    public partial class View_CustomerCheckOut
     {
-        public int Product_ID { get; set; }
-        public string Product_Name { get; set; }
-        public Nullable<double> Price { get; set; }
-        public Nullable<int> Amount { get; set; }
+        public int cID { get; set; }
+        public string Fullname { get; set; }
+        public string Email { get; set; }
+        public string Phone_Number { get; set; }
+        public string room_No { get; set; }
+        public Nullable<System.DateTime> Check_In { get; set; }
+        public Nullable<System.DateTime> Check_Out { get; set; }
     }
 }

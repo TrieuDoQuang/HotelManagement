@@ -10,16 +10,17 @@
 namespace HotelMangement
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class Show_CustomerCheckOut
+    public partial class SP_FindServiceByName_Result
     {
-        public int cID { get; set; }
         public string Fullname { get; set; }
-        public string Email { get; set; }
-        public string Phone_Number { get; set; }
-        public string room_No { get; set; }
-        public Nullable<System.DateTime> Check_In { get; set; }
-        public Nullable<System.DateTime> Check_Out { get; set; }
+        public string ProductName { get; set; }
+        public int serID { get; set; }
+        public Nullable<int> book_ID { get; set; }
+        public Nullable<int> customerID { get; set; }
+        public Nullable<int> product_ID { get; set; }
+        public Nullable<double> Price { get; set; }
+        public Nullable<int> Amount { get; set; }
+        public Nullable<System.DateTime> Buy_Date { get; set; }
     }
 }

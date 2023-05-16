@@ -37,7 +37,7 @@ namespace HotelMangement.BS_Layer
             try
             {
                 HotelManagementSystemEntities qlhotelEntity = new HotelManagementSystemEntities();
-                var proce = qlhotelEntity.ADD_SERVICE(book_ID, customerID, product_ID, Price, Amount, Buy_Date);
+                var proce = qlhotelEntity.SP_ADD_SERVICE(book_ID, customerID, product_ID, Price, Amount, Buy_Date);
             }
             catch (Exception ex)
             {
@@ -52,7 +52,7 @@ namespace HotelMangement.BS_Layer
             try
             {
                 HotelManagementSystemEntities qlhotelEntity = new HotelManagementSystemEntities();
-                var proce = qlhotelEntity.DELETE_SERVICE(serID);
+                var proce = qlhotelEntity.SP_DELETE_SERVICE(serID);
             }
             catch (Exception ex)
             {
@@ -66,7 +66,7 @@ namespace HotelMangement.BS_Layer
             try
             {
                 HotelManagementSystemEntities qlhotelEntity = new HotelManagementSystemEntities();
-                var proce = qlhotelEntity.UPDATE_SERVICE(serID, book_ID, customerID, product_ID, Price, Amount, Buy_Date);
+                var proce = qlhotelEntity.SP_UPDATE_SERVICE(serID, book_ID, customerID, product_ID, Price, Amount, Buy_Date);
             }
             catch (Exception ex)
             {

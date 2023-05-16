@@ -45,7 +45,7 @@ namespace HotelMangement.DanhMucForm
                 this.txtuserID.ResetText();
                 this.txtFullname.ResetText();
                 this.txtPassword.ResetText();
-                this.txtBirthday.ResetText();
+                this.dtpBirthday.ResetText();
                 this.txtGender.ResetText();
                 this.txtEmail.ResetText();
                 this.txtPhone_Number.ResetText();
@@ -83,10 +83,13 @@ namespace HotelMangement.DanhMucForm
             // Kich hoạt biến Them
             Them = true;
             // Xóa trống các đối tượng trong Panel
-            this.txtuserID.ResetText();
+            int newUserId = Convert.ToInt32(dgvUSER.Rows[dgvUSER.Rows.Count - 2].Cells[0].Value) + 1;
+            
+            this.txtuserID.Text = newUserId.ToString();
+         
             this.txtFullname.ResetText();
             this.txtPassword.ResetText();
-            this.txtBirthday.ResetText();
+            this.dtpBirthday.ResetText();
             this.txtGender.ResetText();
             this.txtEmail.ResetText();
             this.txtPhone_Number.ResetText();
@@ -102,7 +105,7 @@ namespace HotelMangement.DanhMucForm
             this.btnDelete.Enabled = false;
 
             // Đưa con trỏ đến TextField txtUserID
-            this.txtuserID.Focus();
+            this.txtFullname.Focus();
         }
         private void btnFix_Click(object sender, EventArgs e)
         {
@@ -136,7 +139,7 @@ namespace HotelMangement.DanhMucForm
             dgvUSER.Rows[r].Cells[1].Value.ToString();
             this.txtPassword.Text =
             dgvUSER.Rows[r].Cells[2].Value.ToString();
-            this.txtBirthday.Text =
+            this.dtpBirthday.Text =
             dgvUSER.Rows[r].Cells[3].Value.ToString();
             this.txtGender.Text =
             dgvUSER.Rows[r].Cells[4].Value.ToString();
@@ -165,7 +168,7 @@ namespace HotelMangement.DanhMucForm
             this.txtuserID.ResetText();
             this.txtFullname.ResetText();
             this.txtPassword.ResetText();
-            this.txtBirthday.ResetText();
+            this.dtpBirthday.ResetText();
             this.txtGender.ResetText();
             this.txtEmail.ResetText();
             this.txtPhone_Number.ResetText();
@@ -189,7 +192,7 @@ namespace HotelMangement.DanhMucForm
             if (Them)
             {
                 BLUser blU = new BLUser();
-                if(blU.AddUser(Convert.ToInt32(this.txtuserID.Text), this.txtFullname.Text, this.txtPassword.Text, DateTime.Parse(this.txtBirthday.Text), bool.Parse(this.txtGender.Text), this.txtEmail.Text, this.txtPhone_Number.Text, this.txtAddress.Text, Convert.ToInt32(this.txtrole_id.Text), ref err))
+                if(blU.AddUser(Convert.ToInt32(this.txtuserID.Text), this.txtFullname.Text, this.txtPassword.Text, this.dtpBirthday.Value, bool.Parse(this.txtGender.Text), this.txtEmail.Text, this.txtPhone_Number.Text, this.txtAddress.Text, Convert.ToInt32(this.txtrole_id.Text), ref err))
                     MessageBox.Show("Add successfully!");  
                 LoadData();
             }
@@ -197,7 +200,7 @@ namespace HotelMangement.DanhMucForm
             {
                 // Thực hiện lệnh
                 BLUser blU = new BLUser();
-                blU.UpdateUser(Convert.ToInt32(this.txtuserID.Text), this.txtFullname.Text, this.txtPassword.Text, DateTime.Parse(this.txtBirthday.Text), bool.Parse(this.txtGender.Text), this.txtEmail.Text, this.txtPhone_Number.Text, this.txtAddress.Text, Convert.ToInt32(this.txtrole_id.Text), ref err);
+                blU.UpdateUser(Convert.ToInt32(this.txtuserID.Text), this.txtFullname.Text, this.txtPassword.Text, this.dtpBirthday.Value, bool.Parse(this.txtGender.Text), this.txtEmail.Text, this.txtPhone_Number.Text, this.txtAddress.Text, Convert.ToInt32(this.txtrole_id.Text), ref err);
                 // Load lại dữ liệu trên DataGridView
                 LoadData();
                 // Thông báo

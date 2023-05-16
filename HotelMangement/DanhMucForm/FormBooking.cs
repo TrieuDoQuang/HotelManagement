@@ -68,7 +68,9 @@ namespace HotelMangement.DanhMucForm
             // Kich hoạt biến Them
             Them = true;
             // Xóa trống các đối tượng trong Panel
-            this.txtbook_ID.ResetText();
+            int newBookingID = Convert.ToInt32(dgvBOOKING.Rows[dgvBOOKING.Rows.Count - 2].Cells[0].Value) + 1;
+
+            this.txtbook_ID.Text = newBookingID.ToString();
             this.txtStaff_ID.ResetText();
             this.txtCustomer_ID.ResetText();
             // Cho thao tác trên các nút Lưu / Hủy / Panel
@@ -81,7 +83,7 @@ namespace HotelMangement.DanhMucForm
             this.btnDelete.Enabled = false;
 
             // Đưa con trỏ đến TextField txtbook_ID
-            this.txtbook_ID.Focus();
+            this.txtStaff_ID.Focus();
         }
         private void btnFix_Click(object sender, EventArgs e)
         {

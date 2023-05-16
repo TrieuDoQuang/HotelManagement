@@ -120,8 +120,8 @@
           <Property Name="password" Type="varchar" MaxLength="10" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'HotelManagementSystem.dbo.Show_AvailableProduct' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-        <EntityType Name="Show_AvailableProduct">
+warning 6002: The table/view 'HotelManagementSystem.dbo.View_AvailableProduct' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="View_AvailableProduct">
           <Key>
             <PropertyRef Name="Product ID" />
           </Key>
@@ -131,30 +131,8 @@ warning 6002: The table/view 'HotelManagementSystem.dbo.Show_AvailableProduct' d
           <Property Name="Amount" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'HotelManagementSystem.dbo.Show_AvailableRoom' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-        <EntityType Name="Show_AvailableRoom">
-          <Key>
-            <PropertyRef Name="Room Number" />
-          </Key>
-          <Property Name="Room Number" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="Type" Type="nvarchar" MaxLength="20" />
-          <Property Name="Capacity" Type="int" />
-          <Property Name="Price" Type="float" />
-        </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'HotelManagementSystem.dbo.Show_BookedRoom' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-        <EntityType Name="Show_BookedRoom">
-          <Key>
-            <PropertyRef Name="Room Number" />
-          </Key>
-          <Property Name="Customer Name" Type="nvarchar" MaxLength="50" />
-          <Property Name="Room Number" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="Check In" Type="datetime" />
-          <Property Name="Check Out" Type="datetime" />
-        </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'HotelManagementSystem.dbo.Show_CustomerCheckOut' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-        <EntityType Name="Show_CustomerCheckOut">
+warning 6002: The table/view 'HotelManagementSystem.dbo.View_CustomerCheckOut' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="View_CustomerCheckOut">
           <Key>
             <PropertyRef Name="cID" />
             <PropertyRef Name="room_No" />
@@ -166,6 +144,26 @@ warning 6002: The table/view 'HotelManagementSystem.dbo.Show_CustomerCheckOut' d
           <Property Name="room_No" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="Check_In" Type="datetime" />
           <Property Name="Check_Out" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'HotelManagementSystem.dbo.View_Receipt' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="View_Receipt">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+            <PropertyRef Name="room_No" />
+          </Key>
+          <Property Name="CustomerID" Type="int" Nullable="false" />
+          <Property Name="CustomerName" Type="nvarchar" MaxLength="50" />
+          <Property Name="EmployeeName" Type="nvarchar" MaxLength="50" />
+          <Property Name="room_No" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="RoomCapacity" Type="int" />
+          <Property Name="StayingDays" Type="int" />
+          <Property Name="Service" Type="nvarchar" MaxLength="150" />
+          <Property Name="ServicePrice" Type="float" />
+          <Property Name="ServiceQuantity" Type="int" />
+          <Property Name="ServiceTotal" Type="float" />
+          <Property Name="RoomPrice" Type="float" />
+          <Property Name="RoomUnit" Type="float" />
         </EntityType>
         <Association Name="FK__Booking__staff_I__3E52440B">
           <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
@@ -311,103 +309,6 @@ warning 6002: The table/view 'HotelManagementSystem.dbo.Show_CustomerCheckOut' d
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Function Name="ADD_BOOKING" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="staff_ID" Type="int" Mode="In" />
-          <Parameter Name="customer_ID" Type="int" Mode="In" />
-          <Parameter Name="Check_In" Type="datetime" Mode="In" />
-          <Parameter Name="Check_Out" Type="datetime" Mode="In" />
-        </Function>
-        <Function Name="ADD_BOOKING_DETAIL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="book_ID" Type="int" Mode="In" />
-          <Parameter Name="room_ID" Type="int" Mode="In" />
-          <Parameter Name="Price" Type="float" Mode="In" />
-          <Parameter Name="Unit" Type="float" Mode="In" />
-        </Function>
-        <Function Name="ADD_CATEGORY" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="cateName" Type="nvarchar" Mode="In" />
-        </Function>
-        <Function Name="ADD_CUSTOMERS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="cID" Type="int" Mode="In" />
-          <Parameter Name="Fullname" Type="nvarchar" Mode="In" />
-          <Parameter Name="birthDay" Type="date" Mode="In" />
-          <Parameter Name="gender" Type="bit" Mode="In" />
-          <Parameter Name="mail" Type="nvarchar" Mode="In" />
-          <Parameter Name="PhoneNo" Type="nvarchar" Mode="In" />
-          <Parameter Name="add" Type="nvarchar" Mode="In" />
-        </Function>
-        <Function Name="ADD_PRODUCT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="cate_ID" Type="int" Mode="In" />
-          <Parameter Name="Title" Type="nvarchar" Mode="In" />
-          <Parameter Name="Thumbnail" Type="nvarchar" Mode="In" />
-          <Parameter Name="Decription" Type="ntext" Mode="In" />
-          <Parameter Name="Price" Type="float" Mode="In" />
-          <Parameter Name="Amount" Type="int" Mode="In" />
-        </Function>
-        <Function Name="ADD_ROLE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="rName" Type="nvarchar" Mode="In" />
-        </Function>
-        <Function Name="ADD_ROOM" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="room_No" Type="nvarchar" Mode="In" />
-          <Parameter Name="Type" Type="nvarchar" Mode="In" />
-          <Parameter Name="Capacity" Type="int" Mode="In" />
-          <Parameter Name="Price" Type="float" Mode="In" />
-        </Function>
-        <Function Name="ADD_SERVICE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="book_ID" Type="int" Mode="In" />
-          <Parameter Name="customerID" Type="int" Mode="In" />
-          <Parameter Name="product_ID" Type="int" Mode="In" />
-          <Parameter Name="Price" Type="float" Mode="In" />
-          <Parameter Name="Amount" Type="int" Mode="In" />
-          <Parameter Name="Buy_Date" Type="datetime" Mode="In" />
-        </Function>
-        <Function Name="ADD_USER" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="Fullname" Type="nvarchar" Mode="In" />
-          <Parameter Name="Birthday" Type="date" Mode="In" />
-          <Parameter Name="Gender" Type="bit" Mode="In" />
-          <Parameter Name="Email" Type="nvarchar" Mode="In" />
-          <Parameter Name="Phone_Number" Type="nvarchar" Mode="In" />
-          <Parameter Name="Address" Type="nvarchar" Mode="In" />
-          <Parameter Name="role_id" Type="int" Mode="In" />
-          <Parameter Name="password" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="ADD_USER_DETAIL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="book_ID" Type="int" Mode="In" />
-          <Parameter Name="room_ID" Type="int" Mode="In" />
-          <Parameter Name="customerID" Type="int" Mode="In" />
-        </Function>
-        <Function Name="DELETE_BOOKING" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="bookID" Type="int" Mode="In" />
-        </Function>
-        <Function Name="DELETE_BOOKING_DETAIL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="book_ID" Type="int" Mode="In" />
-          <Parameter Name="room_ID" Type="int" Mode="In" />
-        </Function>
-        <Function Name="DELETE_CATEGORY" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="cateID" Type="int" Mode="In" />
-        </Function>
-        <Function Name="DELETE_CUSTOMERS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="cID" Type="int" Mode="In" />
-        </Function>
-        <Function Name="DELETE_PRODUCT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="pID" Type="int" Mode="In" />
-        </Function>
-        <Function Name="DELETE_ROLE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="rID" Type="int" Mode="In" />
-        </Function>
-        <Function Name="DELETE_ROOM" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="roomID" Type="int" Mode="In" />
-        </Function>
-        <Function Name="DELETE_SERVICE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="serID" Type="int" Mode="In" />
-        </Function>
-        <Function Name="DELETE_USER" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="userID" Type="int" Mode="In" />
-        </Function>
-        <Function Name="DELETE_USER_DETAIL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="book_ID" Type="int" Mode="In" />
-          <Parameter Name="room_ID" Type="int" Mode="In" />
-          <Parameter Name="customerID" Type="int" Mode="In" />
-        </Function>
         <Function Name="FindCustomerByFullName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="fullname" Type="nvarchar" Mode="In" />
           <ReturnType>
@@ -424,13 +325,74 @@ warning 6002: The table/view 'HotelManagementSystem.dbo.Show_CustomerCheckOut' d
             </CollectionType>
           </ReturnType>
         </Function>
-        <Function Name="FindServiceByName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="Name" Type="nvarchar" Mode="In" />
-        </Function>
         <Function Name="Fn_CalculateTotalForCheckOut" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="float">
           <Parameter Name="bookingId" Type="int" Mode="In" />
         </Function>
         <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="SP_ADD_BOOKING" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="staff_ID" Type="int" Mode="In" />
+          <Parameter Name="customer_ID" Type="int" Mode="In" />
+          <Parameter Name="Check_In" Type="datetime" Mode="In" />
+          <Parameter Name="Check_Out" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="SP_ADD_BOOKING_DETAIL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="book_ID" Type="int" Mode="In" />
+          <Parameter Name="room_ID" Type="int" Mode="In" />
+          <Parameter Name="Price" Type="float" Mode="In" />
+          <Parameter Name="Unit" Type="float" Mode="In" />
+        </Function>
+        <Function Name="SP_ADD_CATEGORY" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cateName" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="SP_ADD_CUSTOMERS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cID" Type="int" Mode="In" />
+          <Parameter Name="Fullname" Type="nvarchar" Mode="In" />
+          <Parameter Name="birthDay" Type="date" Mode="In" />
+          <Parameter Name="gender" Type="bit" Mode="In" />
+          <Parameter Name="mail" Type="nvarchar" Mode="In" />
+          <Parameter Name="PhoneNo" Type="nvarchar" Mode="In" />
+          <Parameter Name="add" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="SP_ADD_PRODUCT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cate_ID" Type="int" Mode="In" />
+          <Parameter Name="Title" Type="nvarchar" Mode="In" />
+          <Parameter Name="Thumbnail" Type="nvarchar" Mode="In" />
+          <Parameter Name="Decription" Type="ntext" Mode="In" />
+          <Parameter Name="Price" Type="float" Mode="In" />
+          <Parameter Name="Amount" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_ADD_ROLE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="rName" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="SP_ADD_ROOM" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="room_No" Type="nvarchar" Mode="In" />
+          <Parameter Name="Type" Type="nvarchar" Mode="In" />
+          <Parameter Name="Capacity" Type="int" Mode="In" />
+          <Parameter Name="Price" Type="float" Mode="In" />
+        </Function>
+        <Function Name="SP_ADD_SERVICE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="book_ID" Type="int" Mode="In" />
+          <Parameter Name="customerID" Type="int" Mode="In" />
+          <Parameter Name="product_ID" Type="int" Mode="In" />
+          <Parameter Name="Price" Type="float" Mode="In" />
+          <Parameter Name="Amount" Type="int" Mode="In" />
+          <Parameter Name="Buy_Date" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="SP_ADD_USER" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Fullname" Type="nvarchar" Mode="In" />
+          <Parameter Name="Birthday" Type="date" Mode="In" />
+          <Parameter Name="Gender" Type="bit" Mode="In" />
+          <Parameter Name="Email" Type="nvarchar" Mode="In" />
+          <Parameter Name="Phone_Number" Type="nvarchar" Mode="In" />
+          <Parameter Name="Address" Type="nvarchar" Mode="In" />
+          <Parameter Name="role_id" Type="int" Mode="In" />
+          <Parameter Name="password" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="SP_ADD_USER_DETAIL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="book_ID" Type="int" Mode="In" />
+          <Parameter Name="room_ID" Type="int" Mode="In" />
+          <Parameter Name="customerID" Type="int" Mode="In" />
+        </Function>
         <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
           <Parameter Name="owner_id" Type="int" Mode="In" />
@@ -443,9 +405,45 @@ warning 6002: The table/view 'HotelManagementSystem.dbo.Show_CustomerCheckOut' d
           <Parameter Name="version" Type="int" Mode="In" />
           <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
         </Function>
+        <Function Name="SP_DELETE_BOOKING" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="bookID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_DELETE_BOOKING_DETAIL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="book_ID" Type="int" Mode="In" />
+          <Parameter Name="room_ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_DELETE_CATEGORY" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cateID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_DELETE_CUSTOMERS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_DELETE_PRODUCT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_DELETE_ROLE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="rID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_DELETE_ROOM" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="roomID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_DELETE_SERVICE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="serID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_DELETE_USER" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_DELETE_USER_DETAIL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="book_ID" Type="int" Mode="In" />
+          <Parameter Name="room_ID" Type="int" Mode="In" />
+          <Parameter Name="customerID" Type="int" Mode="In" />
+        </Function>
         <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
           <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_FindServiceByName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Name" Type="nvarchar" Mode="In" />
         </Function>
         <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
@@ -460,25 +458,24 @@ warning 6002: The table/view 'HotelManagementSystem.dbo.Show_CustomerCheckOut' d
           <Parameter Name="owner_id" Type="int" Mode="In" />
           <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
         </Function>
-        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-        <Function Name="UPDATE_BOOKING" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+        <Function Name="SP_UPDATE_BOOKING" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="bookID" Type="int" Mode="In" />
           <Parameter Name="staff_ID" Type="int" Mode="In" />
           <Parameter Name="customer_ID" Type="int" Mode="In" />
           <Parameter Name="Check_In" Type="datetime" Mode="In" />
           <Parameter Name="Check_Out" Type="datetime" Mode="In" />
         </Function>
-        <Function Name="UPDATE_BOOKING_DETAIL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+        <Function Name="SP_UPDATE_BOOKING_DETAIL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="book_ID" Type="int" Mode="In" />
           <Parameter Name="room_ID" Type="int" Mode="In" />
           <Parameter Name="Price" Type="float" Mode="In" />
           <Parameter Name="Unit" Type="float" Mode="In" />
         </Function>
-        <Function Name="UPDATE_CATEGORY" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+        <Function Name="SP_UPDATE_CATEGORY" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="cateID" Type="int" Mode="In" />
           <Parameter Name="newCateName" Type="nvarchar" Mode="In" />
         </Function>
-        <Function Name="UPDATE_CUSTOMERS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+        <Function Name="SP_UPDATE_CUSTOMERS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="cID" Type="int" Mode="In" />
           <Parameter Name="Fullname" Type="nvarchar" Mode="In" />
           <Parameter Name="birthDay" Type="date" Mode="In" />
@@ -487,7 +484,7 @@ warning 6002: The table/view 'HotelManagementSystem.dbo.Show_CustomerCheckOut' d
           <Parameter Name="PhoneNo" Type="nvarchar" Mode="In" />
           <Parameter Name="add" Type="nvarchar" Mode="In" />
         </Function>
-        <Function Name="UPDATE_PRODUCT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+        <Function Name="SP_UPDATE_PRODUCT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="pID" Type="int" Mode="In" />
           <Parameter Name="cate_ID" Type="int" Mode="In" />
           <Parameter Name="Title" Type="nvarchar" Mode="In" />
@@ -496,18 +493,18 @@ warning 6002: The table/view 'HotelManagementSystem.dbo.Show_CustomerCheckOut' d
           <Parameter Name="Price" Type="float" Mode="In" />
           <Parameter Name="Amount" Type="int" Mode="In" />
         </Function>
-        <Function Name="UPDATE_ROLE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+        <Function Name="SP_UPDATE_ROLE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="roleId" Type="int" Mode="In" />
           <Parameter Name="roleName" Type="nvarchar" Mode="In" />
         </Function>
-        <Function Name="UPDATE_ROOM" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+        <Function Name="SP_UPDATE_ROOM" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="roomID" Type="int" Mode="In" />
           <Parameter Name="roomNo" Type="nvarchar" Mode="In" />
           <Parameter Name="type" Type="nvarchar" Mode="In" />
           <Parameter Name="capacity" Type="int" Mode="In" />
           <Parameter Name="price" Type="float" Mode="In" />
         </Function>
-        <Function Name="UPDATE_SERVICE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+        <Function Name="SP_UPDATE_SERVICE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="serID" Type="int" Mode="In" />
           <Parameter Name="book_ID" Type="int" Mode="In" />
           <Parameter Name="customerID" Type="int" Mode="In" />
@@ -516,7 +513,7 @@ warning 6002: The table/view 'HotelManagementSystem.dbo.Show_CustomerCheckOut' d
           <Parameter Name="Amount" Type="int" Mode="In" />
           <Parameter Name="Buy_Date" Type="datetime" Mode="In" />
         </Function>
-        <Function Name="UPDATE_USER" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+        <Function Name="SP_UPDATE_USER" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="userID" Type="int" Mode="In" />
           <Parameter Name="Fullname" Type="nvarchar" Mode="In" />
           <Parameter Name="Birthday" Type="date" Mode="In" />
@@ -526,6 +523,16 @@ warning 6002: The table/view 'HotelManagementSystem.dbo.Show_CustomerCheckOut' d
           <Parameter Name="Address" Type="nvarchar" Mode="In" />
           <Parameter Name="role_id" Type="int" Mode="In" />
           <Parameter Name="password" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="UPDATE_CUSTOMERS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cID" Type="int" Mode="In" />
+          <Parameter Name="Fullname" Type="nvarchar" Mode="In" />
+          <Parameter Name="birthDay" Type="date" Mode="In" />
+          <Parameter Name="gender" Type="bit" Mode="In" />
+          <Parameter Name="mail" Type="nvarchar" Mode="In" />
+          <Parameter Name="PhoneNo" Type="nvarchar" Mode="In" />
+          <Parameter Name="add" Type="nvarchar" Mode="In" />
         </Function>
         <EntityContainer Name="HotelManagementSystemModelStoreContainer">
           <EntitySet Name="Booking" EntityType="Self.Booking" Schema="dbo" store:Type="Tables" />
@@ -539,40 +546,40 @@ warning 6002: The table/view 'HotelManagementSystem.dbo.Show_CustomerCheckOut' d
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserDetail" EntityType="Self.UserDetail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Show_AvailableProduct" EntityType="Self.Show_AvailableProduct" store:Type="Views" store:Schema="dbo">
+          <EntitySet Name="View_AvailableProduct" EntityType="Self.View_AvailableProduct" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [Show_AvailableProduct].[Product ID] AS [Product ID], 
-    [Show_AvailableProduct].[Product Name] AS [Product Name], 
-    [Show_AvailableProduct].[Price] AS [Price], 
-    [Show_AvailableProduct].[Amount] AS [Amount]
-    FROM [dbo].[Show_AvailableProduct] AS [Show_AvailableProduct]</DefiningQuery>
+    [View_AvailableProduct].[Product ID] AS [Product ID], 
+    [View_AvailableProduct].[Product Name] AS [Product Name], 
+    [View_AvailableProduct].[Price] AS [Price], 
+    [View_AvailableProduct].[Amount] AS [Amount]
+    FROM [dbo].[View_AvailableProduct] AS [View_AvailableProduct]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="Show_AvailableRoom" EntityType="Self.Show_AvailableRoom" store:Type="Views" store:Schema="dbo">
+          <EntitySet Name="View_CustomerCheckOut" EntityType="Self.View_CustomerCheckOut" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [Show_AvailableRoom].[Room Number] AS [Room Number], 
-    [Show_AvailableRoom].[Type] AS [Type], 
-    [Show_AvailableRoom].[Capacity] AS [Capacity], 
-    [Show_AvailableRoom].[Price] AS [Price]
-    FROM [dbo].[Show_AvailableRoom] AS [Show_AvailableRoom]</DefiningQuery>
+    [View_CustomerCheckOut].[cID] AS [cID], 
+    [View_CustomerCheckOut].[Fullname] AS [Fullname], 
+    [View_CustomerCheckOut].[Email] AS [Email], 
+    [View_CustomerCheckOut].[Phone_Number] AS [Phone_Number], 
+    [View_CustomerCheckOut].[room_No] AS [room_No], 
+    [View_CustomerCheckOut].[Check_In] AS [Check_In], 
+    [View_CustomerCheckOut].[Check_Out] AS [Check_Out]
+    FROM [dbo].[View_CustomerCheckOut] AS [View_CustomerCheckOut]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="Show_BookedRoom" EntityType="Self.Show_BookedRoom" store:Type="Views" store:Schema="dbo">
+          <EntitySet Name="View_Receipt" EntityType="Self.View_Receipt" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [Show_BookedRoom].[Customer Name] AS [Customer Name], 
-    [Show_BookedRoom].[Room Number] AS [Room Number], 
-    [Show_BookedRoom].[Check In] AS [Check In], 
-    [Show_BookedRoom].[Check Out] AS [Check Out]
-    FROM [dbo].[Show_BookedRoom] AS [Show_BookedRoom]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Show_CustomerCheckOut" EntityType="Self.Show_CustomerCheckOut" store:Type="Views" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Show_CustomerCheckOut].[cID] AS [cID], 
-    [Show_CustomerCheckOut].[Fullname] AS [Fullname], 
-    [Show_CustomerCheckOut].[Email] AS [Email], 
-    [Show_CustomerCheckOut].[Phone_Number] AS [Phone_Number], 
-    [Show_CustomerCheckOut].[room_No] AS [room_No], 
-    [Show_CustomerCheckOut].[Check_In] AS [Check_In], 
-    [Show_CustomerCheckOut].[Check_Out] AS [Check_Out]
-    FROM [dbo].[Show_CustomerCheckOut] AS [Show_CustomerCheckOut]</DefiningQuery>
+    [View_Receipt].[CustomerID] AS [CustomerID], 
+    [View_Receipt].[CustomerName] AS [CustomerName], 
+    [View_Receipt].[EmployeeName] AS [EmployeeName], 
+    [View_Receipt].[room_No] AS [room_No], 
+    [View_Receipt].[RoomCapacity] AS [RoomCapacity], 
+    [View_Receipt].[StayingDays] AS [StayingDays], 
+    [View_Receipt].[Service] AS [Service], 
+    [View_Receipt].[ServicePrice] AS [ServicePrice], 
+    [View_Receipt].[ServiceQuantity] AS [ServiceQuantity], 
+    [View_Receipt].[ServiceTotal] AS [ServiceTotal], 
+    [View_Receipt].[RoomPrice] AS [RoomPrice], 
+    [View_Receipt].[RoomUnit] AS [RoomUnit]
+    FROM [dbo].[View_Receipt] AS [View_Receipt]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK__Booking__staff_I__3E52440B" Association="Self.FK__Booking__staff_I__3E52440B">
             <End Role="Users" EntitySet="Users" />
@@ -910,154 +917,9 @@ warning 6002: The table/view 'HotelManagementSystem.dbo.Show_CustomerCheckOut' d
             <End Role="User" EntitySet="Users" />
             <End Role="UserDetail" EntitySet="UserDetails" />
           </AssociationSet>
-          <FunctionImport Name="ADD_BOOKING">
-            <Parameter Name="staff_ID" Mode="In" Type="Int32" />
-            <Parameter Name="customer_ID" Mode="In" Type="Int32" />
-            <Parameter Name="Check_In" Mode="In" Type="DateTime" />
-            <Parameter Name="Check_Out" Mode="In" Type="DateTime" />
-          </FunctionImport>
-          <FunctionImport Name="ADD_BOOKING_DETAIL">
-            <Parameter Name="book_ID" Mode="In" Type="Int32" />
-            <Parameter Name="room_ID" Mode="In" Type="Int32" />
-            <Parameter Name="Price" Mode="In" Type="Double" />
-            <Parameter Name="Unit" Mode="In" Type="Double" />
-          </FunctionImport>
-          <FunctionImport Name="ADD_CATEGORY">
-          <Parameter Name="cateName" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="ADD_PRODUCT">
-            <Parameter Name="cate_ID" Mode="In" Type="Int32" />
-            <Parameter Name="Title" Mode="In" Type="String" />
-            <Parameter Name="Thumbnail" Mode="In" Type="String" />
-            <Parameter Name="Decription" Mode="In" Type="String" />
-            <Parameter Name="Price" Mode="In" Type="Double" />
-            <Parameter Name="Amount" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="ADD_ROLE">
-          <Parameter Name="rName" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="ADD_ROOM">
-            <Parameter Name="room_No" Mode="In" Type="String" />
-            <Parameter Name="Type" Mode="In" Type="String" />
-            <Parameter Name="Capacity" Mode="In" Type="Int32" />
-            <Parameter Name="Price" Mode="In" Type="Double" />
-          </FunctionImport>
-          <FunctionImport Name="ADD_SERVICE">
-            <Parameter Name="book_ID" Mode="In" Type="Int32" />
-            <Parameter Name="customerID" Mode="In" Type="Int32" />
-            <Parameter Name="product_ID" Mode="In" Type="Int32" />
-            <Parameter Name="Price" Mode="In" Type="Double" />
-            <Parameter Name="Amount" Mode="In" Type="Int32" />
-            <Parameter Name="Buy_Date" Mode="In" Type="DateTime" />
-          </FunctionImport>
-          <FunctionImport Name="ADD_USER">
-            <Parameter Name="Fullname" Mode="In" Type="String" />
-            <Parameter Name="Birthday" Mode="In" Type="DateTime" />
-            <Parameter Name="Gender" Mode="In" Type="Boolean" />
-            <Parameter Name="Email" Mode="In" Type="String" />
-            <Parameter Name="Phone_Number" Mode="In" Type="String" />
-            <Parameter Name="Address" Mode="In" Type="String" />
-            <Parameter Name="role_id" Mode="In" Type="Int32" />
-            <Parameter Name="password" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="ADD_USER_DETAIL">
-            <Parameter Name="book_ID" Mode="In" Type="Int32" />
-            <Parameter Name="room_ID" Mode="In" Type="Int32" />
-            <Parameter Name="customerID" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="DELETE_BOOKING">
-          <Parameter Name="bookID" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="DELETE_BOOKING_DETAIL">
-            <Parameter Name="book_ID" Mode="In" Type="Int32" />
-            <Parameter Name="room_ID" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="DELETE_CATEGORY">
-          <Parameter Name="cateID" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="DELETE_PRODUCT">
-          <Parameter Name="pID" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="DELETE_ROLE">
-          <Parameter Name="rID" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="DELETE_ROOM">
-          <Parameter Name="roomID" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="DELETE_SERVICE">
-          <Parameter Name="serID" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="DELETE_USER">
-          <Parameter Name="userID" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="DELETE_USER_DETAIL">
-            <Parameter Name="book_ID" Mode="In" Type="Int32" />
-            <Parameter Name="room_ID" Mode="In" Type="Int32" />
-            <Parameter Name="customerID" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="UPDATE_BOOKING">
-            <Parameter Name="bookID" Mode="In" Type="Int32" />
-            <Parameter Name="staff_ID" Mode="In" Type="Int32" />
-            <Parameter Name="customer_ID" Mode="In" Type="Int32" />
-            <Parameter Name="Check_In" Mode="In" Type="DateTime" />
-            <Parameter Name="Check_Out" Mode="In" Type="DateTime" />
-          </FunctionImport>
-          <FunctionImport Name="UPDATE_BOOKING_DETAIL">
-            <Parameter Name="book_ID" Mode="In" Type="Int32" />
-            <Parameter Name="room_ID" Mode="In" Type="Int32" />
-            <Parameter Name="Price" Mode="In" Type="Double" />
-            <Parameter Name="Unit" Mode="In" Type="Double" />
-          </FunctionImport>
-          <FunctionImport Name="UPDATE_CATEGORY">
-            <Parameter Name="cateID" Mode="In" Type="Int32" />
-            <Parameter Name="newCateName" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="UPDATE_PRODUCT">
-            <Parameter Name="pID" Mode="In" Type="Int32" />
-            <Parameter Name="cate_ID" Mode="In" Type="Int32" />
-            <Parameter Name="Title" Mode="In" Type="String" />
-            <Parameter Name="Thumbnail" Mode="In" Type="String" />
-            <Parameter Name="Decription" Mode="In" Type="String" />
-            <Parameter Name="Price" Mode="In" Type="Double" />
-            <Parameter Name="Amount" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="UPDATE_ROLE">
-            <Parameter Name="roleId" Mode="In" Type="Int32" />
-            <Parameter Name="roleName" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="UPDATE_ROOM">
-            <Parameter Name="roomID" Mode="In" Type="Int32" />
-            <Parameter Name="roomNo" Mode="In" Type="String" />
-            <Parameter Name="type" Mode="In" Type="String" />
-            <Parameter Name="capacity" Mode="In" Type="Int32" />
-            <Parameter Name="price" Mode="In" Type="Double" />
-          </FunctionImport>
-          <FunctionImport Name="UPDATE_SERVICE">
-            <Parameter Name="serID" Mode="In" Type="Int32" />
-            <Parameter Name="book_ID" Mode="In" Type="Int32" />
-            <Parameter Name="customerID" Mode="In" Type="Int32" />
-            <Parameter Name="product_ID" Mode="In" Type="Int32" />
-            <Parameter Name="Price" Mode="In" Type="Double" />
-            <Parameter Name="Amount" Mode="In" Type="Int32" />
-            <Parameter Name="Buy_Date" Mode="In" Type="DateTime" />
-          </FunctionImport>
-          <FunctionImport Name="UPDATE_USER">
-            <Parameter Name="userID" Mode="In" Type="Int32" />
-            <Parameter Name="Fullname" Mode="In" Type="String" />
-            <Parameter Name="Birthday" Mode="In" Type="DateTime" />
-            <Parameter Name="Gender" Mode="In" Type="Boolean" />
-            <Parameter Name="Email" Mode="In" Type="String" />
-            <Parameter Name="Phone_Number" Mode="In" Type="String" />
-            <Parameter Name="Address" Mode="In" Type="String" />
-            <Parameter Name="role_id" Mode="In" Type="Int32" />
-            <Parameter Name="password" Mode="In" Type="String" />
-          </FunctionImport>
           <FunctionImport Name="FindServiceByName">
           <Parameter Name="Name" Mode="In" Type="String" />
           </FunctionImport>
-          <EntitySet Name="Show_AvailableRoom" EntityType="HotelManagementSystemModel.Show_AvailableRoom" />
-          <EntitySet Name="Show_BookedRoom" EntityType="HotelManagementSystemModel.Show_BookedRoom" />
-          <EntitySet Name="Show_AvailableProduct" EntityType="HotelManagementSystemModel.Show_AvailableProduct" />
           <EntitySet Name="Customers" EntityType="HotelManagementSystemModel.Customer" />
           <AssociationSet Name="FK_Booking_Customers" Association="HotelManagementSystemModel.FK_Booking_Customers">
             <End Role="Customer" EntitySet="Customers" />
@@ -1071,7 +933,28 @@ warning 6002: The table/view 'HotelManagementSystem.dbo.Show_CustomerCheckOut' d
             <End Role="Customer" EntitySet="Customers" />
             <End Role="UserDetail" EntitySet="UserDetails" />
           </AssociationSet>
-          <FunctionImport Name="ADD_CUSTOMERS">
+          <FunctionImport Name="FindCustomerByFullName" IsComposable="true" ReturnType="Collection(HotelManagementSystemModel.FindCustomerByFullName_Result)">
+          <Parameter Name="fullname" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="View_AvailableProduct" EntityType="HotelManagementSystemModel.View_AvailableProduct" />
+          <EntitySet Name="View_CustomerCheckOut" EntityType="HotelManagementSystemModel.View_CustomerCheckOut" />
+          <EntitySet Name="View_Receipt" EntityType="HotelManagementSystemModel.View_Receipt" />
+          <FunctionImport Name="SP_ADD_BOOKING">
+            <Parameter Name="staff_ID" Mode="In" Type="Int32" />
+            <Parameter Name="customer_ID" Mode="In" Type="Int32" />
+            <Parameter Name="Check_In" Mode="In" Type="DateTime" />
+            <Parameter Name="Check_Out" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="SP_ADD_BOOKING_DETAIL">
+            <Parameter Name="book_ID" Mode="In" Type="Int32" />
+            <Parameter Name="room_ID" Mode="In" Type="Int32" />
+            <Parameter Name="Price" Mode="In" Type="Double" />
+            <Parameter Name="Unit" Mode="In" Type="Double" />
+          </FunctionImport>
+          <FunctionImport Name="SP_ADD_CATEGORY">
+          <Parameter Name="cateName" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_ADD_CUSTOMERS">
             <Parameter Name="cID" Mode="In" Type="Int32" />
             <Parameter Name="Fullname" Mode="In" Type="String" />
             <Parameter Name="birthDay" Mode="In" Type="DateTime" />
@@ -1080,10 +963,100 @@ warning 6002: The table/view 'HotelManagementSystem.dbo.Show_CustomerCheckOut' d
             <Parameter Name="PhoneNo" Mode="In" Type="String" />
             <Parameter Name="add" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="DELETE_CUSTOMERS">
+          <FunctionImport Name="SP_ADD_PRODUCT">
+            <Parameter Name="cate_ID" Mode="In" Type="Int32" />
+            <Parameter Name="Title" Mode="In" Type="String" />
+            <Parameter Name="Thumbnail" Mode="In" Type="String" />
+            <Parameter Name="Decription" Mode="In" Type="String" />
+            <Parameter Name="Price" Mode="In" Type="Double" />
+            <Parameter Name="Amount" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_ADD_ROLE">
+          <Parameter Name="rName" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_ADD_ROOM">
+            <Parameter Name="room_No" Mode="In" Type="String" />
+            <Parameter Name="Type" Mode="In" Type="String" />
+            <Parameter Name="Capacity" Mode="In" Type="Int32" />
+            <Parameter Name="Price" Mode="In" Type="Double" />
+          </FunctionImport>
+          <FunctionImport Name="SP_ADD_SERVICE">
+            <Parameter Name="book_ID" Mode="In" Type="Int32" />
+            <Parameter Name="customerID" Mode="In" Type="Int32" />
+            <Parameter Name="product_ID" Mode="In" Type="Int32" />
+            <Parameter Name="Price" Mode="In" Type="Double" />
+            <Parameter Name="Amount" Mode="In" Type="Int32" />
+            <Parameter Name="Buy_Date" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="SP_ADD_USER">
+            <Parameter Name="Fullname" Mode="In" Type="String" />
+            <Parameter Name="Birthday" Mode="In" Type="DateTime" />
+            <Parameter Name="Gender" Mode="In" Type="Boolean" />
+            <Parameter Name="Email" Mode="In" Type="String" />
+            <Parameter Name="Phone_Number" Mode="In" Type="String" />
+            <Parameter Name="Address" Mode="In" Type="String" />
+            <Parameter Name="role_id" Mode="In" Type="Int32" />
+            <Parameter Name="password" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_ADD_USER_DETAIL">
+            <Parameter Name="book_ID" Mode="In" Type="Int32" />
+            <Parameter Name="room_ID" Mode="In" Type="Int32" />
+            <Parameter Name="customerID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_DELETE_BOOKING">
+          <Parameter Name="bookID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_DELETE_BOOKING_DETAIL">
+            <Parameter Name="book_ID" Mode="In" Type="Int32" />
+            <Parameter Name="room_ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_DELETE_CATEGORY">
+          <Parameter Name="cateID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_DELETE_CUSTOMERS">
           <Parameter Name="cID" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="UPDATE_CUSTOMERS">
+          <FunctionImport Name="SP_DELETE_PRODUCT">
+          <Parameter Name="pID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_DELETE_ROLE">
+          <Parameter Name="rID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_DELETE_ROOM">
+          <Parameter Name="roomID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_DELETE_SERVICE">
+          <Parameter Name="serID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_DELETE_USER">
+          <Parameter Name="userID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_DELETE_USER_DETAIL">
+            <Parameter Name="book_ID" Mode="In" Type="Int32" />
+            <Parameter Name="room_ID" Mode="In" Type="Int32" />
+            <Parameter Name="customerID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_FindServiceByName" ReturnType="Collection(HotelManagementSystemModel.SP_FindServiceByName_Result)">
+          <Parameter Name="Name" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_UPDATE_BOOKING">
+            <Parameter Name="bookID" Mode="In" Type="Int32" />
+            <Parameter Name="staff_ID" Mode="In" Type="Int32" />
+            <Parameter Name="customer_ID" Mode="In" Type="Int32" />
+            <Parameter Name="Check_In" Mode="In" Type="DateTime" />
+            <Parameter Name="Check_Out" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="SP_UPDATE_BOOKING_DETAIL">
+            <Parameter Name="book_ID" Mode="In" Type="Int32" />
+            <Parameter Name="room_ID" Mode="In" Type="Int32" />
+            <Parameter Name="Price" Mode="In" Type="Double" />
+            <Parameter Name="Unit" Mode="In" Type="Double" />
+          </FunctionImport>
+          <FunctionImport Name="SP_UPDATE_CATEGORY">
+            <Parameter Name="cateID" Mode="In" Type="Int32" />
+            <Parameter Name="newCateName" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_UPDATE_CUSTOMERS">
             <Parameter Name="cID" Mode="In" Type="Int32" />
             <Parameter Name="Fullname" Mode="In" Type="String" />
             <Parameter Name="birthDay" Mode="In" Type="DateTime" />
@@ -1092,11 +1065,47 @@ warning 6002: The table/view 'HotelManagementSystem.dbo.Show_CustomerCheckOut' d
             <Parameter Name="PhoneNo" Mode="In" Type="String" />
             <Parameter Name="add" Mode="In" Type="String" />
           </FunctionImport>
-          <EntitySet Name="Show_CustomerCheckOut" EntityType="HotelManagementSystemModel.Show_CustomerCheckOut" />
-          <FunctionImport Name="FindCustomerByFullName" IsComposable="true" ReturnType="Collection(HotelManagementSystemModel.FindCustomerByFullName_Result)">
-            <Parameter Name="fullname" Mode="In" Type="String" />
+          <FunctionImport Name="SP_UPDATE_PRODUCT">
+            <Parameter Name="pID" Mode="In" Type="Int32" />
+            <Parameter Name="cate_ID" Mode="In" Type="Int32" />
+            <Parameter Name="Title" Mode="In" Type="String" />
+            <Parameter Name="Thumbnail" Mode="In" Type="String" />
+            <Parameter Name="Decription" Mode="In" Type="String" />
+            <Parameter Name="Price" Mode="In" Type="Double" />
+            <Parameter Name="Amount" Mode="In" Type="Int32" />
           </FunctionImport>
-        </EntityContainer>
+          <FunctionImport Name="SP_UPDATE_ROLE">
+            <Parameter Name="roleId" Mode="In" Type="Int32" />
+            <Parameter Name="roleName" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_UPDATE_ROOM">
+            <Parameter Name="roomID" Mode="In" Type="Int32" />
+            <Parameter Name="roomNo" Mode="In" Type="String" />
+            <Parameter Name="type" Mode="In" Type="String" />
+            <Parameter Name="capacity" Mode="In" Type="Int32" />
+            <Parameter Name="price" Mode="In" Type="Double" />
+          </FunctionImport>
+          <FunctionImport Name="SP_UPDATE_SERVICE">
+            <Parameter Name="serID" Mode="In" Type="Int32" />
+            <Parameter Name="book_ID" Mode="In" Type="Int32" />
+            <Parameter Name="customerID" Mode="In" Type="Int32" />
+            <Parameter Name="product_ID" Mode="In" Type="Int32" />
+            <Parameter Name="Price" Mode="In" Type="Double" />
+            <Parameter Name="Amount" Mode="In" Type="Int32" />
+            <Parameter Name="Buy_Date" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="SP_UPDATE_USER">
+            <Parameter Name="userID" Mode="In" Type="Int32" />
+            <Parameter Name="Fullname" Mode="In" Type="String" />
+            <Parameter Name="Birthday" Mode="In" Type="DateTime" />
+            <Parameter Name="Gender" Mode="In" Type="Boolean" />
+            <Parameter Name="Email" Mode="In" Type="String" />
+            <Parameter Name="Phone_Number" Mode="In" Type="String" />
+            <Parameter Name="Address" Mode="In" Type="String" />
+            <Parameter Name="role_id" Mode="In" Type="Int32" />
+            <Parameter Name="password" Mode="In" Type="String" />
+          </FunctionImport>
+          </EntityContainer>
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="userID" />
@@ -1176,39 +1185,12 @@ warning 6002: The table/view 'HotelManagementSystem.dbo.Show_CustomerCheckOut' d
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="Show_AvailableRoom">
-          <Key>
-            <PropertyRef Name="Room_Number" />
-          </Key>
-          <Property Name="Room_Number" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="Type" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="Capacity" Type="Int32" />
-          <Property Name="Price" Type="Double" />
-        </EntityType>
-        <EntityType Name="Show_BookedRoom">
-          <Key>
-            <PropertyRef Name="Room_Number" />
-          </Key>
-          <Property Name="Customer_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Room_Number" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="Check_In" Type="DateTime" Precision="3" />
-          <Property Name="Check_Out" Type="DateTime" Precision="3" />
-        </EntityType>
         <ComplexType Name="FindServiceByName_Result">
           <Property Type="String" Name="Fullname" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="Product_Name" Nullable="true" MaxLength="150" />
           <Property Type="Int32" Name="Amount" Nullable="true" />
           <Property Type="Double" Name="Price" Nullable="true" />
         </ComplexType>
-        <EntityType Name="Show_AvailableProduct">
-          <Key>
-            <PropertyRef Name="Product_ID" />
-          </Key>
-          <Property Name="Product_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Product_Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="Price" Type="Double" />
-          <Property Name="Amount" Type="Int32" />
-        </EntityType>
         <EntityType Name="Customer">
           <Key>
             <PropertyRef Name="cID" />
@@ -1260,7 +1242,25 @@ warning 6002: The table/view 'HotelManagementSystem.dbo.Show_CustomerCheckOut' d
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="Show_CustomerCheckOut">
+        <ComplexType Name="FindCustomerByFullName_Result">
+          <Property Type="Int32" Name="cID" Nullable="false" />
+          <Property Type="String" Name="Fullname" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Email" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="Phone_Number" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="room_No" Nullable="false" MaxLength="20" />
+          <Property Type="DateTime" Name="Check_In" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="Check_Out" Nullable="true" Precision="23" />
+        </ComplexType>
+        <EntityType Name="View_AvailableProduct">
+          <Key>
+            <PropertyRef Name="Product_ID" />
+          </Key>
+          <Property Name="Product_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Product_Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Double" />
+          <Property Name="Amount" Type="Int32" />
+        </EntityType>
+        <EntityType Name="View_CustomerCheckOut">
           <Key>
             <PropertyRef Name="cID" />
             <PropertyRef Name="room_No" />
@@ -1273,16 +1273,36 @@ warning 6002: The table/view 'HotelManagementSystem.dbo.Show_CustomerCheckOut' d
           <Property Name="Check_In" Type="DateTime" Precision="3" />
           <Property Name="Check_Out" Type="DateTime" Precision="3" />
         </EntityType>
-        <ComplexType Name="FindCustomerByFullName_Result">
-          <Property Type="Int32" Name="cID" Nullable="false" />
+        <EntityType Name="View_Receipt">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+            <PropertyRef Name="room_No" />
+          </Key>
+          <Property Name="CustomerID" Type="Int32" Nullable="false" />
+          <Property Name="CustomerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="room_No" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="RoomCapacity" Type="Int32" />
+          <Property Name="StayingDays" Type="Int32" />
+          <Property Name="Service" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ServicePrice" Type="Double" />
+          <Property Name="ServiceQuantity" Type="Int32" />
+          <Property Name="ServiceTotal" Type="Double" />
+          <Property Name="RoomPrice" Type="Double" />
+          <Property Name="RoomUnit" Type="Double" />
+        </EntityType>
+        <ComplexType Name="SP_FindServiceByName_Result">
           <Property Type="String" Name="Fullname" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="Email" Nullable="true" MaxLength="150" />
-          <Property Type="String" Name="Phone_Number" Nullable="true" MaxLength="20" />
-          <Property Type="String" Name="room_No" Nullable="false" MaxLength="20" />
-          <Property Type="DateTime" Name="Check_In" Nullable="true" Precision="23" />
-          <Property Type="DateTime" Name="Check_Out" Nullable="true" Precision="23" />
+          <Property Type="String" Name="ProductName" Nullable="true" MaxLength="150" />
+          <Property Type="Int32" Name="serID" Nullable="false" />
+          <Property Type="Int32" Name="book_ID" Nullable="true" />
+          <Property Type="Int32" Name="customerID" Nullable="true" />
+          <Property Type="Int32" Name="product_ID" Nullable="true" />
+          <Property Type="Double" Name="Price" Nullable="true" />
+          <Property Type="Int32" Name="Amount" Nullable="true" />
+          <Property Type="DateTime" Name="Buy_Date" Nullable="true" Precision="23" />
         </ComplexType>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -1404,64 +1424,6 @@ warning 6002: The table/view 'HotelManagementSystem.dbo.Show_CustomerCheckOut' d
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="ADD_BOOKING" FunctionName="HotelManagementSystemModel.Store.ADD_BOOKING" />
-          <FunctionImportMapping FunctionImportName="ADD_BOOKING_DETAIL" FunctionName="HotelManagementSystemModel.Store.ADD_BOOKING_DETAIL" />
-          <FunctionImportMapping FunctionImportName="ADD_CATEGORY" FunctionName="HotelManagementSystemModel.Store.ADD_CATEGORY" />
-          <FunctionImportMapping FunctionImportName="ADD_PRODUCT" FunctionName="HotelManagementSystemModel.Store.ADD_PRODUCT" />
-          <FunctionImportMapping FunctionImportName="ADD_ROLE" FunctionName="HotelManagementSystemModel.Store.ADD_ROLE" />
-          <FunctionImportMapping FunctionImportName="ADD_ROOM" FunctionName="HotelManagementSystemModel.Store.ADD_ROOM" />
-          <FunctionImportMapping FunctionImportName="ADD_SERVICE" FunctionName="HotelManagementSystemModel.Store.ADD_SERVICE" />
-          <FunctionImportMapping FunctionImportName="ADD_USER" FunctionName="HotelManagementSystemModel.Store.ADD_USER" />
-          <FunctionImportMapping FunctionImportName="ADD_USER_DETAIL" FunctionName="HotelManagementSystemModel.Store.ADD_USER_DETAIL" />
-          <FunctionImportMapping FunctionImportName="DELETE_BOOKING" FunctionName="HotelManagementSystemModel.Store.DELETE_BOOKING" />
-          <FunctionImportMapping FunctionImportName="DELETE_BOOKING_DETAIL" FunctionName="HotelManagementSystemModel.Store.DELETE_BOOKING_DETAIL" />
-          <FunctionImportMapping FunctionImportName="DELETE_CATEGORY" FunctionName="HotelManagementSystemModel.Store.DELETE_CATEGORY" />
-          <FunctionImportMapping FunctionImportName="DELETE_PRODUCT" FunctionName="HotelManagementSystemModel.Store.DELETE_PRODUCT" />
-          <FunctionImportMapping FunctionImportName="DELETE_ROLE" FunctionName="HotelManagementSystemModel.Store.DELETE_ROLE" />
-          <FunctionImportMapping FunctionImportName="DELETE_ROOM" FunctionName="HotelManagementSystemModel.Store.DELETE_ROOM" />
-          <FunctionImportMapping FunctionImportName="DELETE_SERVICE" FunctionName="HotelManagementSystemModel.Store.DELETE_SERVICE" />
-          <FunctionImportMapping FunctionImportName="DELETE_USER" FunctionName="HotelManagementSystemModel.Store.DELETE_USER" />
-          <FunctionImportMapping FunctionImportName="DELETE_USER_DETAIL" FunctionName="HotelManagementSystemModel.Store.DELETE_USER_DETAIL" />
-          <FunctionImportMapping FunctionImportName="UPDATE_BOOKING" FunctionName="HotelManagementSystemModel.Store.UPDATE_BOOKING" />
-          <FunctionImportMapping FunctionImportName="UPDATE_BOOKING_DETAIL" FunctionName="HotelManagementSystemModel.Store.UPDATE_BOOKING_DETAIL" />
-          <FunctionImportMapping FunctionImportName="UPDATE_CATEGORY" FunctionName="HotelManagementSystemModel.Store.UPDATE_CATEGORY" />
-          <FunctionImportMapping FunctionImportName="UPDATE_PRODUCT" FunctionName="HotelManagementSystemModel.Store.UPDATE_PRODUCT" />
-          <FunctionImportMapping FunctionImportName="UPDATE_ROLE" FunctionName="HotelManagementSystemModel.Store.UPDATE_ROLE" />
-          <FunctionImportMapping FunctionImportName="UPDATE_ROOM" FunctionName="HotelManagementSystemModel.Store.UPDATE_ROOM" />
-          <FunctionImportMapping FunctionImportName="UPDATE_SERVICE" FunctionName="HotelManagementSystemModel.Store.UPDATE_SERVICE" />
-          <FunctionImportMapping FunctionImportName="UPDATE_USER" FunctionName="HotelManagementSystemModel.Store.UPDATE_USER" />
-          <EntitySetMapping Name="Show_AvailableRoom">
-            <EntityTypeMapping TypeName="HotelManagementSystemModel.Show_AvailableRoom">
-              <MappingFragment StoreEntitySet="Show_AvailableRoom">
-                <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="Capacity" ColumnName="Capacity" />
-                <ScalarProperty Name="Type" ColumnName="Type" />
-                <ScalarProperty Name="Room_Number" ColumnName="Room Number" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Show_BookedRoom">
-            <EntityTypeMapping TypeName="HotelManagementSystemModel.Show_BookedRoom">
-              <MappingFragment StoreEntitySet="Show_BookedRoom">
-                <ScalarProperty Name="Check_Out" ColumnName="Check Out" />
-                <ScalarProperty Name="Check_In" ColumnName="Check In" />
-                <ScalarProperty Name="Room_Number" ColumnName="Room Number" />
-                <ScalarProperty Name="Customer_Name" ColumnName="Customer Name" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="FindServiceByName" FunctionName="HotelManagementSystemModel.Store.FindServiceByName">
-          </FunctionImportMapping>
-          <EntitySetMapping Name="Show_AvailableProduct">
-            <EntityTypeMapping TypeName="HotelManagementSystemModel.Show_AvailableProduct">
-              <MappingFragment StoreEntitySet="Show_AvailableProduct">
-                <ScalarProperty Name="Amount" ColumnName="Amount" />
-                <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="Product_Name" ColumnName="Product Name" />
-                <ScalarProperty Name="Product_ID" ColumnName="Product ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Customers">
             <EntityTypeMapping TypeName="HotelManagementSystemModel.Customer">
               <MappingFragment StoreEntitySet="Customers">
@@ -1470,22 +1432,6 @@ warning 6002: The table/view 'HotelManagementSystem.dbo.Show_CustomerCheckOut' d
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Gender" ColumnName="Gender" />
                 <ScalarProperty Name="Birthday" ColumnName="Birthday" />
-                <ScalarProperty Name="Fullname" ColumnName="Fullname" />
-                <ScalarProperty Name="cID" ColumnName="cID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="ADD_CUSTOMERS" FunctionName="HotelManagementSystemModel.Store.ADD_CUSTOMERS" />
-          <FunctionImportMapping FunctionImportName="DELETE_CUSTOMERS" FunctionName="HotelManagementSystemModel.Store.DELETE_CUSTOMERS" />
-          <FunctionImportMapping FunctionImportName="UPDATE_CUSTOMERS" FunctionName="HotelManagementSystemModel.Store.UPDATE_CUSTOMERS" />
-          <EntitySetMapping Name="Show_CustomerCheckOut">
-            <EntityTypeMapping TypeName="HotelManagementSystemModel.Show_CustomerCheckOut">
-              <MappingFragment StoreEntitySet="Show_CustomerCheckOut">
-                <ScalarProperty Name="Check_Out" ColumnName="Check_Out" />
-                <ScalarProperty Name="Check_In" ColumnName="Check_In" />
-                <ScalarProperty Name="room_No" ColumnName="room_No" />
-                <ScalarProperty Name="Phone_Number" ColumnName="Phone_Number" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Fullname" ColumnName="Fullname" />
                 <ScalarProperty Name="cID" ColumnName="cID" />
               </MappingFragment>
@@ -1504,6 +1450,91 @@ warning 6002: The table/view 'HotelManagementSystem.dbo.Show_CustomerCheckOut' d
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <EntitySetMapping Name="View_AvailableProduct">
+            <EntityTypeMapping TypeName="HotelManagementSystemModel.View_AvailableProduct">
+              <MappingFragment StoreEntitySet="View_AvailableProduct">
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Product_Name" ColumnName="Product Name" />
+                <ScalarProperty Name="Product_ID" ColumnName="Product ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_CustomerCheckOut">
+            <EntityTypeMapping TypeName="HotelManagementSystemModel.View_CustomerCheckOut">
+              <MappingFragment StoreEntitySet="View_CustomerCheckOut">
+                <ScalarProperty Name="Check_Out" ColumnName="Check_Out" />
+                <ScalarProperty Name="Check_In" ColumnName="Check_In" />
+                <ScalarProperty Name="room_No" ColumnName="room_No" />
+                <ScalarProperty Name="Phone_Number" ColumnName="Phone_Number" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Fullname" ColumnName="Fullname" />
+                <ScalarProperty Name="cID" ColumnName="cID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_Receipt">
+            <EntityTypeMapping TypeName="HotelManagementSystemModel.View_Receipt">
+              <MappingFragment StoreEntitySet="View_Receipt">
+                <ScalarProperty Name="RoomUnit" ColumnName="RoomUnit" />
+                <ScalarProperty Name="RoomPrice" ColumnName="RoomPrice" />
+                <ScalarProperty Name="ServiceTotal" ColumnName="ServiceTotal" />
+                <ScalarProperty Name="ServiceQuantity" ColumnName="ServiceQuantity" />
+                <ScalarProperty Name="ServicePrice" ColumnName="ServicePrice" />
+                <ScalarProperty Name="Service" ColumnName="Service" />
+                <ScalarProperty Name="StayingDays" ColumnName="StayingDays" />
+                <ScalarProperty Name="RoomCapacity" ColumnName="RoomCapacity" />
+                <ScalarProperty Name="room_No" ColumnName="room_No" />
+                <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SP_ADD_BOOKING" FunctionName="HotelManagementSystemModel.Store.SP_ADD_BOOKING" />
+          <FunctionImportMapping FunctionImportName="SP_ADD_BOOKING_DETAIL" FunctionName="HotelManagementSystemModel.Store.SP_ADD_BOOKING_DETAIL" />
+          <FunctionImportMapping FunctionImportName="SP_ADD_CATEGORY" FunctionName="HotelManagementSystemModel.Store.SP_ADD_CATEGORY" />
+          <FunctionImportMapping FunctionImportName="SP_ADD_CUSTOMERS" FunctionName="HotelManagementSystemModel.Store.SP_ADD_CUSTOMERS" />
+          <FunctionImportMapping FunctionImportName="SP_ADD_PRODUCT" FunctionName="HotelManagementSystemModel.Store.SP_ADD_PRODUCT" />
+          <FunctionImportMapping FunctionImportName="SP_ADD_ROLE" FunctionName="HotelManagementSystemModel.Store.SP_ADD_ROLE" />
+          <FunctionImportMapping FunctionImportName="SP_ADD_ROOM" FunctionName="HotelManagementSystemModel.Store.SP_ADD_ROOM" />
+          <FunctionImportMapping FunctionImportName="SP_ADD_SERVICE" FunctionName="HotelManagementSystemModel.Store.SP_ADD_SERVICE" />
+          <FunctionImportMapping FunctionImportName="SP_ADD_USER" FunctionName="HotelManagementSystemModel.Store.SP_ADD_USER" />
+          <FunctionImportMapping FunctionImportName="SP_ADD_USER_DETAIL" FunctionName="HotelManagementSystemModel.Store.SP_ADD_USER_DETAIL" />
+          <FunctionImportMapping FunctionImportName="SP_DELETE_BOOKING" FunctionName="HotelManagementSystemModel.Store.SP_DELETE_BOOKING" />
+          <FunctionImportMapping FunctionImportName="SP_DELETE_BOOKING_DETAIL" FunctionName="HotelManagementSystemModel.Store.SP_DELETE_BOOKING_DETAIL" />
+          <FunctionImportMapping FunctionImportName="SP_DELETE_CATEGORY" FunctionName="HotelManagementSystemModel.Store.SP_DELETE_CATEGORY" />
+          <FunctionImportMapping FunctionImportName="SP_DELETE_CUSTOMERS" FunctionName="HotelManagementSystemModel.Store.SP_DELETE_CUSTOMERS" />
+          <FunctionImportMapping FunctionImportName="SP_DELETE_PRODUCT" FunctionName="HotelManagementSystemModel.Store.SP_DELETE_PRODUCT" />
+          <FunctionImportMapping FunctionImportName="SP_DELETE_ROLE" FunctionName="HotelManagementSystemModel.Store.SP_DELETE_ROLE" />
+          <FunctionImportMapping FunctionImportName="SP_DELETE_ROOM" FunctionName="HotelManagementSystemModel.Store.SP_DELETE_ROOM" />
+          <FunctionImportMapping FunctionImportName="SP_DELETE_SERVICE" FunctionName="HotelManagementSystemModel.Store.SP_DELETE_SERVICE" />
+          <FunctionImportMapping FunctionImportName="SP_DELETE_USER" FunctionName="HotelManagementSystemModel.Store.SP_DELETE_USER" />
+          <FunctionImportMapping FunctionImportName="SP_DELETE_USER_DETAIL" FunctionName="HotelManagementSystemModel.Store.SP_DELETE_USER_DETAIL" />
+          <FunctionImportMapping FunctionImportName="SP_FindServiceByName" FunctionName="HotelManagementSystemModel.Store.SP_FindServiceByName">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HotelManagementSystemModel.SP_FindServiceByName_Result">
+                <ScalarProperty Name="Fullname" ColumnName="Fullname" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="serID" ColumnName="serID" />
+                <ScalarProperty Name="book_ID" ColumnName="book_ID" />
+                <ScalarProperty Name="customerID" ColumnName="customerID" />
+                <ScalarProperty Name="product_ID" ColumnName="product_ID" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Buy_Date" ColumnName="Buy_Date" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_UPDATE_BOOKING" FunctionName="HotelManagementSystemModel.Store.SP_UPDATE_BOOKING" />
+          <FunctionImportMapping FunctionImportName="SP_UPDATE_BOOKING_DETAIL" FunctionName="HotelManagementSystemModel.Store.SP_UPDATE_BOOKING_DETAIL" />
+          <FunctionImportMapping FunctionImportName="SP_UPDATE_CATEGORY" FunctionName="HotelManagementSystemModel.Store.SP_UPDATE_CATEGORY" />
+          <FunctionImportMapping FunctionImportName="SP_UPDATE_CUSTOMERS" FunctionName="HotelManagementSystemModel.Store.SP_UPDATE_CUSTOMERS" />
+          <FunctionImportMapping FunctionImportName="SP_UPDATE_PRODUCT" FunctionName="HotelManagementSystemModel.Store.SP_UPDATE_PRODUCT" />
+          <FunctionImportMapping FunctionImportName="SP_UPDATE_ROLE" FunctionName="HotelManagementSystemModel.Store.SP_UPDATE_ROLE" />
+          <FunctionImportMapping FunctionImportName="SP_UPDATE_ROOM" FunctionName="HotelManagementSystemModel.Store.SP_UPDATE_ROOM" />
+          <FunctionImportMapping FunctionImportName="SP_UPDATE_SERVICE" FunctionName="HotelManagementSystemModel.Store.SP_UPDATE_SERVICE" />
+          <FunctionImportMapping FunctionImportName="SP_UPDATE_USER" FunctionName="HotelManagementSystemModel.Store.SP_UPDATE_USER" />
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

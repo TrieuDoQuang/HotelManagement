@@ -31,7 +31,7 @@ namespace HotelMangement.BS_Layer
             try
             {
                 HotelManagementSystemEntities qlhotelEntity = new HotelManagementSystemEntities();
-                var proce = qlhotelEntity.ADD_CATEGORY(cateName);
+                var proce = qlhotelEntity.SP_ADD_CATEGORY(cateName);
                 qlhotelEntity.SaveChanges();
             }
             catch (Exception ex)
@@ -47,7 +47,7 @@ namespace HotelMangement.BS_Layer
             try
             {
                 HotelManagementSystemEntities qlhotelEntity = new HotelManagementSystemEntities();
-                var proce = qlhotelEntity.DELETE_CATEGORY(cateID);
+                var proce = qlhotelEntity.SP_DELETE_CATEGORY(cateID);
                 qlhotelEntity.SaveChanges();
             }
             catch (Exception ex)
@@ -62,7 +62,7 @@ namespace HotelMangement.BS_Layer
             try
             {
                 HotelManagementSystemEntities qlhotelEntity = new HotelManagementSystemEntities();
-                var proce = qlhotelEntity.UPDATE_CATEGORY(cateID, cateName);
+                var proce = qlhotelEntity.SP_UPDATE_CATEGORY(cateID, cateName);
                 qlhotelEntity.SaveChanges();
             }
             catch (Exception ex)

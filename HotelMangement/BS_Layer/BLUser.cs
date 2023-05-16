@@ -62,7 +62,7 @@ namespace HotelMangement.BS_Layer
             try
             {
                 HotelManagementSystemEntities qlhotelEntity = new HotelManagementSystemEntities();
-                var proce = qlhotelEntity.ADD_USER(Fullname, Birthday, Gender, Email, Phone_Number, Address, role_id, password);
+                var proce = qlhotelEntity.SP_ADD_USER(Fullname, Birthday, Gender, Email, Phone_Number, Address, role_id, password);
             }
             catch (Exception ex)
             {
@@ -76,7 +76,7 @@ namespace HotelMangement.BS_Layer
             try
             {
                 HotelManagementSystemEntities qlhotelEntity = new HotelManagementSystemEntities();
-                var proce = qlhotelEntity.DELETE_USER(userID);
+                var proce = qlhotelEntity.SP_DELETE_USER(userID);
             }
             catch (Exception ex)
             {
@@ -90,7 +90,7 @@ namespace HotelMangement.BS_Layer
             try
             {
                 HotelManagementSystemEntities qlhotelEntity = new HotelManagementSystemEntities();
-                var proce = qlhotelEntity.UPDATE_USER(userID,Fullname,Birthday,Gender,Email,Phone_Number,Address,role_id, password);
+                var proce = qlhotelEntity.SP_UPDATE_USER(userID,Fullname,Birthday,Gender,Email,Phone_Number,Address,role_id, password);
             }
             catch (Exception ex)
             {

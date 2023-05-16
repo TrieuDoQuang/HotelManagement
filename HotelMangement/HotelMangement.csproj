@@ -157,6 +157,9 @@
     <Compile Include="DanhMucForm\FormUserDetail.Designer.cs">
       <DependentUpon>FormUserDetail.cs</DependentUpon>
     </Compile>
+    <Compile Include="FindCustomerByFullName_Result.cs">
+      <DependentUpon>HotelModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="FindServiceByName_Result.cs">
       <DependentUpon>HotelModel.tt</DependentUpon>
     </Compile>
@@ -214,6 +217,9 @@
       <DependentUpon>HotelModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Show_BookedRoom.cs">
+      <DependentUpon>HotelModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Show_CustomerCheckOut.cs">
       <DependentUpon>HotelModel.tt</DependentUpon>
     </Compile>
     <Compile Include="sysdiagram.cs">

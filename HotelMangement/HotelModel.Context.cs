@@ -41,6 +41,7 @@ namespace HotelMangement
         public virtual DbSet<Show_BookedRoom> Show_BookedRoom { get; set; }
         public virtual DbSet<Show_AvailableProduct> Show_AvailableProduct { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
+        public virtual DbSet<Show_CustomerCheckOut> Show_CustomerCheckOut { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {
@@ -717,6 +718,16 @@ namespace HotelMangement
                 new ObjectParameter("add", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UPDATE_CUSTOMERS", cIDParameter, fullnameParameter, birthDayParameter, genderParameter, mailParameter, phoneNoParameter, addParameter);
+        }
+    
+        [DbFunction("HotelManagementSystemEntities", "FindCustomerByFullName")]
+        public virtual IQueryable<FindCustomerByFullName_Result> FindCustomerByFullName(string fullname)
+        {
+            var fullnameParameter = fullname != null ?
+                new ObjectParameter("fullname", fullname) :
+                new ObjectParameter("fullname", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<FindCustomerByFullName_Result>("[HotelManagementSystemEntities].[FindCustomerByFullName](@fullname)", fullnameParameter);
         }
     }
 }

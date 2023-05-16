@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
 using HotelMangement.DanhMucForm;
 
 namespace HotelMangement.Interface
@@ -14,10 +15,16 @@ namespace HotelMangement.Interface
     public partial class AdminInterface : Form
     {
 
+        [DllImport("kernel32.dll", SetLastError = true)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        static extern bool AllocConsole();
+
+
         private Form currentChildForm;
         public AdminInterface()
         {
             InitializeComponent();
+            AllocConsole();
         }
 
 

@@ -115,6 +115,10 @@
             // 
             // dgvAvaiRoom
             // 
+            this.dgvAvaiRoom.AllowUserToAddRows = false;
+            this.dgvAvaiRoom.AllowUserToDeleteRows = false;
+            this.dgvAvaiRoom.AllowUserToResizeColumns = false;
+            this.dgvAvaiRoom.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.dgvAvaiRoom.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvAvaiRoom.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -139,6 +143,7 @@
             this.dgvAvaiRoom.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvAvaiRoom.Location = new System.Drawing.Point(622, 409);
             this.dgvAvaiRoom.Name = "dgvAvaiRoom";
+            this.dgvAvaiRoom.ReadOnly = true;
             this.dgvAvaiRoom.RowHeadersVisible = false;
             this.dgvAvaiRoom.RowHeadersWidth = 51;
             this.dgvAvaiRoom.RowTemplate.Height = 24;
@@ -157,7 +162,7 @@
             this.dgvAvaiRoom.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.dgvAvaiRoom.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dgvAvaiRoom.ThemeStyle.HeaderStyle.Height = 4;
-            this.dgvAvaiRoom.ThemeStyle.ReadOnly = false;
+            this.dgvAvaiRoom.ThemeStyle.ReadOnly = true;
             this.dgvAvaiRoom.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvAvaiRoom.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvAvaiRoom.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -223,6 +228,10 @@
             // 
             // dgvBookedRoom
             // 
+            this.dgvBookedRoom.AllowUserToAddRows = false;
+            this.dgvBookedRoom.AllowUserToDeleteRows = false;
+            this.dgvBookedRoom.AllowUserToResizeColumns = false;
+            this.dgvBookedRoom.AllowUserToResizeRows = false;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
             this.dgvBookedRoom.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvBookedRoom.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -247,6 +256,7 @@
             this.dgvBookedRoom.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvBookedRoom.Location = new System.Drawing.Point(1285, 409);
             this.dgvBookedRoom.Name = "dgvBookedRoom";
+            this.dgvBookedRoom.ReadOnly = true;
             this.dgvBookedRoom.RowHeadersVisible = false;
             this.dgvBookedRoom.RowHeadersWidth = 51;
             this.dgvBookedRoom.RowTemplate.Height = 24;
@@ -265,7 +275,7 @@
             this.dgvBookedRoom.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.dgvBookedRoom.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dgvBookedRoom.ThemeStyle.HeaderStyle.Height = 4;
-            this.dgvBookedRoom.ThemeStyle.ReadOnly = false;
+            this.dgvBookedRoom.ThemeStyle.ReadOnly = true;
             this.dgvBookedRoom.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvBookedRoom.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvBookedRoom.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

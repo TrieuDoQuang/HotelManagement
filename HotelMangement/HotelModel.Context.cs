@@ -37,11 +37,10 @@ namespace HotelMangement
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<UserDetail> UserDetails { get; set; }
         public virtual DbSet<User> Users { get; set; }
-        public virtual DbSet<Show_AvailableRoom> Show_AvailableRoom { get; set; }
-        public virtual DbSet<Show_BookedRoom> Show_BookedRoom { get; set; }
-        public virtual DbSet<Show_AvailableProduct> Show_AvailableProduct { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
-        public virtual DbSet<Show_CustomerCheckOut> Show_CustomerCheckOut { get; set; }
+        public virtual DbSet<View_AvailableProduct> View_AvailableProduct { get; set; }
+        public virtual DbSet<View_CustomerCheckOut> View_CustomerCheckOut { get; set; }
+        public virtual DbSet<View_Receipt> View_Receipt { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {
@@ -146,7 +145,26 @@ namespace HotelMangement
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_upgraddiagrams");
         }
     
-        public virtual int ADD_BOOKING(Nullable<int> staff_ID, Nullable<int> customer_ID, Nullable<System.DateTime> check_In, Nullable<System.DateTime> check_Out)
+        public virtual int FindServiceByName(string name)
+        {
+            var nameParameter = name != null ?
+                new ObjectParameter("Name", name) :
+                new ObjectParameter("Name", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("FindServiceByName", nameParameter);
+        }
+    
+        [DbFunction("HotelManagementSystemEntities", "FindCustomerByFullName")]
+        public virtual IQueryable<FindCustomerByFullName_Result> FindCustomerByFullName(string fullname)
+        {
+            var fullnameParameter = fullname != null ?
+                new ObjectParameter("fullname", fullname) :
+                new ObjectParameter("fullname", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<FindCustomerByFullName_Result>("[HotelManagementSystemEntities].[FindCustomerByFullName](@fullname)", fullnameParameter);
+        }
+    
+        public virtual int SP_ADD_BOOKING(Nullable<int> staff_ID, Nullable<int> customer_ID, Nullable<System.DateTime> check_In, Nullable<System.DateTime> check_Out)
         {
             var staff_IDParameter = staff_ID.HasValue ?
                 new ObjectParameter("staff_ID", staff_ID) :
@@ -164,10 +182,10 @@ namespace HotelMangement
                 new ObjectParameter("Check_Out", check_Out) :
                 new ObjectParameter("Check_Out", typeof(System.DateTime));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ADD_BOOKING", staff_IDParameter, customer_IDParameter, check_InParameter, check_OutParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_ADD_BOOKING", staff_IDParameter, customer_IDParameter, check_InParameter, check_OutParameter);
         }
     
-        public virtual int ADD_BOOKING_DETAIL(Nullable<int> book_ID, Nullable<int> room_ID, Nullable<double> price, Nullable<double> unit)
+        public virtual int SP_ADD_BOOKING_DETAIL(Nullable<int> book_ID, Nullable<int> room_ID, Nullable<double> price, Nullable<double> unit)
         {
             var book_IDParameter = book_ID.HasValue ?
                 new ObjectParameter("book_ID", book_ID) :
@@ -185,19 +203,52 @@ namespace HotelMangement
                 new ObjectParameter("Unit", unit) :
                 new ObjectParameter("Unit", typeof(double));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ADD_BOOKING_DETAIL", book_IDParameter, room_IDParameter, priceParameter, unitParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_ADD_BOOKING_DETAIL", book_IDParameter, room_IDParameter, priceParameter, unitParameter);
         }
     
-        public virtual int ADD_CATEGORY(string cateName)
+        public virtual int SP_ADD_CATEGORY(string cateName)
         {
             var cateNameParameter = cateName != null ?
                 new ObjectParameter("cateName", cateName) :
                 new ObjectParameter("cateName", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ADD_CATEGORY", cateNameParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_ADD_CATEGORY", cateNameParameter);
         }
     
-        public virtual int ADD_PRODUCT(Nullable<int> cate_ID, string title, string thumbnail, string decription, Nullable<double> price, Nullable<int> amount)
+        public virtual int SP_ADD_CUSTOMERS(Nullable<int> cID, string fullname, Nullable<System.DateTime> birthDay, Nullable<bool> gender, string mail, string phoneNo, string add)
+        {
+            var cIDParameter = cID.HasValue ?
+                new ObjectParameter("cID", cID) :
+                new ObjectParameter("cID", typeof(int));
+    
+            var fullnameParameter = fullname != null ?
+                new ObjectParameter("Fullname", fullname) :
+                new ObjectParameter("Fullname", typeof(string));
+    
+            var birthDayParameter = birthDay.HasValue ?
+                new ObjectParameter("birthDay", birthDay) :
+                new ObjectParameter("birthDay", typeof(System.DateTime));
+    
+            var genderParameter = gender.HasValue ?
+                new ObjectParameter("gender", gender) :
+                new ObjectParameter("gender", typeof(bool));
+    
+            var mailParameter = mail != null ?
+                new ObjectParameter("mail", mail) :
+                new ObjectParameter("mail", typeof(string));
+    
+            var phoneNoParameter = phoneNo != null ?
+                new ObjectParameter("PhoneNo", phoneNo) :
+                new ObjectParameter("PhoneNo", typeof(string));
+    
+            var addParameter = add != null ?
+                new ObjectParameter("add", add) :
+                new ObjectParameter("add", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_ADD_CUSTOMERS", cIDParameter, fullnameParameter, birthDayParameter, genderParameter, mailParameter, phoneNoParameter, addParameter);
+        }
+    
+        public virtual int SP_ADD_PRODUCT(Nullable<int> cate_ID, string title, string thumbnail, string decription, Nullable<double> price, Nullable<int> amount)
         {
             var cate_IDParameter = cate_ID.HasValue ?
                 new ObjectParameter("cate_ID", cate_ID) :
@@ -223,19 +274,19 @@ namespace HotelMangement
                 new ObjectParameter("Amount", amount) :
                 new ObjectParameter("Amount", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ADD_PRODUCT", cate_IDParameter, titleParameter, thumbnailParameter, decriptionParameter, priceParameter, amountParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_ADD_PRODUCT", cate_IDParameter, titleParameter, thumbnailParameter, decriptionParameter, priceParameter, amountParameter);
         }
     
-        public virtual int ADD_ROLE(string rName)
+        public virtual int SP_ADD_ROLE(string rName)
         {
             var rNameParameter = rName != null ?
                 new ObjectParameter("rName", rName) :
                 new ObjectParameter("rName", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ADD_ROLE", rNameParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_ADD_ROLE", rNameParameter);
         }
     
-        public virtual int ADD_ROOM(string room_No, string type, Nullable<int> capacity, Nullable<double> price)
+        public virtual int SP_ADD_ROOM(string room_No, string type, Nullable<int> capacity, Nullable<double> price)
         {
             var room_NoParameter = room_No != null ?
                 new ObjectParameter("room_No", room_No) :
@@ -253,10 +304,10 @@ namespace HotelMangement
                 new ObjectParameter("Price", price) :
                 new ObjectParameter("Price", typeof(double));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ADD_ROOM", room_NoParameter, typeParameter, capacityParameter, priceParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_ADD_ROOM", room_NoParameter, typeParameter, capacityParameter, priceParameter);
         }
     
-        public virtual int ADD_SERVICE(Nullable<int> book_ID, Nullable<int> customerID, Nullable<int> product_ID, Nullable<double> price, Nullable<int> amount, Nullable<System.DateTime> buy_Date)
+        public virtual int SP_ADD_SERVICE(Nullable<int> book_ID, Nullable<int> customerID, Nullable<int> product_ID, Nullable<double> price, Nullable<int> amount, Nullable<System.DateTime> buy_Date)
         {
             var book_IDParameter = book_ID.HasValue ?
                 new ObjectParameter("book_ID", book_ID) :
@@ -282,10 +333,10 @@ namespace HotelMangement
                 new ObjectParameter("Buy_Date", buy_Date) :
                 new ObjectParameter("Buy_Date", typeof(System.DateTime));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ADD_SERVICE", book_IDParameter, customerIDParameter, product_IDParameter, priceParameter, amountParameter, buy_DateParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_ADD_SERVICE", book_IDParameter, customerIDParameter, product_IDParameter, priceParameter, amountParameter, buy_DateParameter);
         }
     
-        public virtual int ADD_USER(string fullname, Nullable<System.DateTime> birthday, Nullable<bool> gender, string email, string phone_Number, string address, Nullable<int> role_id, string password)
+        public virtual int SP_ADD_USER(string fullname, Nullable<System.DateTime> birthday, Nullable<bool> gender, string email, string phone_Number, string address, Nullable<int> role_id, string password)
         {
             var fullnameParameter = fullname != null ?
                 new ObjectParameter("Fullname", fullname) :
@@ -319,10 +370,10 @@ namespace HotelMangement
                 new ObjectParameter("password", password) :
                 new ObjectParameter("password", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ADD_USER", fullnameParameter, birthdayParameter, genderParameter, emailParameter, phone_NumberParameter, addressParameter, role_idParameter, passwordParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_ADD_USER", fullnameParameter, birthdayParameter, genderParameter, emailParameter, phone_NumberParameter, addressParameter, role_idParameter, passwordParameter);
         }
     
-        public virtual int ADD_USER_DETAIL(Nullable<int> book_ID, Nullable<int> room_ID, Nullable<int> customerID)
+        public virtual int SP_ADD_USER_DETAIL(Nullable<int> book_ID, Nullable<int> room_ID, Nullable<int> customerID)
         {
             var book_IDParameter = book_ID.HasValue ?
                 new ObjectParameter("book_ID", book_ID) :
@@ -336,19 +387,19 @@ namespace HotelMangement
                 new ObjectParameter("customerID", customerID) :
                 new ObjectParameter("customerID", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ADD_USER_DETAIL", book_IDParameter, room_IDParameter, customerIDParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_ADD_USER_DETAIL", book_IDParameter, room_IDParameter, customerIDParameter);
         }
     
-        public virtual int DELETE_BOOKING(Nullable<int> bookID)
+        public virtual int SP_DELETE_BOOKING(Nullable<int> bookID)
         {
             var bookIDParameter = bookID.HasValue ?
                 new ObjectParameter("bookID", bookID) :
                 new ObjectParameter("bookID", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DELETE_BOOKING", bookIDParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_DELETE_BOOKING", bookIDParameter);
         }
     
-        public virtual int DELETE_BOOKING_DETAIL(Nullable<int> book_ID, Nullable<int> room_ID)
+        public virtual int SP_DELETE_BOOKING_DETAIL(Nullable<int> book_ID, Nullable<int> room_ID)
         {
             var book_IDParameter = book_ID.HasValue ?
                 new ObjectParameter("book_ID", book_ID) :
@@ -358,64 +409,73 @@ namespace HotelMangement
                 new ObjectParameter("room_ID", room_ID) :
                 new ObjectParameter("room_ID", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DELETE_BOOKING_DETAIL", book_IDParameter, room_IDParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_DELETE_BOOKING_DETAIL", book_IDParameter, room_IDParameter);
         }
     
-        public virtual int DELETE_CATEGORY(Nullable<int> cateID)
+        public virtual int SP_DELETE_CATEGORY(Nullable<int> cateID)
         {
             var cateIDParameter = cateID.HasValue ?
                 new ObjectParameter("cateID", cateID) :
                 new ObjectParameter("cateID", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DELETE_CATEGORY", cateIDParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_DELETE_CATEGORY", cateIDParameter);
         }
     
-        public virtual int DELETE_PRODUCT(Nullable<int> pID)
+        public virtual int SP_DELETE_CUSTOMERS(Nullable<int> cID)
+        {
+            var cIDParameter = cID.HasValue ?
+                new ObjectParameter("cID", cID) :
+                new ObjectParameter("cID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_DELETE_CUSTOMERS", cIDParameter);
+        }
+    
+        public virtual int SP_DELETE_PRODUCT(Nullable<int> pID)
         {
             var pIDParameter = pID.HasValue ?
                 new ObjectParameter("pID", pID) :
                 new ObjectParameter("pID", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DELETE_PRODUCT", pIDParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_DELETE_PRODUCT", pIDParameter);
         }
     
-        public virtual int DELETE_ROLE(Nullable<int> rID)
+        public virtual int SP_DELETE_ROLE(Nullable<int> rID)
         {
             var rIDParameter = rID.HasValue ?
                 new ObjectParameter("rID", rID) :
                 new ObjectParameter("rID", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DELETE_ROLE", rIDParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_DELETE_ROLE", rIDParameter);
         }
     
-        public virtual int DELETE_ROOM(Nullable<int> roomID)
+        public virtual int SP_DELETE_ROOM(Nullable<int> roomID)
         {
             var roomIDParameter = roomID.HasValue ?
                 new ObjectParameter("roomID", roomID) :
                 new ObjectParameter("roomID", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DELETE_ROOM", roomIDParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_DELETE_ROOM", roomIDParameter);
         }
     
-        public virtual int DELETE_SERVICE(Nullable<int> serID)
+        public virtual int SP_DELETE_SERVICE(Nullable<int> serID)
         {
             var serIDParameter = serID.HasValue ?
                 new ObjectParameter("serID", serID) :
                 new ObjectParameter("serID", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DELETE_SERVICE", serIDParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_DELETE_SERVICE", serIDParameter);
         }
     
-        public virtual int DELETE_USER(Nullable<int> userID)
+        public virtual int SP_DELETE_USER(Nullable<int> userID)
         {
             var userIDParameter = userID.HasValue ?
                 new ObjectParameter("userID", userID) :
                 new ObjectParameter("userID", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DELETE_USER", userIDParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_DELETE_USER", userIDParameter);
         }
     
-        public virtual int DELETE_USER_DETAIL(Nullable<int> book_ID, Nullable<int> room_ID, Nullable<int> customerID)
+        public virtual int SP_DELETE_USER_DETAIL(Nullable<int> book_ID, Nullable<int> room_ID, Nullable<int> customerID)
         {
             var book_IDParameter = book_ID.HasValue ?
                 new ObjectParameter("book_ID", book_ID) :
@@ -429,10 +489,19 @@ namespace HotelMangement
                 new ObjectParameter("customerID", customerID) :
                 new ObjectParameter("customerID", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DELETE_USER_DETAIL", book_IDParameter, room_IDParameter, customerIDParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_DELETE_USER_DETAIL", book_IDParameter, room_IDParameter, customerIDParameter);
         }
     
-        public virtual int UPDATE_BOOKING(Nullable<int> bookID, Nullable<int> staff_ID, Nullable<int> customer_ID, Nullable<System.DateTime> check_In, Nullable<System.DateTime> check_Out)
+        public virtual ObjectResult<SP_FindServiceByName_Result> SP_FindServiceByName(string name)
+        {
+            var nameParameter = name != null ?
+                new ObjectParameter("Name", name) :
+                new ObjectParameter("Name", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_FindServiceByName_Result>("SP_FindServiceByName", nameParameter);
+        }
+    
+        public virtual int SP_UPDATE_BOOKING(Nullable<int> bookID, Nullable<int> staff_ID, Nullable<int> customer_ID, Nullable<System.DateTime> check_In, Nullable<System.DateTime> check_Out)
         {
             var bookIDParameter = bookID.HasValue ?
                 new ObjectParameter("bookID", bookID) :
@@ -454,10 +523,10 @@ namespace HotelMangement
                 new ObjectParameter("Check_Out", check_Out) :
                 new ObjectParameter("Check_Out", typeof(System.DateTime));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UPDATE_BOOKING", bookIDParameter, staff_IDParameter, customer_IDParameter, check_InParameter, check_OutParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_UPDATE_BOOKING", bookIDParameter, staff_IDParameter, customer_IDParameter, check_InParameter, check_OutParameter);
         }
     
-        public virtual int UPDATE_BOOKING_DETAIL(Nullable<int> book_ID, Nullable<int> room_ID, Nullable<double> price, Nullable<double> unit)
+        public virtual int SP_UPDATE_BOOKING_DETAIL(Nullable<int> book_ID, Nullable<int> room_ID, Nullable<double> price, Nullable<double> unit)
         {
             var book_IDParameter = book_ID.HasValue ?
                 new ObjectParameter("book_ID", book_ID) :
@@ -475,10 +544,10 @@ namespace HotelMangement
                 new ObjectParameter("Unit", unit) :
                 new ObjectParameter("Unit", typeof(double));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UPDATE_BOOKING_DETAIL", book_IDParameter, room_IDParameter, priceParameter, unitParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_UPDATE_BOOKING_DETAIL", book_IDParameter, room_IDParameter, priceParameter, unitParameter);
         }
     
-        public virtual int UPDATE_CATEGORY(Nullable<int> cateID, string newCateName)
+        public virtual int SP_UPDATE_CATEGORY(Nullable<int> cateID, string newCateName)
         {
             var cateIDParameter = cateID.HasValue ?
                 new ObjectParameter("cateID", cateID) :
@@ -488,10 +557,43 @@ namespace HotelMangement
                 new ObjectParameter("newCateName", newCateName) :
                 new ObjectParameter("newCateName", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UPDATE_CATEGORY", cateIDParameter, newCateNameParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_UPDATE_CATEGORY", cateIDParameter, newCateNameParameter);
         }
     
-        public virtual int UPDATE_PRODUCT(Nullable<int> pID, Nullable<int> cate_ID, string title, string thumbnail, string decription, Nullable<double> price, Nullable<int> amount)
+        public virtual int SP_UPDATE_CUSTOMERS(Nullable<int> cID, string fullname, Nullable<System.DateTime> birthDay, Nullable<bool> gender, string mail, string phoneNo, string add)
+        {
+            var cIDParameter = cID.HasValue ?
+                new ObjectParameter("cID", cID) :
+                new ObjectParameter("cID", typeof(int));
+    
+            var fullnameParameter = fullname != null ?
+                new ObjectParameter("Fullname", fullname) :
+                new ObjectParameter("Fullname", typeof(string));
+    
+            var birthDayParameter = birthDay.HasValue ?
+                new ObjectParameter("birthDay", birthDay) :
+                new ObjectParameter("birthDay", typeof(System.DateTime));
+    
+            var genderParameter = gender.HasValue ?
+                new ObjectParameter("gender", gender) :
+                new ObjectParameter("gender", typeof(bool));
+    
+            var mailParameter = mail != null ?
+                new ObjectParameter("mail", mail) :
+                new ObjectParameter("mail", typeof(string));
+    
+            var phoneNoParameter = phoneNo != null ?
+                new ObjectParameter("PhoneNo", phoneNo) :
+                new ObjectParameter("PhoneNo", typeof(string));
+    
+            var addParameter = add != null ?
+                new ObjectParameter("add", add) :
+                new ObjectParameter("add", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_UPDATE_CUSTOMERS", cIDParameter, fullnameParameter, birthDayParameter, genderParameter, mailParameter, phoneNoParameter, addParameter);
+        }
+    
+        public virtual int SP_UPDATE_PRODUCT(Nullable<int> pID, Nullable<int> cate_ID, string title, string thumbnail, string decription, Nullable<double> price, Nullable<int> amount)
         {
             var pIDParameter = pID.HasValue ?
                 new ObjectParameter("pID", pID) :
@@ -521,10 +623,10 @@ namespace HotelMangement
                 new ObjectParameter("Amount", amount) :
                 new ObjectParameter("Amount", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UPDATE_PRODUCT", pIDParameter, cate_IDParameter, titleParameter, thumbnailParameter, decriptionParameter, priceParameter, amountParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_UPDATE_PRODUCT", pIDParameter, cate_IDParameter, titleParameter, thumbnailParameter, decriptionParameter, priceParameter, amountParameter);
         }
     
-        public virtual int UPDATE_ROLE(Nullable<int> roleId, string roleName)
+        public virtual int SP_UPDATE_ROLE(Nullable<int> roleId, string roleName)
         {
             var roleIdParameter = roleId.HasValue ?
                 new ObjectParameter("roleId", roleId) :
@@ -534,10 +636,10 @@ namespace HotelMangement
                 new ObjectParameter("roleName", roleName) :
                 new ObjectParameter("roleName", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UPDATE_ROLE", roleIdParameter, roleNameParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_UPDATE_ROLE", roleIdParameter, roleNameParameter);
         }
     
-        public virtual int UPDATE_ROOM(Nullable<int> roomID, string roomNo, string type, Nullable<int> capacity, Nullable<double> price)
+        public virtual int SP_UPDATE_ROOM(Nullable<int> roomID, string roomNo, string type, Nullable<int> capacity, Nullable<double> price)
         {
             var roomIDParameter = roomID.HasValue ?
                 new ObjectParameter("roomID", roomID) :
@@ -559,10 +661,10 @@ namespace HotelMangement
                 new ObjectParameter("price", price) :
                 new ObjectParameter("price", typeof(double));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UPDATE_ROOM", roomIDParameter, roomNoParameter, typeParameter, capacityParameter, priceParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_UPDATE_ROOM", roomIDParameter, roomNoParameter, typeParameter, capacityParameter, priceParameter);
         }
     
-        public virtual int UPDATE_SERVICE(Nullable<int> serID, Nullable<int> book_ID, Nullable<int> customerID, Nullable<int> product_ID, Nullable<double> price, Nullable<int> amount, Nullable<System.DateTime> buy_Date)
+        public virtual int SP_UPDATE_SERVICE(Nullable<int> serID, Nullable<int> book_ID, Nullable<int> customerID, Nullable<int> product_ID, Nullable<double> price, Nullable<int> amount, Nullable<System.DateTime> buy_Date)
         {
             var serIDParameter = serID.HasValue ?
                 new ObjectParameter("serID", serID) :
@@ -592,10 +694,10 @@ namespace HotelMangement
                 new ObjectParameter("Buy_Date", buy_Date) :
                 new ObjectParameter("Buy_Date", typeof(System.DateTime));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UPDATE_SERVICE", serIDParameter, book_IDParameter, customerIDParameter, product_IDParameter, priceParameter, amountParameter, buy_DateParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_UPDATE_SERVICE", serIDParameter, book_IDParameter, customerIDParameter, product_IDParameter, priceParameter, amountParameter, buy_DateParameter);
         }
     
-        public virtual int UPDATE_USER(Nullable<int> userID, string fullname, Nullable<System.DateTime> birthday, Nullable<bool> gender, string email, string phone_Number, string address, Nullable<int> role_id, string password)
+        public virtual int SP_UPDATE_USER(Nullable<int> userID, string fullname, Nullable<System.DateTime> birthday, Nullable<bool> gender, string email, string phone_Number, string address, Nullable<int> role_id, string password)
         {
             var userIDParameter = userID.HasValue ?
                 new ObjectParameter("userID", userID) :
@@ -633,101 +735,7 @@ namespace HotelMangement
                 new ObjectParameter("password", password) :
                 new ObjectParameter("password", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UPDATE_USER", userIDParameter, fullnameParameter, birthdayParameter, genderParameter, emailParameter, phone_NumberParameter, addressParameter, role_idParameter, passwordParameter);
-        }
-    
-        public virtual int FindServiceByName(string name)
-        {
-            var nameParameter = name != null ?
-                new ObjectParameter("Name", name) :
-                new ObjectParameter("Name", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("FindServiceByName", nameParameter);
-        }
-    
-        public virtual int ADD_CUSTOMERS(Nullable<int> cID, string fullname, Nullable<System.DateTime> birthDay, Nullable<bool> gender, string mail, string phoneNo, string add)
-        {
-            var cIDParameter = cID.HasValue ?
-                new ObjectParameter("cID", cID) :
-                new ObjectParameter("cID", typeof(int));
-    
-            var fullnameParameter = fullname != null ?
-                new ObjectParameter("Fullname", fullname) :
-                new ObjectParameter("Fullname", typeof(string));
-    
-            var birthDayParameter = birthDay.HasValue ?
-                new ObjectParameter("birthDay", birthDay) :
-                new ObjectParameter("birthDay", typeof(System.DateTime));
-    
-            var genderParameter = gender.HasValue ?
-                new ObjectParameter("gender", gender) :
-                new ObjectParameter("gender", typeof(bool));
-    
-            var mailParameter = mail != null ?
-                new ObjectParameter("mail", mail) :
-                new ObjectParameter("mail", typeof(string));
-    
-            var phoneNoParameter = phoneNo != null ?
-                new ObjectParameter("PhoneNo", phoneNo) :
-                new ObjectParameter("PhoneNo", typeof(string));
-    
-            var addParameter = add != null ?
-                new ObjectParameter("add", add) :
-                new ObjectParameter("add", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ADD_CUSTOMERS", cIDParameter, fullnameParameter, birthDayParameter, genderParameter, mailParameter, phoneNoParameter, addParameter);
-        }
-    
-        public virtual int DELETE_CUSTOMERS(Nullable<int> cID)
-        {
-            var cIDParameter = cID.HasValue ?
-                new ObjectParameter("cID", cID) :
-                new ObjectParameter("cID", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DELETE_CUSTOMERS", cIDParameter);
-        }
-    
-        public virtual int UPDATE_CUSTOMERS(Nullable<int> cID, string fullname, Nullable<System.DateTime> birthDay, Nullable<bool> gender, string mail, string phoneNo, string add)
-        {
-            var cIDParameter = cID.HasValue ?
-                new ObjectParameter("cID", cID) :
-                new ObjectParameter("cID", typeof(int));
-    
-            var fullnameParameter = fullname != null ?
-                new ObjectParameter("Fullname", fullname) :
-                new ObjectParameter("Fullname", typeof(string));
-    
-            var birthDayParameter = birthDay.HasValue ?
-                new ObjectParameter("birthDay", birthDay) :
-                new ObjectParameter("birthDay", typeof(System.DateTime));
-    
-            var genderParameter = gender.HasValue ?
-                new ObjectParameter("gender", gender) :
-                new ObjectParameter("gender", typeof(bool));
-    
-            var mailParameter = mail != null ?
-                new ObjectParameter("mail", mail) :
-                new ObjectParameter("mail", typeof(string));
-    
-            var phoneNoParameter = phoneNo != null ?
-                new ObjectParameter("PhoneNo", phoneNo) :
-                new ObjectParameter("PhoneNo", typeof(string));
-    
-            var addParameter = add != null ?
-                new ObjectParameter("add", add) :
-                new ObjectParameter("add", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UPDATE_CUSTOMERS", cIDParameter, fullnameParameter, birthDayParameter, genderParameter, mailParameter, phoneNoParameter, addParameter);
-        }
-    
-        [DbFunction("HotelManagementSystemEntities", "FindCustomerByFullName")]
-        public virtual IQueryable<FindCustomerByFullName_Result> FindCustomerByFullName(string fullname)
-        {
-            var fullnameParameter = fullname != null ?
-                new ObjectParameter("fullname", fullname) :
-                new ObjectParameter("fullname", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<FindCustomerByFullName_Result>("[HotelManagementSystemEntities].[FindCustomerByFullName](@fullname)", fullnameParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_UPDATE_USER", userIDParameter, fullnameParameter, birthdayParameter, genderParameter, emailParameter, phone_NumberParameter, addressParameter, role_idParameter, passwordParameter);
         }
     }
 }

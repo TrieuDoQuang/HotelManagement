@@ -1,9 +1,13 @@
-﻿using System;
+﻿using Guna.UI2.WinForms.Suite;
+using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+
 
 namespace HotelMangement.BS_Layer
 {
@@ -24,33 +28,43 @@ namespace HotelMangement.BS_Layer
         }
         public bool AddRole(int rID, string rName, ref string err)
         {
-            HotelManagementSystemEntities qlhotelEntity = new HotelManagementSystemEntities();
-            Role Ro = new Role();
-            Ro.rID = rID; Ro.rName = rName;
-            qlhotelEntity.Roles.Add(Ro);
-            qlhotelEntity.SaveChanges();
+            try
+            {
+                HotelManagementSystemEntities qlhotelEntity = new HotelManagementSystemEntities();
+                var proce = qlhotelEntity.SP_ADD_ROLE(rName);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.InnerException.Message);
+                return false;
+            }
             return true;
         }
         public bool DeleteRole(ref string err, int rID)
         {
-            HotelManagementSystemEntities qlhotelEntity = new HotelManagementSystemEntities();
-            Role Ro = new Role();
-            Ro.rID = rID;
-            qlhotelEntity.Roles.Attach(Ro);
-            qlhotelEntity.Roles.Remove(Ro);
-            qlhotelEntity.SaveChanges();
+            try
+            {
+                HotelManagementSystemEntities qlhotelEntity = new HotelManagementSystemEntities();
+                var proce = qlhotelEntity.SP_DELETE_ROLE(rID);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.InnerException.Message);
+                return false;
+            }
             return true;
         }
         public bool UpdateRole(int rID, string rName, ref string err)
         {
-            HotelManagementSystemEntities qlhotelEntity = new HotelManagementSystemEntities();
-            var roQuery = (from Ro in qlhotelEntity.Roles
-                           where Ro.rID == rID
-                           select Ro).SingleOrDefault();
-            if (roQuery != null)
+            try
             {
-                roQuery.rName = rName;
-                qlhotelEntity.SaveChanges();
+                HotelManagementSystemEntities qlhotelEntity = new HotelManagementSystemEntities();
+                var proce = qlhotelEntity.SP_UPDATE_ROLE(rID, rName);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.InnerException.Message);
+                return false;
             }
             return true;
         }

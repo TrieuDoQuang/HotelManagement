@@ -30,7 +30,7 @@ namespace HotelMangement.BS_Layer
             try
             {
                 HotelManagementSystemEntities qlhotelEntity = new HotelManagementSystemEntities();
-                var proce = qlhotelEntity.ADD_USER_DETAIL(book_ID, room_ID, customerID);
+                var proce = qlhotelEntity.SP_ADD_USER_DETAIL(book_ID, room_ID, customerID);
             }
             catch (Exception ex)
             {
@@ -44,7 +44,7 @@ namespace HotelMangement.BS_Layer
             try
             {
                 HotelManagementSystemEntities qlhotelEntity = new HotelManagementSystemEntities();
-                var proce = qlhotelEntity.DELETE_USER_DETAIL(book_ID, room_ID, customerID);
+                var proce = qlhotelEntity.SP_DELETE_USER_DETAIL(book_ID, room_ID, customerID);
             }
             catch (Exception ex)
             {

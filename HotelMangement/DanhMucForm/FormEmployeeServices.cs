@@ -27,7 +27,7 @@ namespace HotelMangement.DanhMucForm
         void LoadDataAvai()
         {
             HotelManagementSystemEntities qlhotelEntity = new HotelManagementSystemEntities();
-            var view = qlhotelEntity.Show_AvailableProduct.ToList();
+            var view = qlhotelEntity.View_AvailableProduct.ToList();
             dgvAvaiServices.DataSource = view;
             dgvAvaiServices.AutoGenerateColumns = true;
             dgvAvaiServices.ColumnHeadersHeight = 30;
@@ -62,7 +62,7 @@ namespace HotelMangement.DanhMucForm
             try
             {
                 HotelManagementSystemEntities qlhotelEntity = new HotelManagementSystemEntities();
-                var proce = qlhotelEntity.ADD_SERVICE(
+                var proce = qlhotelEntity.SP_ADD_SERVICE(
                     Convert.ToInt32(txtBookID.Text),
                     customerID,
                     Convert.ToInt32(dgvAvaiServices.Rows[rAvai].Cells[0].Value.ToString()),
@@ -100,7 +100,7 @@ namespace HotelMangement.DanhMucForm
             try
             {
                 HotelManagementSystemEntities qlhotelEntity = new HotelManagementSystemEntities();
-                var proce = qlhotelEntity.DELETE_SERVICE(
+                var proce = qlhotelEntity.SP_DELETE_SERVICE(
                     Convert.ToInt32(dgvBookedServices.Rows[rBooked].Cells[0].Value.ToString())
                 );
                 LoadDataAvai();

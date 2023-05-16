@@ -70,7 +70,9 @@ namespace HotelMangement.DanhMucForm
             // Kich hoạt biến Them
             Them = true;
             // Xóa trống các đối tượng trong Panel
-            this.txtSerID.ResetText();
+            int newSerID = Convert.ToInt32(dgvService.Rows[dgvService.Rows.Count - 2].Cells[0].Value) + 1;
+
+            this.txtSerID.Text = newSerID.ToString();
             this.txtBookID.ResetText();
             this.txtCusID.ResetText();
             this.txtProID.ResetText();
@@ -86,7 +88,7 @@ namespace HotelMangement.DanhMucForm
             this.btnDelete.Enabled = false;
 
             // Đưa con trỏ đến TextField txtroomID
-            this.txtSerID.Focus();
+            this.txtBookID.Focus();
         }
 
         private void btnSave_Click(object sender, EventArgs e)

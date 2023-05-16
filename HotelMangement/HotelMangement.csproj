@@ -210,16 +210,7 @@
     <Compile Include="Service.cs">
       <DependentUpon>HotelModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Show_AvailableProduct.cs">
-      <DependentUpon>HotelModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Show_AvailableRoom.cs">
-      <DependentUpon>HotelModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Show_BookedRoom.cs">
-      <DependentUpon>HotelModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Show_CustomerCheckOut.cs">
+    <Compile Include="SP_FindServiceByName_Result.cs">
       <DependentUpon>HotelModel.tt</DependentUpon>
     </Compile>
     <Compile Include="sysdiagram.cs">
@@ -229,6 +220,15 @@
       <DependentUpon>HotelModel.tt</DependentUpon>
     </Compile>
     <Compile Include="UserDetail.cs">
+      <DependentUpon>HotelModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="View_AvailableProduct.cs">
+      <DependentUpon>HotelModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="View_CustomerCheckOut.cs">
+      <DependentUpon>HotelModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="View_Receipt.cs">
       <DependentUpon>HotelModel.tt</DependentUpon>
     </Compile>
     <EmbeddedResource Include="DanhMucForm\FormBooking.resx">

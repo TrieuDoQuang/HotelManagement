@@ -80,7 +80,9 @@ namespace HotelMangement.DanhMucForm
             // Kich hoạt biến Them
             Them = true;
             // Xóa trống các đối tượng trong Panel
-            this.txtProID.ResetText();
+            int newProID = Convert.ToInt32(dgvProduct.Rows[dgvProduct.Rows.Count - 2].Cells[0].Value) + 1;
+
+            this.txtProID.Text = newProID.ToString();
             this.txtCateID.ResetText();
             this.txtTitle.ResetText();
             this.txtThumb.ResetText();
@@ -97,7 +99,7 @@ namespace HotelMangement.DanhMucForm
             this.btnDelete.Enabled = false;
 
             // Đưa con trỏ đến TextField txtroomID
-            this.txtProID.Focus();
+            this.txtCateID.Focus();
         }
 
         private void btnSave_Click(object sender, EventArgs e)

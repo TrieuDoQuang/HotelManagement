@@ -26,16 +26,16 @@ namespace HotelMangement.DanhMucForm
         {
             HotelManagementSystemEntities qlhotelEntity = new HotelManagementSystemEntities();
             string nameToFind = txtFindName.Text;
-            List<Show_CustomerCheckOut> view = null;
+            List<View_CustomerCheckOut> view = null;
 
             if (string.IsNullOrEmpty(nameToFind))
             {
-                view = qlhotelEntity.Show_CustomerCheckOut.ToList();
+                view = qlhotelEntity.View_CustomerCheckOut.ToList();
             }
             else
             {
                 var searchResults = qlhotelEntity.FindCustomerByFullName(nameToFind).ToList();
-                view = searchResults.Select(result => new Show_CustomerCheckOut
+                view = searchResults.Select(result => new View_CustomerCheckOut
                 {
                     cID = result.cID,
                     Fullname = result.Fullname,

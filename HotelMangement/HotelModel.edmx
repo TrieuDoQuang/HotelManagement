@@ -152,6 +152,21 @@ warning 6002: The table/view 'HotelManagementSystem.dbo.Show_BookedRoom' does no
           <Property Name="Check In" Type="datetime" />
           <Property Name="Check Out" Type="datetime" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'HotelManagementSystem.dbo.Show_CustomerCheckOut' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Show_CustomerCheckOut">
+          <Key>
+            <PropertyRef Name="cID" />
+            <PropertyRef Name="room_No" />
+          </Key>
+          <Property Name="cID" Type="int" Nullable="false" />
+          <Property Name="Fullname" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="150" />
+          <Property Name="Phone_Number" Type="nvarchar" MaxLength="20" />
+          <Property Name="room_No" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Check_In" Type="datetime" />
+          <Property Name="Check_Out" Type="datetime" />
+        </EntityType>
         <Association Name="FK__Booking__staff_I__3E52440B">
           <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
           <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
@@ -393,8 +408,27 @@ warning 6002: The table/view 'HotelManagementSystem.dbo.Show_BookedRoom' does no
           <Parameter Name="room_ID" Type="int" Mode="In" />
           <Parameter Name="customerID" Type="int" Mode="In" />
         </Function>
+        <Function Name="FindCustomerByFullName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="fullname" Type="nvarchar" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="cID" Type="int" Nullable="false" />
+                <Property Name="Fullname" Type="nvarchar" MaxLength="50" />
+                <Property Name="Email" Type="nvarchar" MaxLength="150" />
+                <Property Name="Phone_Number" Type="nvarchar" MaxLength="20" />
+                <Property Name="room_No" Type="nvarchar" MaxLength="20" Nullable="false" />
+                <Property Name="Check_In" Type="datetime" />
+                <Property Name="Check_Out" Type="datetime" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
         <Function Name="FindServiceByName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Name" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="Fn_CalculateTotalForCheckOut" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="float">
+          <Parameter Name="bookingId" Type="int" Mode="In" />
         </Function>
         <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
         <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -528,6 +562,17 @@ warning 6002: The table/view 'HotelManagementSystem.dbo.Show_BookedRoom' does no
     [Show_BookedRoom].[Check In] AS [Check In], 
     [Show_BookedRoom].[Check Out] AS [Check Out]
     FROM [dbo].[Show_BookedRoom] AS [Show_BookedRoom]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Show_CustomerCheckOut" EntityType="Self.Show_CustomerCheckOut" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Show_CustomerCheckOut].[cID] AS [cID], 
+    [Show_CustomerCheckOut].[Fullname] AS [Fullname], 
+    [Show_CustomerCheckOut].[Email] AS [Email], 
+    [Show_CustomerCheckOut].[Phone_Number] AS [Phone_Number], 
+    [Show_CustomerCheckOut].[room_No] AS [room_No], 
+    [Show_CustomerCheckOut].[Check_In] AS [Check_In], 
+    [Show_CustomerCheckOut].[Check_Out] AS [Check_Out]
+    FROM [dbo].[Show_CustomerCheckOut] AS [Show_CustomerCheckOut]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK__Booking__staff_I__3E52440B" Association="Self.FK__Booking__staff_I__3E52440B">
             <End Role="Users" EntitySet="Users" />
@@ -1047,6 +1092,10 @@ warning 6002: The table/view 'HotelManagementSystem.dbo.Show_BookedRoom' does no
             <Parameter Name="PhoneNo" Mode="In" Type="String" />
             <Parameter Name="add" Mode="In" Type="String" />
           </FunctionImport>
+          <EntitySet Name="Show_CustomerCheckOut" EntityType="HotelManagementSystemModel.Show_CustomerCheckOut" />
+          <FunctionImport Name="FindCustomerByFullName" IsComposable="true" ReturnType="Collection(HotelManagementSystemModel.FindCustomerByFullName_Result)">
+            <Parameter Name="fullname" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="User">
           <Key>
@@ -1211,6 +1260,28 @@ warning 6002: The table/view 'HotelManagementSystem.dbo.Show_BookedRoom' does no
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Show_CustomerCheckOut">
+          <Key>
+            <PropertyRef Name="cID" />
+            <PropertyRef Name="room_No" />
+          </Key>
+          <Property Name="cID" Type="Int32" Nullable="false" />
+          <Property Name="Fullname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Phone_Number" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="room_No" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Check_In" Type="DateTime" Precision="3" />
+          <Property Name="Check_Out" Type="DateTime" Precision="3" />
+        </EntityType>
+        <ComplexType Name="FindCustomerByFullName_Result">
+          <Property Type="Int32" Name="cID" Nullable="false" />
+          <Property Type="String" Name="Fullname" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Email" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="Phone_Number" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="room_No" Nullable="false" MaxLength="20" />
+          <Property Type="DateTime" Name="Check_In" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="Check_Out" Nullable="true" Precision="23" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1407,6 +1478,32 @@ warning 6002: The table/view 'HotelManagementSystem.dbo.Show_BookedRoom' does no
           <FunctionImportMapping FunctionImportName="ADD_CUSTOMERS" FunctionName="HotelManagementSystemModel.Store.ADD_CUSTOMERS" />
           <FunctionImportMapping FunctionImportName="DELETE_CUSTOMERS" FunctionName="HotelManagementSystemModel.Store.DELETE_CUSTOMERS" />
           <FunctionImportMapping FunctionImportName="UPDATE_CUSTOMERS" FunctionName="HotelManagementSystemModel.Store.UPDATE_CUSTOMERS" />
+          <EntitySetMapping Name="Show_CustomerCheckOut">
+            <EntityTypeMapping TypeName="HotelManagementSystemModel.Show_CustomerCheckOut">
+              <MappingFragment StoreEntitySet="Show_CustomerCheckOut">
+                <ScalarProperty Name="Check_Out" ColumnName="Check_Out" />
+                <ScalarProperty Name="Check_In" ColumnName="Check_In" />
+                <ScalarProperty Name="room_No" ColumnName="room_No" />
+                <ScalarProperty Name="Phone_Number" ColumnName="Phone_Number" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Fullname" ColumnName="Fullname" />
+                <ScalarProperty Name="cID" ColumnName="cID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="FindCustomerByFullName" FunctionName="HotelManagementSystemModel.Store.FindCustomerByFullName">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HotelManagementSystemModel.FindCustomerByFullName_Result">
+                <ScalarProperty Name="cID" ColumnName="cID" />
+                <ScalarProperty Name="Fullname" ColumnName="Fullname" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone_Number" ColumnName="Phone_Number" />
+                <ScalarProperty Name="room_No" ColumnName="room_No" />
+                <ScalarProperty Name="Check_In" ColumnName="Check_In" />
+                <ScalarProperty Name="Check_Out" ColumnName="Check_Out" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

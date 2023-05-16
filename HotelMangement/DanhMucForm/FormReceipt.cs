@@ -12,9 +12,21 @@ namespace HotelMangement.DanhMucForm
 {
     public partial class FormReceipt : Form
     {
+
+        public int currentCustomerID { get; set; }
+   
         public FormReceipt()
         {
             InitializeComponent();
         }
+
+        public FormReceipt(int currentCustomerID)
+        {
+            InitializeComponent();
+            this.currentCustomerID = currentCustomerID;
+        }
     }
+
+
+
 }

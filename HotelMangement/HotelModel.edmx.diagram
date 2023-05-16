@@ -34,6 +34,7 @@
         <AssociationConnector Association="HotelManagementSystemModel.FK_Booking_Customers" />
         <AssociationConnector Association="HotelManagementSystemModel.FK_Service_Customers" />
         <AssociationConnector Association="HotelManagementSystemModel.FK_UserDetail_Customers" />
+        <EntityTypeShape EntityType="HotelManagementSystemModel.Show_CustomerCheckOut" Width="1.5" PointX="11.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -86,7 +86,7 @@
             this.txtName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtName.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
             this.txtName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtName.Font = new System.Drawing.Font("Century Gothic", 13.8F);
+            this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtName.Location = new System.Drawing.Point(295, 174);
             this.txtName.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
@@ -100,6 +100,10 @@
             // 
             // dgvAvaiServices
             // 
+            this.dgvAvaiServices.AllowUserToAddRows = false;
+            this.dgvAvaiServices.AllowUserToDeleteRows = false;
+            this.dgvAvaiServices.AllowUserToResizeColumns = false;
+            this.dgvAvaiServices.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.dgvAvaiServices.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvAvaiServices.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -125,6 +129,7 @@
             this.dgvAvaiServices.Location = new System.Drawing.Point(233, 390);
             this.dgvAvaiServices.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvAvaiServices.Name = "dgvAvaiServices";
+            this.dgvAvaiServices.ReadOnly = true;
             this.dgvAvaiServices.RowHeadersVisible = false;
             this.dgvAvaiServices.RowHeadersWidth = 51;
             this.dgvAvaiServices.RowTemplate.Height = 24;
@@ -143,7 +148,7 @@
             this.dgvAvaiServices.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.dgvAvaiServices.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dgvAvaiServices.ThemeStyle.HeaderStyle.Height = 4;
-            this.dgvAvaiServices.ThemeStyle.ReadOnly = false;
+            this.dgvAvaiServices.ThemeStyle.ReadOnly = true;
             this.dgvAvaiServices.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvAvaiServices.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvAvaiServices.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -202,6 +207,7 @@
             this.dgvBookedServices.Location = new System.Drawing.Point(1034, 390);
             this.dgvBookedServices.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvBookedServices.Name = "dgvBookedServices";
+            this.dgvBookedServices.ReadOnly = true;
             this.dgvBookedServices.RowHeadersVisible = false;
             this.dgvBookedServices.RowHeadersWidth = 51;
             this.dgvBookedServices.RowTemplate.Height = 24;
@@ -220,7 +226,7 @@
             this.dgvBookedServices.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.dgvBookedServices.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dgvBookedServices.ThemeStyle.HeaderStyle.Height = 4;
-            this.dgvBookedServices.ThemeStyle.ReadOnly = false;
+            this.dgvBookedServices.ThemeStyle.ReadOnly = true;
             this.dgvBookedServices.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvBookedServices.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvBookedServices.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

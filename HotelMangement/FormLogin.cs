@@ -1,4 +1,4 @@
-﻿    using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Configuration;
 using HotelMangement.Interface;
+using System.Data.SqlClient;
 
 namespace HotelMangement
 {
@@ -25,90 +26,66 @@ namespace HotelMangement
             Application.Exit();
         }
 
+        private bool checkLogin(string userEmail, string userPassword)
+        {
+            bool result = false;
+            HotelManagementSystemEntities hotelEntity = new HotelManagementSystemEntities();
+            string connectionString = "Data Source=DESKTOP-EP66OTM\\MSSQLSERVER01;Initial Catalog=HotelManagementSystem;Integrated Security=True;";
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                if (conn.State == ConnectionState.Open)
+                    conn.Close();
+                conn.Open();
+                string sql = "SELECT Email, password FROM Users";
+
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            if (reader.GetValue(0).ToString().Trim() == userEmail && reader.GetValue(1).ToString().Trim() == userPassword)
+                            {
+                                result = true;
+                                string userName = userEmail.Split('@')[0];
+                                connectionString = ConfigurationManager.ConnectionStrings["MyConnectionString"].ConnectionString;
+                                connectionString = string.Format(connectionString, userName, userPassword);
+                                hotelEntity.Database.Connection.ConnectionString = connectionString;
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+            return result;
+        }
+
 
         private void loginBtn_Click(object sender, EventArgs e)
-        {     
-            HotelManagementSystemEntities hotelEntity = new HotelManagementSystemEntities();
-            var userEmail = (from user in hotelEntity.Users
-                             where user.Email == email.Text
-                             select user).SingleOrDefault();
-
-            var userPassword = (from user in hotelEntity.Users
-                                where user.password == password.Text
-                                select user).SingleOrDefault();
-            var usersRole = 1;
-            //var usersRole = (from user in hotelEntity.Users
-            //                 where user.Email == email.Text && user.password == password.Text
-            //                 select user.role_id).SingleOrDefault();
+        {
+            // HotelManagementSystemEntities hotelEntity = new eHotelManagementSystemEntities();
+            string userEmail = email.Text;
+            string userPassword = password.Text;
             try
             {
-                if (userPassword != null || userEmail != null)
+                if (!string.IsNullOrEmpty(userEmail) && !string.IsNullOrEmpty(userPassword))
                 {
-                    if (userEmail == null)
+                    if (checkLogin(userEmail, userPassword))
                     {
-                        MessageBox.Show("Wrong username!");
-                        this.Close();
-
-                    }
-                    else if (userPassword == null)
-                    {
-                        MessageBox.Show("Wrong password!");
-                        this.Close();
+                        MessageBox.Show("Login successfully, Connected as Admin!");
+                        new AdminInterface().ShowDialog();
+                        this.Hide();
+                        base.Close();
                     }
                     else
                     {
-                        
-                        if (Convert.ToInt32(usersRole) == 1)
-                        {
-                            //hotelEntity.Database.Connection.ConnectionString = ConfigurationManager.ConnectionStrings["HotelManagementSystemEntities_Admin"].ConnectionString;
-                            //hotelEntity.Database.Connection.Open();
-                            //if (hotelEntity.Database.Connection.State == System.Data.ConnectionState.Open)
-                            //{
-                                MessageBox.Show("Login succesfully, Connected as Admin!");
-                                new AdminInterface().ShowDialog();
-                            //}
-                            //else
-                            //{
-                            //    MessageBox.Show("Connection failed");
-                            //}
-                        }
-                        else if (Convert.ToInt32(usersRole) == 2)
-                        {
-                            hotelEntity.Database.Connection.ConnectionString = ConfigurationManager.ConnectionStrings["HotelManagementSystemEntities_Employee"].ConnectionString;
-                            hotelEntity.Database.Connection.Open();
-                            if (hotelEntity.Database.Connection.State == System.Data.ConnectionState.Open)
-                            {
-                                MessageBox.Show("Login succesfully, Connected as Employee!");
-                                new EmployeeInterface().ShowDialog();
-                            }
-                            else
-                            {
-                                MessageBox.Show("Connection failed");
-                            }
-                        }
-                        else
-                        {
-                            hotelEntity.Database.Connection.ConnectionString = ConfigurationManager.ConnectionStrings["HotelManagementSystemEntities_Customer"].ConnectionString; ;
-                            hotelEntity.Database.Connection.Open();
-                            if (hotelEntity.Database.Connection.State == System.Data.ConnectionState.Open)
-                            {
-                                MessageBox.Show("Login succesfully, Connected as Customer!");
-                                new EmployeeInterface().ShowDialog();
-                            }
-                            else
-                            {
-                                MessageBox.Show("Connection failed");
-                            }
-                        }
-                        this.Hide();
-                        base.Close();
+                        MessageBox.Show("Invalid credentials!");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("User is not existed!");
-                    this.password.ResetText();
-                    this.email.ResetText();
+                    MessageBox.Show("Please enter email and password!");
                 }
             }
             catch (Exception ex)
@@ -116,5 +93,6 @@ namespace HotelMangement
                 MessageBox.Show("Connection failed: " + ex.Message);
             }
         }
+
     }
 }

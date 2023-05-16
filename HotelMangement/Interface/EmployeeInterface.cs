@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using HotelMangement.DanhMucForm;
 
@@ -15,9 +16,14 @@ namespace HotelMangement.Interface
     public partial class EmployeeInterface : Form
     {
         private Form currentChildForm;
+
+        [DllImport("kernel32.dll", SetLastError = true)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        static extern bool AllocConsole();
         public EmployeeInterface()
         {
             InitializeComponent();
+            AllocConsole();
         }
 
         private void bookingBtn_Click(object sender, EventArgs e)
